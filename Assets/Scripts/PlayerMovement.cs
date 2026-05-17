@@ -59,8 +59,8 @@ public class PlayerMovement : MonoBehaviour
             playerMovement.z * speed);
         //move = Vector3.ClampMagnitude(move, 1f);
 
-        //if (move != Vector3.zero)
-            //transform.forward = move;
+        if (move != Vector3.zero)
+            transform.forward = move;
 
 
         // Apply gravity
