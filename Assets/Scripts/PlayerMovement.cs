@@ -31,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
     {
         Debug.Log("Picked Up");
     }
+
     private void OnEnable()
     {
         moveAction.action.Enable();
