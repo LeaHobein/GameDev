@@ -11,6 +11,15 @@ public class InteractionController : MonoBehaviour
 
     IInteractable currentTargetInteractable;
 
+    void Awake()
+    {
+        if (playerCamera == null)
+            playerCamera = GetComponentInChildren<Camera>(true);
+
+        if (playerCamera == null)
+            playerCamera = Camera.main;
+    }
+
     public void Update()
     {
         UpdateCurrentInteractable();
@@ -20,6 +29,9 @@ public class InteractionController : MonoBehaviour
 
     void UpdateCurrentInteractable()
     {
+        if (playerCamera == null)
+            return;
+
         var ray = playerCamera.ViewportPointToRay(new Vector2(0.5f, 0.5f));
 
         Physics.Raycast(ray, out var hit, interactionDistance);
@@ -29,7 +41,7 @@ public class InteractionController : MonoBehaviour
 
     void CheckForInteractionInput()
     {
-        if(Keyboard.current.gKey.wasPressedThisFrame && currentTargetInteractable != null)
+        if(Keyboard.current.fKey.wasPressedThisFrame && currentTargetInteractable != null)
         {
             currentTargetInteractable.Interact();
         }

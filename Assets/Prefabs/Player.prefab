@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 2748224885239743295}
   - component: {fileID: 3914516568578720452}
   - component: {fileID: 8801002804435719787}
+  - component: {fileID: 5847291038475629103}
+  - component: {fileID: 7128495038475629104}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -78,6 +80,22 @@ MonoBehaviour:
     m_ActionName: 'Player/PickUp[/Keyboard/f,/Keyboard/m]'
   - m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 7128495038475629104}
+        m_TargetAssemblyTypeName: PutDownController, Assembly-CSharp
+        m_MethodName: OnPutDown
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: b2c4d6e8-f0a1-4b3c-8d5e-6f708192a3b4
+    m_ActionName: 'Player/PutDown[/Keyboard/f,/Keyboard/m]'
+  - m_PersistentCalls:
+      m_Calls:
       - m_Target: {fileID: 3914516568578720452}
         m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
         m_MethodName: OnMove
@@ -114,6 +132,33 @@ MonoBehaviour:
   controller: {fileID: 0}
   moveAction: {fileID: 4986670558982917681, guid: 94e9f1687da6b71418ffd2e9840db55d, type: 3}
   pickUpAction: {fileID: 3655369242637800163, guid: 94e9f1687da6b71418ffd2e9840db55d, type: 3}
+--- !u!114 &5847291038475629103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7568060103018338499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2b378d0abe31fe4db966bd1c7c41851, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InteractionController
+  playerCamera: {fileID: 0}
+  interactionDistance: 5
+--- !u!114 &7128495038475629104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7568060103018338499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7f3b8e14a2c4f5d8e9a0b1c2d3e4f5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PutDownController
+  putDownDistance: 1.5
 --- !u!143 &8801002804435719787
 CharacterController:
   m_ObjectHideFlags: 0
