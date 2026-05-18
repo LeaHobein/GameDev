@@ -4,11 +4,15 @@ public class Collision : MonoBehaviour
 {
     void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "Player")
+        if(other.CompareTag("Player"))
         {
             print("Enter");
+
+            var movement = other.GetComponentInParent<PlayerMovement>();
+            if (movement != null)
+                movement.Stun(1f); //Stun duration
+
             other.GetComponent<MeshRenderer>().material.color = new Color(1f, 0f, 0f);
-            //Destroy(other.gameObject);
         }
     }
 

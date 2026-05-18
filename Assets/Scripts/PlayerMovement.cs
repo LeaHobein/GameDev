@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.iOS;
@@ -14,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 playerVelocity;
     private Vector3 playerMovement;
     private bool groundedPlayer;
+    private bool isStunned;
 
     [Header("Input Actions")]
     public InputActionReference moveAction;
@@ -30,6 +32,19 @@ public class PlayerMovement : MonoBehaviour
     public void OnPickUp(InputAction.CallbackContext pickup)
     {
         Debug.Log("Picked Up");
+    }
+
+    public void Stun(float duration)
+    {
+        StopCoroutine(nameof(StunCoroutine));
+        StartCoroutine(StunCoroutine(duration));
+    }
+
+    IEnumerator StunCoroutine(float duration)
+    {
+        isStunned = true;
+        yield return new WaitForSeconds(duration);
+        isStunned = false;
     }
     private void OnEnable()
     {
@@ -52,11 +67,12 @@ public class PlayerMovement : MonoBehaviour
         {
             playerVelocity.y=-2f;
         }
-        // Read input
+        float moveSpeed = isStunned ? 0f : speed;
+
         Vector3 move = new Vector3(
-            playerMovement.x * speed,
-            playerMovement.y * speed,
-            playerMovement.z * speed);
+            playerMovement.x * moveSpeed,
+            playerMovement.y * moveSpeed,
+            playerMovement.z * moveSpeed);
         //move = Vector3.ClampMagnitude(move, 1f);
 
         //if (move != Vector3.zero)
