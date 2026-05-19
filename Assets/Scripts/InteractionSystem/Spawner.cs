@@ -17,12 +17,13 @@ public class Spawner : MonoBehaviour, IInteractable
 
     void Start()
     {
-
+        
     }
 
     void Update()
     {
         if(holding == true){
+            Debug.Log("Spawner position:" + spawner.transform.position);
             hold.transform.position = spawner.transform.position;
         }
 

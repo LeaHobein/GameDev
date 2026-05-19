@@ -16,11 +16,7 @@ public class InteractionController : MonoBehaviour
 
     void Awake()
     {
-        if (playerCamera == null)
-            playerCamera = GetComponentInChildren<Camera>(true);
 
-        if (playerCamera == null)
-            playerCamera = Camera.main;
     }
 
     public void Update()
