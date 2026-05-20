@@ -38,7 +38,7 @@ public class InteractionController : MonoBehaviour
             Debug.Log(hit.collider.gameObject);
             if(Keyboard.current.gKey.wasPressedThisFrame && currentTargetInteractable != null)
             {
-                currentTargetInteractable.Interact();
+                currentTargetInteractable.Interact(gameObject);
             }
         }
     }

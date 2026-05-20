@@ -34,8 +34,11 @@ public class Spawner : MonoBehaviour, IInteractable
         }
     }
 
-    void Spawn()
+    void Spawn(GameObject player)
     {
+        // Enable Mesh Renderer of Coin in Player Prefab that interacted with this box
+        //player. //.GetComponent<MeshRenderer>().enabled = true;
+
         holding = true;
         print("player is holding object");
         hold = Instantiate(spawnPrefab, spawner.transform.position + Vector3.up, Quaternion.identity);
@@ -44,10 +47,10 @@ public class Spawner : MonoBehaviour, IInteractable
         hold.transform.localScale *= randomSize;
     }
 
-    public void Interact()
+    public void Interact(GameObject player)
     {
         if(holding == false){
-            Spawn();
+            Spawn(player);
         }
     }
 }

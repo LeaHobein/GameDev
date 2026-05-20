@@ -1610,7 +1610,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2748224885239743295, guid: 30cda35a3202ac547859a8457a56c733, type: 3}
       propertyPath: m_DefaultControlScheme
-      value: 
+      value: WASD
       objectReference: {fileID: 0}
     - target: {fileID: 7433146100539730950, guid: 30cda35a3202ac547859a8457a56c733, type: 3}
       propertyPath: m_LocalScale.y
@@ -2815,3 +2815,5 @@ SceneRoots:
   - {fileID: 1587110998}
   - {fileID: 830299980}
   - {fileID: 306756386}
+  - {fileID: 602930207}
+  - {fileID: 1552188519}

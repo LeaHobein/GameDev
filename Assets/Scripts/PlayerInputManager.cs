@@ -22,6 +22,9 @@ public class PlayerInputManager : MonoBehaviour
             Debug.Log(p2.currentControlScheme);
         p1.transform.position = spawnPoints[0].position;
         p2.transform.position = spawnPoints[1].position;
+        Debug.Log(p2.currentControlScheme);
+        Debug.Log(p1.currentControlScheme);
+
     }
     // Update is called once per frame
     void Update()
