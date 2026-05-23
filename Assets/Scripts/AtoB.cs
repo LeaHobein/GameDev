@@ -16,6 +16,7 @@ public class AtoB : MonoBehaviour
     {
         Mover.transform.position = A.transform.position;
         tempo = speed;
+        Mover.transform.Rotate(0f, 180f, 0f);
     }
 
     // Update is called once per frame
@@ -43,6 +44,7 @@ public class AtoB : MonoBehaviour
         if(Mover.transform.position == B.transform.position)
         {
             goal = 1f;
+            Mover.transform.Rotate(0f, 180f, 0f);
         }
     }
     private IEnumerator delayonb(float duration){
@@ -52,11 +54,12 @@ public class AtoB : MonoBehaviour
                 yield return new WaitForSeconds(duration);
                 tempo = speed;
             }
-        
+
         Mover.transform.position = Vector3.MoveTowards(Mover.transform.position, A.transform.position, tempo);
         if(Mover.transform.position == A.transform.position)
         {
             goal = 0f;
+            Mover.transform.Rotate(0f, 180f, 0f);
         }
     }
 }
