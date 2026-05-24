@@ -23,6 +23,14 @@ public class InteractionController : MonoBehaviour
     {
         UpdateCurrentInteractable();
         CheckForInteractionInput();
+
+        transform.Find("hold1").transform.Rotate(0f, 1f, 0f, Space.World);
+        transform.Find("hold2").transform.Rotate(0f, 1f, 0f, Space.World);
+
+        if(Keyboard.current.hKey.wasPressedThisFrame){
+            transform.Find("hold1").GetComponent<MeshRenderer>().enabled = false;
+            transform.Find("hold2").GetComponent<MeshRenderer>().enabled = false;
+        }
     }
 
     void UpdateCurrentInteractable()
@@ -35,7 +43,7 @@ public class InteractionController : MonoBehaviour
         Vector3 point2 = transform.position;
         
         if(Physics.CapsuleCast(point1, point2, capsuleRadius, transform.forward, out hit, interactionDistance)){
-            Debug.Log(hit.collider.gameObject);
+            //Debug.Log(hit.collider.gameObject);
             if(Keyboard.current.gKey.wasPressedThisFrame && currentTargetInteractable != null)
             {
                 currentTargetInteractable.Interact(gameObject);
