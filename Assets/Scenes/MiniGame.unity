@@ -131,6 +131,10 @@ PrefabInstance:
       propertyPath: m_DefaultControlScheme
       value: Arrows
       objectReference: {fileID: 0}
+    - target: {fileID: 3950071337490816340, guid: 30cda35a3202ac547859a8457a56c733, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7433146100539730950, guid: 30cda35a3202ac547859a8457a56c733, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.04
@@ -904,11 +908,6 @@ Transform:
   - {fileID: 1963810613}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &803573529 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7568060103018338499, guid: 30cda35a3202ac547859a8457a56c733, type: 3}
-  m_PrefabInstance: {fileID: 77425414}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &830299979
 GameObject:
   m_ObjectHideFlags: 0
@@ -1610,7 +1609,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2748224885239743295, guid: 30cda35a3202ac547859a8457a56c733, type: 3}
       propertyPath: m_DefaultControlScheme
-      value: 
+      value: WASD
+      objectReference: {fileID: 0}
+    - target: {fileID: 5034037268188581724, guid: 30cda35a3202ac547859a8457a56c733, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7433146100539730950, guid: 30cda35a3202ac547859a8457a56c733, type: 3}
       propertyPath: m_LocalScale.y
@@ -1795,7 +1798,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpawnWindow
   spawnPrefab: {fileID: 5922030999393347459, guid: 1e7e2c0b81dde0549807d32c7e5439c2, type: 3}
-  spawner: {fileID: 803573529}
   spot: {fileID: 306756385}
 --- !u!1 &1481687558
 GameObject:
@@ -1922,9 +1924,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab4ae64f3f6f5fd4dae32a707ff6ebdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpawnWindow
-  spawnPrefab: {fileID: 5922030999393347459, guid: 1e7e2c0b81dde0549807d32c7e5439c2, type: 3}
-  spawner: {fileID: 7568060103018338499, guid: 30cda35a3202ac547859a8457a56c733, type: 3}
-  spot: {fileID: 0}
+  spawnPrefab: {fileID: 5922030999393347459, guid: 7f073a7a683679345b3130c0f07e7ccd, type: 3}
+  spot: {fileID: 306756385}
 --- !u!1 &1503930667
 GameObject:
   m_ObjectHideFlags: 0
