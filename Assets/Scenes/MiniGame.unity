@@ -131,10 +131,10 @@ PrefabInstance:
       propertyPath: m_DefaultControlScheme
       value: Arrows
       objectReference: {fileID: 0}
-    - target: {fileID: 3950071337490816340, guid: 30cda35a3202ac547859a8457a56c733, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
+    - target: {fileID: 3914516568578720452, guid: 30cda35a3202ac547859a8457a56c733, type: 3}
+      propertyPath: controller
+      value: 
+      objectReference: {fileID: 803573535}
     - target: {fileID: 7433146100539730950, guid: 30cda35a3202ac547859a8457a56c733, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.04
@@ -183,7 +183,8 @@ PrefabInstance:
       propertyPath: interactionDistance
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5847291038475629103, guid: 30cda35a3202ac547859a8457a56c733, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -908,6 +909,16 @@ Transform:
   - {fileID: 1963810613}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &803573529 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7568060103018338499, guid: 30cda35a3202ac547859a8457a56c733, type: 3}
+  m_PrefabInstance: {fileID: 77425414}
+  m_PrefabAsset: {fileID: 0}
+--- !u!143 &803573535 stripped
+CharacterController:
+  m_CorrespondingSourceObject: {fileID: 8801002804435719787, guid: 30cda35a3202ac547859a8457a56c733, type: 3}
+  m_PrefabInstance: {fileID: 77425414}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &830299979
 GameObject:
   m_ObjectHideFlags: 0
@@ -1611,10 +1622,30 @@ PrefabInstance:
       propertyPath: m_DefaultControlScheme
       value: WASD
       objectReference: {fileID: 0}
-    - target: {fileID: 5034037268188581724, guid: 30cda35a3202ac547859a8457a56c733, type: 3}
-      propertyPath: m_Enabled
+    - target: {fileID: 2748224885239743295, guid: 30cda35a3202ac547859a8457a56c733, type: 3}
+      propertyPath: m_NeverAutoSwitchControlSchemes
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2748224885239743295, guid: 30cda35a3202ac547859a8457a56c733, type: 3}
+      propertyPath: m_DeviceLostEvent.m_PersistentCalls.m_Calls.Array.size
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2748224885239743295, guid: 30cda35a3202ac547859a8457a56c733, type: 3}
+      propertyPath: m_DeviceLostEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2748224885239743295, guid: 30cda35a3202ac547859a8457a56c733, type: 3}
+      propertyPath: m_DeviceLostEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1866479351}
+    - target: {fileID: 2748224885239743295, guid: 30cda35a3202ac547859a8457a56c733, type: 3}
+      propertyPath: m_DeviceLostEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3914516568578720452, guid: 30cda35a3202ac547859a8457a56c733, type: 3}
+      propertyPath: controller
+      value: 
+      objectReference: {fileID: 1866479357}
     - target: {fileID: 7433146100539730950, guid: 30cda35a3202ac547859a8457a56c733, type: 3}
       propertyPath: m_LocalScale.y
       value: 1
@@ -1667,7 +1698,8 @@ PrefabInstance:
       propertyPath: interactionDistance
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5847291038475629103, guid: 30cda35a3202ac547859a8457a56c733, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

@@ -1,7 +1,9 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.iOS;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(CharacterController))]
 public class PlayerMovement : MonoBehaviour
@@ -22,8 +24,18 @@ public class PlayerMovement : MonoBehaviour
     public InputActionReference pickUpAction;
     private void Start()
     {
-        controller = gameObject.GetComponent<CharacterController>();
-        Debug.Log(controller.name);
+        switch (gameObject.name)
+        {
+            case "Player1":
+                gameObject.GetComponent<PlayerInput>().SwitchCurrentControlScheme("WASD", Keyboard.current);
+                break;
+            case "Player2":
+                gameObject.GetComponent<PlayerInput>().SwitchCurrentControlScheme("Arrows", Keyboard.current);
+                break;
+            default:
+                break;
+        }
+        //controller = gameObject.GetComponent<CharacterController>();
     }
     public void OnMove(InputAction.CallbackContext mov)
     {
