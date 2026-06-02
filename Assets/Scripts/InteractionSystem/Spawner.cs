@@ -3,17 +3,17 @@ using UnityEngine.InputSystem;
 
 public class Spawner : MonoBehaviour, IInteractable
 {
-    [SerializeField]
-    GameObject spawnPrefab;
+    //[SerializeField]
+    //GameObject spawnPrefab;
 
     //[SerializeField]
     //GameObject spawner;
 
-    [SerializeField]
-    GameObject spot;
+    //[SerializeField]
+    //GameObject spot;
 
-    private GameObject hold;
-    private bool holding;
+    //private GameObject hold;
+    //private bool holding;
 
     void Start()
     {
@@ -22,6 +22,7 @@ public class Spawner : MonoBehaviour, IInteractable
 
     void Update()
     {
+        /*
         if(holding == true){
             //Debug.Log("Spawner position:" + spawner.transform.position);
             //hold.transform.position = spawner.transform.position;
@@ -32,6 +33,7 @@ public class Spawner : MonoBehaviour, IInteractable
             holding = false;
             print("object is gone");
         }
+        */
     }
 
     void Spawn(GameObject player)
@@ -44,7 +46,7 @@ public class Spawner : MonoBehaviour, IInteractable
             player.transform.Find("hold2").GetComponent<MeshRenderer>().enabled = true;
         }
 
-        holding = true;
+        //holding = true;
         print("player is holding object");
         /*
         hold = Instantiate(spawnPrefab, spawner.transform.position + Vector3.up, Quaternion.identity);
@@ -56,8 +58,9 @@ public class Spawner : MonoBehaviour, IInteractable
 
     public void Interact(GameObject player)
     {
-        if(holding == false){
+        if(player.GetComponent<InteractionController>().holding == false){
             Spawn(player);
+            player.GetComponent<InteractionController>().holding = true;
         }
     }
 }

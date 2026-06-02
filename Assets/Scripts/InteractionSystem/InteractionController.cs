@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 
 public class InteractionController : MonoBehaviour
 {
-    
+    // variables
     Vector3 point1;
     Vector3 point2;
     [SerializeField]
@@ -13,6 +13,7 @@ public class InteractionController : MonoBehaviour
     float interactionDistance = 1f;
     RaycastHit hit;
     IInteractable currentTargetInteractable;
+    public bool holding = false;
 
     void Awake()
     {
