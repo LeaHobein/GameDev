@@ -45,9 +45,14 @@ public class RecipeGen : MonoBehaviour
         string recipeString = (string.Join(", ", newRecipe));
         recipeText.text = recipeString;
 
-        //switches für on screen icons:
+        UpdateIcons(newRecipe);
+ 
+    }
+
+    void UpdateIcons(string[] newRecipe)
+    {
         switch (newRecipe[0])
-         {
+        {
             case "Profil":
                 Material1.texture = Profil;
                 break;
@@ -69,7 +74,7 @@ public class RecipeGen : MonoBehaviour
             default:
                 break;
 
-            }
+        }
 
         switch (newRecipe[1])
         {
