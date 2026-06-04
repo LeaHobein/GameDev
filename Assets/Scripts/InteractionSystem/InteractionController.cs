@@ -27,10 +27,18 @@ public class InteractionController : MonoBehaviour
 
         transform.Find("hold1").transform.Rotate(0f, 1f, 0f, Space.World);
         transform.Find("hold2").transform.Rotate(0f, 1f, 0f, Space.World);
+        transform.Find("hold3").transform.Rotate(0f, 1f, 0f, Space.World);
+        transform.Find("hold4").transform.Rotate(0f, 1f, 0f, Space.World);
+        transform.Find("hold5").transform.Rotate(0f, 1f, 0f, Space.World);
+        transform.Find("hold6").transform.Rotate(0f, 1f, 0f, Space.World);
 
-        if(Keyboard.current.hKey.wasPressedThisFrame){
+        if (Keyboard.current.hKey.wasPressedThisFrame){
             transform.Find("hold1").GetComponent<MeshRenderer>().enabled = false;
             transform.Find("hold2").GetComponent<MeshRenderer>().enabled = false;
+            transform.Find("hold3").GetComponent<MeshRenderer>().enabled = false;
+            transform.Find("hold4").GetComponent<MeshRenderer>().enabled = false;
+            transform.Find("hold5").GetComponent<MeshRenderer>().enabled = false;
+            transform.Find("hold6").GetComponent<MeshRenderer>().enabled = false;
         }
     }
 

@@ -30,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
                 gameObject.GetComponent<PlayerInput>().SwitchCurrentControlScheme("WASD", Keyboard.current);
                 break;
             case "Player2":
-                //gameObject.GetComponent<PlayerInput>().SwitchCurrentControlScheme("Arrows", Keyboard.current);
+                gameObject.GetComponent<PlayerInput>().SwitchCurrentControlScheme("Arrows", Keyboard.current);
                 break;
             default:
                 break;

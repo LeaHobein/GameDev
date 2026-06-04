@@ -44,6 +44,14 @@ public class Spawner : MonoBehaviour, IInteractable
             player.transform.Find("hold1").GetComponent<MeshRenderer>().enabled = true;
         }else if(gameObject.name == "box2"){
             player.transform.Find("hold2").GetComponent<MeshRenderer>().enabled = true;
+        }else if (gameObject.name == "box3"){
+            player.transform.Find("hold3").GetComponent<MeshRenderer>().enabled = true;
+        }else if (gameObject.name == "box4"){
+            player.transform.Find("hold4").GetComponent<MeshRenderer>().enabled = true;
+        }else if (gameObject.name == "box5"){
+            player.transform.Find("hold5").GetComponent<MeshRenderer>().enabled = true;
+        }else if (gameObject.name == "box6"){
+            player.transform.Find("hold6").GetComponent<MeshRenderer>().enabled = true;
         }
 
         //holding = true;

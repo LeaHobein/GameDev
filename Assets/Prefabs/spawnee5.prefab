@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3054430233768573220}
   - component: {fileID: 5515894609297844204}
   m_Layer: 0
-  m_Name: spawnee2
+  m_Name: spawnee5
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -67,7 +67,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4c5dc914d86e7284899383a5a7a373c8, type: 2}
+  - {fileID: 2100000, guid: 826837523ba15614d916a29d53b15109, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
