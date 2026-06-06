@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System;
 
 public class AtoB : MonoBehaviour
 {
@@ -9,7 +10,8 @@ public class AtoB : MonoBehaviour
     public GameObject B;
     public float speed;
     private float tempo;
-    private float goal = 0f;
+    //private float distance;
+    private bool goal = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -22,44 +24,47 @@ public class AtoB : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(goal == 0f)
+        
+        if(goal == false)
         {
-            StartCoroutine(delayona(3f));
+            if(Mover.transform.position == B.transform.position)
+            {
+                goal = true;
+                Mover.transform.Rotate(0f, 180f, 0f);
+                StartCoroutine(delay(3f));
+                Mover.transform.position = Vector3.MoveTowards(Mover.transform.position, A.transform.position, tempo);
+            }else
+            {
+                tob();
+            }
         }
-        else if(goal == 1f)
+        else if(goal == true)
         {
-            StartCoroutine(delayonb(3f));
+            if(Mover.transform.position == A.transform.position)
+            {
+                goal = false;
+                Mover.transform.Rotate(0f, 180f, 0f);
+                StartCoroutine(delay(3f));
+                Mover.transform.position = Vector3.MoveTowards(Mover.transform.position, B.transform.position, tempo);
+            }else
+            {
+                toa(); 
+            }
         }
+        
     }
 
-    private IEnumerator delayona(float duration){
-        if(Mover.transform.position == A.transform.position)
-            {
-                tempo = 0f;
-                yield return new WaitForSeconds(duration);
-                tempo = speed;
-            }
-
-        Mover.transform.position = Vector3.MoveTowards(Mover.transform.position, B.transform.position, tempo);
-        if(Mover.transform.position == B.transform.position)
-        {
-            goal = 1f;
-            Mover.transform.Rotate(0f, 180f, 0f);
-        }
-    }
-    private IEnumerator delayonb(float duration){
-        if(Mover.transform.position == B.transform.position)
-            {
-                tempo = 0f;
-                yield return new WaitForSeconds(duration);
-                tempo = speed;
-            }
-
+    private void toa(){
         Mover.transform.position = Vector3.MoveTowards(Mover.transform.position, A.transform.position, tempo);
-        if(Mover.transform.position == A.transform.position)
-        {
-            goal = 0f;
-            Mover.transform.Rotate(0f, 180f, 0f);
-        }
+    }
+    private void tob(){
+        Mover.transform.position = Vector3.MoveTowards(Mover.transform.position, B.transform.position, tempo);
+    }
+
+    private IEnumerator delay(float duration)
+    {
+        tempo = 0f;
+        yield return new WaitForSeconds(duration);
+        tempo = speed;
     }
 }

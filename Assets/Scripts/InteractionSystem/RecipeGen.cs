@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class RecipeGen : MonoBehaviour
 
 {
-    string[] materials = { "Profil", "Dichtung", "Beschlag", "Glasleiste", "Isolierglas", "Flügel" };
+    string[] materials = { "Profil", "Dichtung", "Beschlag", "Glasleiste", "Isolierglas", "Fluegel" };
 
     public TMP_Text recipeText;
     public RawImage Material1;
@@ -19,29 +19,31 @@ public class RecipeGen : MonoBehaviour
     [SerializeField] Texture Beschlag;
     [SerializeField] Texture Glasleiste;
     [SerializeField] Texture Isolierglas;
-    [SerializeField] Texture Flügel;
+    [SerializeField] Texture Fluegel;
 
+    public int numberOfMaterials;
+    public string[] newRecipe;
 
     public string[] GenerateRecipe()
     {
-        int numberOfMaterials = UnityEngine.Random.Range(2, 4); //bestimmt, ob 2 oder 3 Materials in einem Rezept enthalten sind
+        numberOfMaterials = UnityEngine.Random.Range(2, 4); //bestimmt, ob 2 oder 3 Materials in einem Rezept enthalten sind
         string[] recipe = new string[numberOfMaterials];
 
         for (int i = 0; i < numberOfMaterials; i++)
         {
-            recipe[i] = materials[UnityEngine.Random.Range(0, materials.Length)]; //steckt zufällige Materials in recipe[]
+            recipe[i] = materials[UnityEngine.Random.Range(0, materials.Length)]; //steckt zufï¿½llige Materials in recipe[]
             //Debug.Log(materials[UnityEngine.Random.Range(0, materials.Length)]);
         }
 
         return recipe;
     }
 
-    void Start()
+    public void Start()
     {
-        string[] newRecipe = GenerateRecipe(); //holt ein 2-3 langes Array mit zufälligen Materials drin
+        newRecipe = GenerateRecipe(); //holt ein 2-3 langes Array mit zufï¿½lligen Materials drin
         Debug.Log(string.Join(", ", newRecipe));
 
-        //code für recipe text on screen (aktuell hidden)
+        //code fï¿½r recipe text on screen (aktuell hidden)
         string recipeString = (string.Join(", ", newRecipe));
         recipeText.text = recipeString;
 
@@ -68,8 +70,8 @@ public class RecipeGen : MonoBehaviour
             case "Isolierglas":
                 Material1.texture = Isolierglas;
                 break;
-            case "Flügel":
-                Material1.texture = Flügel;
+            case "Fluegel":
+                Material1.texture = Fluegel;
                 break;
             default:
                 break;
@@ -93,8 +95,8 @@ public class RecipeGen : MonoBehaviour
             case "Isolierglas":
                 Material2.texture = Isolierglas;
                 break;
-            case "Flügel":
-                Material2.texture = Flügel;
+            case "Fluegel":
+                Material2.texture = Fluegel;
                 break;
             default:
                 break;
@@ -120,8 +122,8 @@ public class RecipeGen : MonoBehaviour
                 case "Isolierglas":
                     Material3.texture = Isolierglas;
                     break;
-                case "Flügel":
-                    Material3.texture = Flügel;
+                case "Fluegel":
+                    Material3.texture = Fluegel;
                     break;
                 default:
                     break;
