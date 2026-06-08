@@ -30,7 +30,11 @@ public class DeliveryButton : MonoBehaviour
         emptySpot(spotTwo);
         emptySpot(spotThree);
         Debug.Log("Button Pressed");
+        spotOne.GetComponent<DeliverySpot>().occupado = false;
+        spotTwo.GetComponent<DeliverySpot>().occupado = false;
+        spotThree.GetComponent<DeliverySpot>().occupado = false;
 
+        // neues Rezept hier
         deliveryorder = new string[GameObject.Find("RecipeGen").GetComponent<RecipeGen>().numberOfMaterials];
         recipe = new string[GameObject.Find("RecipeGen").GetComponent<RecipeGen>().numberOfMaterials];
         recipe = GameObject.Find("RecipeGen").GetComponent<RecipeGen>().newRecipe;
@@ -142,31 +146,31 @@ public class DeliveryButton : MonoBehaviour
 
         //print(deliveryorder[0] + ", " + recipe[0] + ", " + deliveryorder[1] + ", " + recipe[1] + ", " + deliveryorder[2] + ", " + recipe[2]);
 
-        //checke für 2 Abgaben
-        if(GameObject.Find("RecipeGen").GetComponent<RecipeGen>().numberOfMaterials == 2)
+        if(GameObject.Find("RecipeGen").GetComponent<RecipeGen>().numberOfMaterials == 2)   //checke für 2 Abgaben
         {
             if(deliveryorder[0] == recipe[0] && deliveryorder[1] == recipe[1])
             {
-            GameObject.Find("checkup").GetComponent<MeshRenderer>().material.color = new Color(0f, 1f, 0f);
+                GameObject.Find("checkup").GetComponent<MeshRenderer>().material.color = new Color(0f, 1f, 0f);
+                //Nach richtiger Abgabe -> neues Rezept in RecipeGen
+                GameObject.Find("RecipeGen").GetComponent<RecipeGen>().Start();
+                //Nach richtiger Abgabe -> gib einen Punkt
+                scoreManager.addScore();
             }else
             {
-            GameObject.Find("checkup").GetComponent<MeshRenderer>().material.color = new Color(1f, 0f, 0f);
+                GameObject.Find("checkup").GetComponent<MeshRenderer>().material.color = new Color(1f, 0f, 0f);
             }
-        }
-
-        //checke für 3 Abgaben
-        if(GameObject.Find("RecipeGen").GetComponent<RecipeGen>().numberOfMaterials == 3)
+        }else if(GameObject.Find("RecipeGen").GetComponent<RecipeGen>().numberOfMaterials == 3)   //checke für 3 Abgaben
         {
             if(deliveryorder[0] == recipe[0] && deliveryorder[1] == recipe[1] && deliveryorder[2] == recipe[2])
             {
-            GameObject.Find("checkup").GetComponent<MeshRenderer>().material.color = new Color(0f, 1f, 0f);
-            //Nach richtiger Abgabe -> neues Rezept
-            GameObject.Find("RecipeGen").GetComponent<RecipeGen>().Start();
-            //Nach richtiger Abgabe -> gib einen Punkt
-            scoreManager.addScore();
+                GameObject.Find("checkup").GetComponent<MeshRenderer>().material.color = new Color(0f, 1f, 0f);
+                //Nach richtiger Abgabe -> neues Rezept in RecipeGen
+                GameObject.Find("RecipeGen").GetComponent<RecipeGen>().Start();
+                //Nach richtiger Abgabe -> gib einen Punkt
+                scoreManager.addScore();
             }else
             {
-            GameObject.Find("checkup").GetComponent<MeshRenderer>().material.color = new Color(1f, 0f, 0f);
+                GameObject.Find("checkup").GetComponent<MeshRenderer>().material.color = new Color(1f, 0f, 0f);
             }
         }
     }

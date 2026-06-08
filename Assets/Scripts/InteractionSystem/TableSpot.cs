@@ -3,6 +3,8 @@ using UnityEngine.InputSystem;
 
 public class TableSpot : MonoBehaviour, IInteractable
 {
+    private bool occupada = false;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -59,7 +61,7 @@ public class TableSpot : MonoBehaviour, IInteractable
             print("player put down: spawnee6");
         }
         else{
-            print("nothing to put down...");
+            //print("nothing to put down...");
         }
     }
 
@@ -102,16 +104,18 @@ public class TableSpot : MonoBehaviour, IInteractable
             print("player picked up: spawnee6");
         }
         else{
-            print("nothing to pick up...");
+            //print("nothing to pick up...");
         }
     }
 
     public void Interact(GameObject player)
     {
-        if(player.GetComponent<InteractionController>().holding == true){
+        if(player.GetComponent<InteractionController>().holding == true && occupada == false){
             putdown(player);
-        }else if(player.GetComponent<InteractionController>().holding == false){
+            occupada = true;
+        }else if(player.GetComponent<InteractionController>().holding == false && occupada == true){
             pickup(player);
+            occupada = false;
         }
     }
 }

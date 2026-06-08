@@ -3,15 +3,12 @@ using UnityEngine.InputSystem;
 
 public class DeliverySpot : MonoBehaviour, IInteractable
 {
+    public bool occupado = false;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        transform.Find("spawnee").transform.Rotate(0f, 1f, 0f, Space.World);
-        transform.Find("spawnee2").transform.Rotate(0f, 1f, 0f, Space.World);
-        transform.Find("spawnee3").transform.Rotate(0f, 1f, 0f, Space.World);
-        transform.Find("spawnee4").transform.Rotate(0f, 1f, 0f, Space.World);
-        transform.Find("spawnee5").transform.Rotate(0f, 1f, 0f, Space.World);
-        transform.Find("spawnee6").transform.Rotate(0f, 1f, 0f, Space.World);
+        
     }
 
     // Update is called once per frame
@@ -71,7 +68,7 @@ public class DeliverySpot : MonoBehaviour, IInteractable
         }
         else
         {
-            print("nothing to deliver/pickup");
+            //print("nothing to deliver/pickup");
         }
     }
 
@@ -127,10 +124,12 @@ public class DeliverySpot : MonoBehaviour, IInteractable
 
     public void Interact(GameObject player)
     {
-        if(player.GetComponent<InteractionController>().holding == true){
+        if(player.GetComponent<InteractionController>().holding == true && occupado == false){
             deliver(player);
-        }else if(player.GetComponent<InteractionController>().holding == false){
+            occupado = true;
+        }else if(player.GetComponent<InteractionController>().holding == false && occupado == true){
             pickup(player);
+            occupado = false;
         }
     }
 }
