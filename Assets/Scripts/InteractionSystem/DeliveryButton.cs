@@ -12,6 +12,9 @@ public class DeliveryButton : MonoBehaviour
     string[] deliveryorder;
     string[] recipe;
 
+    [SerializeField]
+    private ScoreManager scoreManager;
+
     void Start()
     {
         deliveryorder = new string[GameObject.Find("RecipeGen").GetComponent<RecipeGen>().numberOfMaterials];
@@ -28,8 +31,6 @@ public class DeliveryButton : MonoBehaviour
         emptySpot(spotThree);
         Debug.Log("Button Pressed");
 
-        // wenn jedes mal button gedrückt ---> dann neues Rezept und Arraylänge updaten, jeweils bei RecipeGen und hier
-        GameObject.Find("RecipeGen").GetComponent<RecipeGen>().Start();
         deliveryorder = new string[GameObject.Find("RecipeGen").GetComponent<RecipeGen>().numberOfMaterials];
         recipe = new string[GameObject.Find("RecipeGen").GetComponent<RecipeGen>().numberOfMaterials];
         recipe = GameObject.Find("RecipeGen").GetComponent<RecipeGen>().newRecipe;
@@ -159,6 +160,10 @@ public class DeliveryButton : MonoBehaviour
             if(deliveryorder[0] == recipe[0] && deliveryorder[1] == recipe[1] && deliveryorder[2] == recipe[2])
             {
             GameObject.Find("checkup").GetComponent<MeshRenderer>().material.color = new Color(0f, 1f, 0f);
+            //Nach richtiger Abgabe -> neues Rezept
+            GameObject.Find("RecipeGen").GetComponent<RecipeGen>().Start();
+            //Nach richtiger Abgabe -> gib einen Punkt
+            scoreManager.addScore();
             }else
             {
             GameObject.Find("checkup").GetComponent<MeshRenderer>().material.color = new Color(1f, 0f, 0f);

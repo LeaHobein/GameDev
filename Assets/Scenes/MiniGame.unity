@@ -2341,6 +2341,7 @@ MonoBehaviour:
   spotOne: {fileID: 1772900935}
   spotTwo: {fileID: 717629977}
   spotThree: {fileID: 1450515425}
+  scoreManager: {fileID: 1552188515}
 --- !u!143 &803573535 stripped
 CharacterController:
   m_CorrespondingSourceObject: {fileID: 8801002804435719787, guid: 30cda35a3202ac547859a8457a56c733, type: 3}
