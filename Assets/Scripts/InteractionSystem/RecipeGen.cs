@@ -1,6 +1,8 @@
 
+using NUnit.Framework.Constraints;
 using System.Linq;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,6 +15,7 @@ public class RecipeGen : MonoBehaviour
     public RawImage Material1;
     public RawImage Material2;
     public RawImage Material3;
+    public CanvasGroup CanvasGroup1;
 
     [SerializeField] Texture Profil;
     [SerializeField] Texture Dichtung;
@@ -105,6 +108,7 @@ public class RecipeGen : MonoBehaviour
 
         if (newRecipe.Length == 3)
         {
+            CanvasGroup1.alpha = 1f;
             switch (newRecipe[2])
             {
                 case "Profil":
@@ -129,6 +133,10 @@ public class RecipeGen : MonoBehaviour
                     break;
 
             }
+        }
+        else
+        {
+            CanvasGroup1.alpha = 0f;
         }
     }
 }
