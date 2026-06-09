@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4018999793435172477}
   - component: {fileID: 6782813270147508394}
   - component: {fileID: 5034037268188581724}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Itemslot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 7128495038475629104}
   - component: {fileID: 7128495038475629105}
   - component: {fileID: 8637812028581883746}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -123,7 +123,7 @@ Transform:
   m_GameObject: {fileID: 7568060103018338499}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -218,8 +218,12 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 838a2834-a971-4894-9797-3d7bc53a3d6d
     m_ActionName: 'Player/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/Keyboard/leftArrow,/Keyboard/rightArrow,/Keyboard/upArrow,/Keyboard/downArrow]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d3c437e1-d9f6-4b50-9a9c-772211669297
+    m_ActionName: 'Player/Interact[/Keyboard/e,/Keyboard/u,/XInputControllerWindows/buttonSouth]'
   m_NeverAutoSwitchControlSchemes: 1
-  m_DefaultControlScheme: 
+  m_DefaultControlScheme: IJKL
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
@@ -362,6 +366,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InteractionController
   capsuleRadius: 1
   interactionDistance: 1
+  holding: 0
 --- !u!1 &8428133967381186512
 GameObject:
   m_ObjectHideFlags: 0
@@ -374,7 +379,7 @@ GameObject:
   - component: {fileID: 1228214893622472006}
   - component: {fileID: 4954566362658386376}
   - component: {fileID: 8425166237624662987}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: dienase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -491,6 +496,10 @@ PrefabInstance:
       value: hold2
       objectReference: {fileID: 0}
     - target: {fileID: 5922030999393347459, guid: 7f073a7a683679345b3130c0f07e7ccd, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5922030999393347459, guid: 7f073a7a683679345b3130c0f07e7ccd, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -567,6 +576,10 @@ PrefabInstance:
     - target: {fileID: 5922030999393347459, guid: 1e7e2c0b81dde0549807d32c7e5439c2, type: 3}
       propertyPath: m_Name
       value: hold1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5922030999393347459, guid: 1e7e2c0b81dde0549807d32c7e5439c2, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5922030999393347459, guid: 1e7e2c0b81dde0549807d32c7e5439c2, type: 3}
       propertyPath: m_IsActive

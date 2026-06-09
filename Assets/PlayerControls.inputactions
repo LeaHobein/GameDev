@@ -32,6 +32,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Interact",
+                    "type": "Button",
+                    "id": "d3c437e1-d9f6-4b50-9a9c-772211669297",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -52,7 +61,7 @@
                     "path": "<Keyboard>/m",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Arrows",
+                    "groups": "IJKL",
                     "action": "PickUp",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -63,7 +72,7 @@
                     "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Controller1",
+                    "groups": "Controller",
                     "action": "PickUp",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -85,7 +94,7 @@
                     "path": "<Keyboard>/m",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Arrows",
+                    "groups": "IJKL",
                     "action": "PutDown",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -96,7 +105,7 @@
                     "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Controller1",
+                    "groups": "Controller",
                     "action": "PutDown",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -113,7 +122,7 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "Arrows",
+                    "name": "I/J/K/L",
                     "id": "ce147f5b-52d7-46f2-aa74-87e114fe7867",
                     "path": "3DVector",
                     "interactions": "",
@@ -126,10 +135,10 @@
                 {
                     "name": "left",
                     "id": "f2efe047-6c18-438a-b4be-2009b91de875",
-                    "path": "<Keyboard>/leftArrow",
+                    "path": "<Keyboard>/j",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Arrows",
+                    "groups": "IJKL",
                     "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -137,10 +146,10 @@
                 {
                     "name": "right",
                     "id": "e7ed64f8-661f-4b9c-8e84-c446f308cbfc",
-                    "path": "<Keyboard>/rightArrow",
+                    "path": "<Keyboard>/l",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Arrows",
+                    "groups": "IJKL",
                     "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -148,10 +157,10 @@
                 {
                     "name": "forward",
                     "id": "d6d30594-148c-40a6-8c6e-9ec8c53f2182",
-                    "path": "<Keyboard>/upArrow",
+                    "path": "<Keyboard>/i",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Arrows",
+                    "groups": "IJKL",
                     "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -159,10 +168,10 @@
                 {
                     "name": "backward",
                     "id": "73c93e48-c498-4cbe-b204-5f0c94881551",
-                    "path": "<Keyboard>/downArrow",
+                    "path": "<Keyboard>/k",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Arrows",
+                    "groups": "IJKL",
                     "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -239,7 +248,7 @@
                     "path": "<Gamepad>/leftStick/left",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Controller1",
+                    "groups": "Controller",
                     "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -250,7 +259,7 @@
                     "path": "<Gamepad>/leftStick/right",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Controller1",
+                    "groups": "Controller",
                     "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -261,7 +270,7 @@
                     "path": "<Gamepad>/leftStick/up",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Controller1",
+                    "groups": "Controller",
                     "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -272,10 +281,43 @@
                     "path": "<Gamepad>/leftStick/down",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Controller1",
+                    "groups": "Controller",
                     "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "7cd4f828-1b68-43a0-8334-36a317f01ade",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";WASD",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "dee7e40c-3665-4135-be36-43e4bef69e54",
+                    "path": "<Keyboard>/u",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "IJKL",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c05e02d9-1f19-4139-b8df-14e7b5839063",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Controller",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
@@ -293,8 +335,8 @@
             ]
         },
         {
-            "name": "Arrows",
-            "bindingGroup": "Arrows",
+            "name": "IJKL",
+            "bindingGroup": "IJKL",
             "devices": [
                 {
                     "devicePath": "<Keyboard>",
@@ -304,8 +346,8 @@
             ]
         },
         {
-            "name": "Controller1",
-            "bindingGroup": "Controller1",
+            "name": "Controller",
+            "bindingGroup": "Controller",
             "devices": [
                 {
                     "devicePath": "<XInputController>",

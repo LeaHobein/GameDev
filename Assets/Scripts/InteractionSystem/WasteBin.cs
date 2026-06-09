@@ -19,6 +19,7 @@ public class WasteBin : MonoBehaviour, IInteractable
     void DestroyItem(GameObject player)
     {
         player.transform.Find("hold1").GetComponent<MeshRenderer>().enabled = false;
+        player.transform.Find("hold2").GetComponent<MeshRenderer>().enabled = false;
     }
 
 

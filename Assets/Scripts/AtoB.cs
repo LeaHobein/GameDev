@@ -24,11 +24,11 @@ public class AtoB : MonoBehaviour
     {
         if(goal == 0f)
         {
-            StartCoroutine(delayona(3f));
+            //StartCoroutine(delayona(3f));
         }
         else if(goal == 1f)
         {
-            StartCoroutine(delayonb(3f));
+            //StartCoroutine(delayonb(3f));
         }
     }
 

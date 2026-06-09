@@ -27,10 +27,10 @@ public class PlayerMovement : MonoBehaviour
         switch (gameObject.name)
         {
             case "Player1":
-                gameObject.GetComponent<PlayerInput>().SwitchCurrentControlScheme("WASD", Keyboard.current);
+                //gameObject.GetComponent<PlayerInput>().SwitchCurrentControlScheme("WASD", Keyboard.current);
                 break;
             case "Player2":
-                //gameObject.GetComponent<PlayerInput>().SwitchCurrentControlScheme("Arrows", Keyboard.current);
+                gameObject.GetComponent<PlayerInput>().SwitchCurrentControlScheme("IJKL", Keyboard.current);
                 break;
             default:
                 break;
@@ -45,7 +45,6 @@ public class PlayerMovement : MonoBehaviour
     {
         Debug.Log("Picked Up");
     }
-
     public void Stun(float duration)
     {
         StopCoroutine(nameof(StunCoroutine));
