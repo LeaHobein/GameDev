@@ -20,6 +20,11 @@ public class WasteBin : MonoBehaviour, IInteractable
     {
         player.transform.Find("hold1").GetComponent<MeshRenderer>().enabled = false;
         player.transform.Find("hold2").GetComponent<MeshRenderer>().enabled = false;
+        player.transform.Find("hold3").GetComponent<MeshRenderer>().enabled = false;
+        player.transform.Find("hold4").GetComponent<MeshRenderer>().enabled = false;
+        player.transform.Find("hold5").GetComponent<MeshRenderer>().enabled = false;
+        player.transform.Find("hold6").GetComponent<MeshRenderer>().enabled = false;
+        player.GetComponent<InteractionController>().holding = false;
     }
 
 
