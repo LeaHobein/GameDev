@@ -227,7 +227,7 @@ MonoBehaviour:
     m_ActionId: d3c437e1-d9f6-4b50-9a9c-772211669297
     m_ActionName: 'Player/Interact[/Keyboard/e,/Keyboard/u,/XInputControllerWindows/buttonSouth]'
   m_NeverAutoSwitchControlSchemes: 1
-  m_DefaultControlScheme: IJKL
+  m_DefaultControlScheme: Controller
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}

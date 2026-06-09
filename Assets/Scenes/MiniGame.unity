@@ -477,7 +477,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2748224885239743295, guid: 30cda35a3202ac547859a8457a56c733, type: 3}
       propertyPath: m_DefaultControlScheme
-      value: WASD
+      value: IJKL
       objectReference: {fileID: 0}
     - target: {fileID: 7433146100539730950, guid: 30cda35a3202ac547859a8457a56c733, type: 3}
       propertyPath: m_LocalPosition.x
@@ -600,11 +600,6 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
---- !u!143 &116319244 stripped
-CharacterController:
-  m_CorrespondingSourceObject: {fileID: 8801002804435719787, guid: 30cda35a3202ac547859a8457a56c733, type: 3}
-  m_PrefabInstance: {fileID: 1264084343}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &138680334
 GameObject:
   m_ObjectHideFlags: 0
@@ -2477,11 +2472,6 @@ MonoBehaviour:
   spotTwo: {fileID: 717629977}
   spotThree: {fileID: 1450515425}
   scoreManager: {fileID: 1552188515}
---- !u!143 &803573535 stripped
-CharacterController:
-  m_CorrespondingSourceObject: {fileID: 8801002804435719787, guid: 30cda35a3202ac547859a8457a56c733, type: 3}
-  m_PrefabInstance: {fileID: 77425414}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &805491082
 GameObject:
   m_ObjectHideFlags: 0

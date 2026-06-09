@@ -24,10 +24,6 @@ public class InteractionController : MonoBehaviour
     {
         UpdateCurrentInteractable();
         CheckForInteractionInput();
-        if(interactAction.WasPerformedThisFrame() && currentTargetInteractable != null)
-            {
-                currentTargetInteractable.Interact(gameObject);
-            }
 
         transform.Find("hold1").transform.Rotate(0f, 1f, 0f, Space.World);
         transform.Find("hold2").transform.Rotate(0f, 1f, 0f, Space.World);
@@ -36,6 +32,7 @@ public class InteractionController : MonoBehaviour
         transform.Find("hold5").transform.Rotate(0f, 1f, 0f, Space.World);
         transform.Find("hold6").transform.Rotate(0f, 1f, 0f, Space.World);
 
+        /*
         if (Keyboard.current.hKey.wasPressedThisFrame){
             transform.Find("hold1").GetComponent<MeshRenderer>().enabled = false;
             transform.Find("hold2").GetComponent<MeshRenderer>().enabled = false;
@@ -59,6 +56,10 @@ public class InteractionController : MonoBehaviour
         
         if(Physics.CapsuleCast(point1, point2, capsuleRadius, transform.forward, out hit, interactionDistance)){
             print(gameObject.name + "just raycasted" + hit.collider.gameObject);
+            if(interactAction.WasPerformedThisFrame() && currentTargetInteractable != null)
+            {
+                currentTargetInteractable.Interact(gameObject);
+            }
         }
     }
 }

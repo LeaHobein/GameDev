@@ -80,7 +80,7 @@
                 {
                     "name": "",
                     "id": "a1b2c3d4-e5f6-7890-abcd-111111111111",
-                    "path": "<Keyboard>/f",
+                    "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
                     "groups": ";WASD",
@@ -91,7 +91,7 @@
                 {
                     "name": "",
                     "id": "a1b2c3d4-e5f6-7890-abcd-222222222222",
-                    "path": "<Keyboard>/m",
+                    "path": "<Keyboard>/u",
                     "interactions": "",
                     "processors": "",
                     "groups": "IJKL",
