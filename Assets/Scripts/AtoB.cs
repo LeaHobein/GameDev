@@ -24,7 +24,8 @@ public class AtoB : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //trigger Volumes benutzen!!!
+        //UND eigene Coroutine!!!
         if(goal == false)
         {
             if(Mover.transform.position == B.transform.position)

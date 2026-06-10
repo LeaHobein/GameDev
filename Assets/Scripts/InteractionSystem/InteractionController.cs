@@ -54,7 +54,7 @@ public class InteractionController : MonoBehaviour
         Vector3 point2 = transform.position;
         print("in checkforinteractioninput of " + gameObject.name);
         
-        if(Physics.CapsuleCast(point1, point2, capsuleRadius, transform.forward, out hit, interactionDistance)){
+        if(Physics.CapsuleCast(point1, point2, capsuleRadius, transform.forward, out hit, interactionDistance)){ //visualisierung irgendwie? oder triggerbased den boxen nen trigger geben
             print(gameObject.name + "just raycasted" + hit.collider.gameObject);
             if(interactAction.WasPerformedThisFrame() && currentTargetInteractable != null)
             {
