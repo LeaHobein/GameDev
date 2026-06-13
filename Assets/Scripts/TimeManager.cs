@@ -23,6 +23,9 @@ public class TimeManager : MonoBehaviour
             Pause();
             timeUp = true;
             Debug.Log("game over");
+
+            //lege den Gabelstapler lahm
+            GameObject.Find("Forklift").GetComponent<AtoB>().tempo = 0f;
         }
     }
 

@@ -4,21 +4,20 @@ using System;
 
 public class AtoB : MonoBehaviour
 {
-
     public GameObject Mover;
     public GameObject A;
     public GameObject B;
     public float speed;
-    private float tempo;
+    public float tempo;
     //private float distance;
-    private bool goal = false;
+    public bool goal = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         Mover.transform.position = A.transform.position;
         tempo = speed;
-        Mover.transform.Rotate(0f, 180f, 0f);
+        //Mover.transform.Rotate(0f, 180f, 0f);
     }
 
     // Update is called once per frame
@@ -26,6 +25,15 @@ public class AtoB : MonoBehaviour
     {
         //trigger Volumes benutzen!!!
         //UND eigene Coroutine!!!
+        if(goal == false)
+        {
+            tob();
+        }else
+        {
+            toa();
+        }
+
+        /*
         if(goal == false)
         {
             if(Mover.transform.position == B.transform.position)
@@ -52,7 +60,7 @@ public class AtoB : MonoBehaviour
                 toa(); 
             }
         }
-        
+        */
     }
 
     private void toa(){
@@ -62,10 +70,12 @@ public class AtoB : MonoBehaviour
         Mover.transform.position = Vector3.MoveTowards(Mover.transform.position, B.transform.position, tempo);
     }
 
-    private IEnumerator delay(float duration)
+    public IEnumerator delay(float duration)
     {
         tempo = 0f;
         yield return new WaitForSeconds(duration);
         tempo = speed;
+
+        Mover.transform.Rotate(0f, 180f, 0f);
     }
 }

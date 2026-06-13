@@ -18,7 +18,10 @@ public class Collision : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
-        print("Exit");
-        other.GetComponent<MeshRenderer>().material.color = new Color(1f, 1f, 1f);
+        if(other.CompareTag("Player"))
+        {
+            print("Exit");
+            other.GetComponent<MeshRenderer>().material.color = new Color(1f, 1f, 1f);
+        }
     }
 }

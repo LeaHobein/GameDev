@@ -1,0 +1,15 @@
+using UnityEngine;
+
+public class OnA : MonoBehaviour
+{
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("Enemy"))
+        {
+            print("Enter on A");
+            
+            other.GetComponent<AtoB>().goal = false;
+            other.GetComponent<AtoB>().StartCoroutine(other.GetComponent<AtoB>().delay(UnityEngine.Random.Range(3, 9)));
+        }
+    }
+}

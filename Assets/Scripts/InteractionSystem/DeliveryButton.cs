@@ -8,6 +8,8 @@ public class DeliveryButton : MonoBehaviour
     private GameObject spotTwo;
     [SerializeField]
     private GameObject spotThree;
+    [SerializeField]
+    private GameObject window;
 
     string[] deliveryorder;
     string[] recipe;
@@ -24,8 +26,10 @@ public class DeliveryButton : MonoBehaviour
 
     public void Press()
     {
+        // ueberprüfe die Abgabestation
         checkup(spotOne, spotTwo, spotThree);
 
+        // cleanswipe der Abgabestation
         emptySpot(spotOne);
         emptySpot(spotTwo);
         emptySpot(spotThree);
@@ -151,6 +155,9 @@ public class DeliveryButton : MonoBehaviour
             if(deliveryorder[0] == recipe[0] && deliveryorder[1] == recipe[1])
             {
                 GameObject.Find("checkup").GetComponent<MeshRenderer>().material.color = new Color(0f, 1f, 0f);
+                GameObject.Find("checkup2").GetComponent<MeshRenderer>().material.color = new Color(0f, 1f, 0f);
+                // sende fertiges Fenster uebers Band
+                 moveit();
                 //Nach richtiger Abgabe -> neues Rezept in RecipeGen
                 GameObject.Find("RecipeGen").GetComponent<RecipeGen>().Start();
                 //Nach richtiger Abgabe -> gib einen Punkt
@@ -158,12 +165,16 @@ public class DeliveryButton : MonoBehaviour
             }else
             {
                 GameObject.Find("checkup").GetComponent<MeshRenderer>().material.color = new Color(1f, 0f, 0f);
+                GameObject.Find("checkup2").GetComponent<MeshRenderer>().material.color = new Color(1f, 0f, 0f);
             }
         }else if(GameObject.Find("RecipeGen").GetComponent<RecipeGen>().numberOfMaterials == 3)   //checke für 3 Abgaben
         {
             if(deliveryorder[0] == recipe[0] && deliveryorder[1] == recipe[1] && deliveryorder[2] == recipe[2])
             {
                 GameObject.Find("checkup").GetComponent<MeshRenderer>().material.color = new Color(0f, 1f, 0f);
+                GameObject.Find("checkup2").GetComponent<MeshRenderer>().material.color = new Color(0f, 1f, 0f);
+                // sende fertiges Fenster uebers Band
+                moveit();
                 //Nach richtiger Abgabe -> neues Rezept in RecipeGen
                 GameObject.Find("RecipeGen").GetComponent<RecipeGen>().Start();
                 //Nach richtiger Abgabe -> gib einen Punkt
@@ -171,7 +182,13 @@ public class DeliveryButton : MonoBehaviour
             }else
             {
                 GameObject.Find("checkup").GetComponent<MeshRenderer>().material.color = new Color(1f, 0f, 0f);
+                GameObject.Find("checkup2").GetComponent<MeshRenderer>().material.color = new Color(1f, 0f, 0f);
             }
         }
+    }
+
+    private void moveit()
+    {
+        window.GetComponent<CtoD>().goal = true;
     }
 }
