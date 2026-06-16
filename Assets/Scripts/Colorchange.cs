@@ -18,7 +18,7 @@ public class Colorchange : MonoBehaviour, Materializer
     // Update is called once per frame
     void Update()
     {
-        if(GameObject.Find("Player1").GetComponent<InteractionController>().looking == false || GameObject.Find("Player2").GetComponent<InteractionController>().looking == false)
+        if(GameObject.Find("Player1").GetComponent<InteractionController>().looking == false && GameObject.Find("Player2").GetComponent<InteractionController>().looking == false)
         {
             gameObject.GetComponent<MeshRenderer>().sharedMaterial = m_default;
         }
