@@ -5,22 +5,26 @@ using UnityEngine.InputSystem;
 public class ScoreManager : MonoBehaviour
 {
     public TMP_Text scoreText;
-    private int score = 0;
+    public static int score = 0;
 
     private InputActionAsset InputActions;
     private InputAction p_addpoints;
     private InputAction o_decreasePoints;
 
-   /* private void OnEnable()
-    {
-        InputActions.FindActionMap("Player").Enable();
-    }
+    /* private void OnEnable()
+     {
+         InputActions.FindActionMap("Player").Enable();
+     }
 
-    private void OnDisable()
+     private void OnDisable()
+     {
+         InputActions.FindActionMap("Player").Disable();
+     }
+    */
+    private void Start()
     {
-        InputActions.FindActionMap("Player").Disable();
+        score = 0;
     }
-   */
 
     private void Awake()
     {
@@ -51,4 +55,5 @@ public class ScoreManager : MonoBehaviour
         score--;
         scoreText.text = score.ToString();
     }
+
 }

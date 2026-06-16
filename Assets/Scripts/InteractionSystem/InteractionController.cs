@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -16,10 +17,28 @@ public class InteractionController : MonoBehaviour
     Materializer currentTargetMaterializer;
     public bool holding = false;
     public bool looking = false;
+    public bool TutorialActive = true;
     private InputAction interactAction;
+    private InputAction enter_skip;
+
+    [SerializeField] TimeManager timeManager;
+    [SerializeField] RecipeGen recipeGen;
+    [SerializeField] DeliveryButton deliveryButton;
+
+    private void Start()
+    {
+        //Zu Beginn kommt immer das Tutorial
+        TutorialActive = true;
+
+        timeManager = GameObject.Find("timerText").GetComponent<TimeManager>();
+        recipeGen = GameObject.Find("RecipeGen").GetComponent<RecipeGen>();
+        deliveryButton = GameObject.Find("delivery_button").GetComponent<DeliveryButton>();
+    }
+
     void Awake()
     {
         interactAction = gameObject.GetComponent<PlayerInput>().actions["Interact"];
+        enter_skip = gameObject.GetComponent<PlayerInput>().actions["SkipTutorial"];
     }
 
     public void Update()
@@ -27,6 +46,7 @@ public class InteractionController : MonoBehaviour
         UpdateCurrent();
 
         CheckForInteractionInput();
+        CheckforTutorialSkip();
 
         transform.Find("hold1").transform.Rotate(0f, 1f, 0f, Space.World);
         transform.Find("hold2").transform.Rotate(0f, 1f, 0f, Space.World);
@@ -74,6 +94,18 @@ public class InteractionController : MonoBehaviour
             {
                 currentTargetInteractable.Interact(gameObject);
             }
+        }
+    }
+
+    void CheckforTutorialSkip()
+    {
+        if (enter_skip.WasPerformedThisFrame() && TutorialActive)
+        {
+            Debug.Log("du Birne");
+            timeManager.StartRound();
+            recipeGen.RoundRecipe();
+            deliveryButton.Renew();
+            TutorialActive = false;
         }
     }
 }

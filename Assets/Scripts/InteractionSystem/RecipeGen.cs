@@ -1,9 +1,6 @@
-
-using NUnit.Framework.Constraints;
-using System.Linq;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class RecipeGen : MonoBehaviour
@@ -12,10 +9,10 @@ public class RecipeGen : MonoBehaviour
     string[] materials = { "Profil", "Dichtung", "Beschlag", "Glasleiste", "Isolierglas", "Fluegel" };
 
     public TMP_Text recipeText;
+
     public RawImage Material1;
     public RawImage Material2;
     public RawImage Material3;
-    public CanvasGroup CanvasGroup1;
 
     [SerializeField] Texture Profil;
     [SerializeField] Texture Dichtung;
@@ -24,8 +21,19 @@ public class RecipeGen : MonoBehaviour
     [SerializeField] Texture Isolierglas;
     [SerializeField] Texture Fluegel;
 
-    public int numberOfMaterials;
-    public string[] newRecipe;
+    public int numberOfMaterials = 1;
+    public string[] newRecipe = new string[1];
+
+    [SerializeField] DeliveryButton deliveryButton;
+
+    public void Start()
+    {
+        Debug.Log ("I exist");
+        numberOfMaterials = 1;
+        string[] newRecipe = { "Dichtung" };
+        UpdateIcons(newRecipe);
+
+    }
 
     public string[] GenerateRecipe()
     {
@@ -41,7 +49,7 @@ public class RecipeGen : MonoBehaviour
         return recipe;
     }
 
-    public void Start()
+    public void RoundRecipe()
     {
         newRecipe = GenerateRecipe(); //holt ein 2-3 langes Array mit zuf�lligen Materials drin
         Debug.Log(string.Join(", ", newRecipe));
@@ -49,7 +57,6 @@ public class RecipeGen : MonoBehaviour
         //code f�r recipe text on screen (aktuell hidden)
         string recipeString = (string.Join(", ", newRecipe));
         recipeText.text = recipeString;
-
         UpdateIcons(newRecipe);
  
     }
@@ -81,34 +88,36 @@ public class RecipeGen : MonoBehaviour
 
         }
 
-        switch (newRecipe[1])
+        if (newRecipe.Length >= 2)
         {
-            case "Profil":
-                Material2.texture = Profil;
-                break;
-            case "Dichtung":
-                Material2.texture = Dichtung;
-                break;
-            case "Beschlag":
-                Material2.texture = Beschlag;
-                break;
-            case "Glasleiste":
-                Material2.texture = Glasleiste;
-                break;
-            case "Isolierglas":
-                Material2.texture = Isolierglas;
-                break;
-            case "Fluegel":
-                Material2.texture = Fluegel;
-                break;
-            default:
-                break;
+            switch (newRecipe[1])
+            {
+                case "Profil":
+                    Material2.texture = Profil;
+                    break;
+                case "Dichtung":
+                    Material2.texture = Dichtung;
+                    break;
+                case "Beschlag":
+                    Material2.texture = Beschlag;
+                    break;
+                case "Glasleiste":
+                    Material2.texture = Glasleiste;
+                    break;
+                case "Isolierglas":
+                    Material2.texture = Isolierglas;
+                    break;
+                case "Fluegel":
+                    Material2.texture = Fluegel;
+                    break;
+                default:
+                    break;
 
+            }
         }
 
         if (newRecipe.Length == 3)
         {
-            CanvasGroup1.alpha = 1f;
             switch (newRecipe[2])
             {
                 case "Profil":
@@ -133,10 +142,6 @@ public class RecipeGen : MonoBehaviour
                     break;
 
             }
-        }
-        else
-        {
-            CanvasGroup1.alpha = 0f;
         }
     }
 }
