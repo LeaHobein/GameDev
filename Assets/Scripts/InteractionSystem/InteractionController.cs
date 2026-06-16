@@ -13,7 +13,9 @@ public class InteractionController : MonoBehaviour
     float interactionDistance = 0.5f;
     RaycastHit hit;
     IInteractable currentTargetInteractable;
+    Materializer currentTargetMaterializer;
     public bool holding = false;
+    public bool looking = false;
     private InputAction interactAction;
     void Awake()
     {
@@ -22,7 +24,8 @@ public class InteractionController : MonoBehaviour
 
     public void Update()
     {
-        UpdateCurrentInteractable();
+        UpdateCurrent();
+
         CheckForInteractionInput();
 
         transform.Find("hold1").transform.Rotate(0f, 1f, 0f, Space.World);
@@ -44,15 +47,26 @@ public class InteractionController : MonoBehaviour
         */
     }
 
-    void UpdateCurrentInteractable()
+    void UpdateCurrent()
     {
         currentTargetInteractable = hit.collider?.GetComponent<IInteractable>();
+
+        currentTargetMaterializer = hit.collider?.GetComponent<Materializer>();
+
+        if(currentTargetMaterializer != null)
+        {
+            looking = true;
+            currentTargetMaterializer.materialize();
+        }else
+        {
+            looking = false;
+        }
     }
     void CheckForInteractionInput()
     {
         Vector3 point1 = transform.position+Vector3.up;
         Vector3 point2 = transform.position;
-        print("in checkforinteractioninput of " + gameObject.name);
+        //print("in checkforinteractioninput of " + gameObject.name);
         
         if(Physics.CapsuleCast(point1, point2, capsuleRadius, transform.forward, out hit, interactionDistance)){ //visualisierung irgendwie? oder triggerbased den boxen nen trigger geben
             print(gameObject.name + "just raycasted" + hit.collider.gameObject);
