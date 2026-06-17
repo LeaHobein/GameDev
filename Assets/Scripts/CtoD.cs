@@ -30,6 +30,6 @@ public class CtoD : MonoBehaviour
     }
 
     private void tod(){
-        gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, D.transform.position, tempo);
+        gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, D.transform.position, tempo * Time.deltaTime);
     }
 }

@@ -8,7 +8,7 @@ public class AtoB : MonoBehaviour
     public GameObject A;
     public GameObject B;
     public float speed;
-    public float tempo;
+    public float tempo; //private float defaultspeed
     //private float distance;
     public bool goal = false;
 
@@ -21,7 +21,7 @@ public class AtoB : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void Update() //public moveToPoint Methode stattdessen, ziel gameobject übergeben
     {
         //trigger Volumes benutzen!!!
         //UND eigene Coroutine!!!
@@ -64,17 +64,19 @@ public class AtoB : MonoBehaviour
     }
 
     private void toa(){
-        Mover.transform.position = Vector3.MoveTowards(Mover.transform.position, A.transform.position, tempo);
+        Mover.transform.position = Vector3.MoveTowards(Mover.transform.position, A.transform.position, tempo * Time.deltaTime);
     }
     private void tob(){
-        Mover.transform.position = Vector3.MoveTowards(Mover.transform.position, B.transform.position, tempo);
+        Mover.transform.position = Vector3.MoveTowards(Mover.transform.position, B.transform.position, tempo * Time.deltaTime);
     }
 
     public IEnumerator delay(float duration)
     {
+        Debug.Log("Coroutine executed");
         tempo = 0f;
         yield return new WaitForSeconds(duration);
         tempo = speed;
+        //tempo = 10;
 
         Mover.transform.Rotate(0f, 180f, 0f);
     }
