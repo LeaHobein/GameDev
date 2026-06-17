@@ -192,14 +192,17 @@ public class DeliveryButton : MonoBehaviour
             {
                 Debug.Log("slay brudi");
                 GameObject.Find("checkup").GetComponent<MeshRenderer>().material.color = new Color(0f, 1f, 0f);
+                GameObject.Find("checkup2").GetComponent<MeshRenderer>().material.color = new Color(0f, 1f, 0f);
                 //Nach richtiger Abgabe -> neues Rezept in RecipeGen
                 GameObject.Find("RecipeGen").GetComponent<RecipeGen>().RoundRecipe();
                 //das Tutorial wurde abgeschlossen, starte die Runde
                 GameObject.Find("timerText").GetComponent<TimeManager>().StartRound();
+                moveit();
             }
             else
             {
                 GameObject.Find("checkup").GetComponent<MeshRenderer>().material.color = new Color(1f, 0f, 0f);
+                GameObject.Find("checkup2").GetComponent<MeshRenderer>().material.color = new Color(1f, 0f, 0f);
             }
         }
         else if (GameObject.Find("RecipeGen").GetComponent<RecipeGen>().numberOfMaterials == 2)   //checke für 2 Abgaben
