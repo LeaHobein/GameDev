@@ -7511,7 +7511,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TimeManager
   countdownTime: 3
-  time: 300
+  time: 10
   timerText: {fileID: 1865826422}
   countdownText: {fileID: 513264751}
   skipText: {fileID: 1602488974}
