@@ -7,7 +7,13 @@ public class AudioManager : MonoBehaviour
     {
         ButtonClick,
         FadeIn,
-        FadeOut
+        FadeOut,
+        CountdownClick,
+        CountdownGo,
+        DeliveryButtonPress,
+        PlayerInteract,
+        Fail,
+        ForkliftSwoosh
         // Add more sound types as needed
     }
 

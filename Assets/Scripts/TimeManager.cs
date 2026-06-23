@@ -44,12 +44,16 @@ public class TimeManager : MonoBehaviour
 
             countdownText.text = countdownTime.ToString();
 
+            AudioManager.Instance.Play(AudioManager.SoundType.CountdownClick);
+
             yield return new WaitForSeconds(1f);
 
             countdownTime--;
         }
 
         countdownText.text = "GO!";
+
+        AudioManager.Instance.Play(AudioManager.SoundType.CountdownGo);
 
         yield return new WaitForSeconds(1f);
 

@@ -50,6 +50,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Escape",
+                    "type": "Button",
+                    "id": "fd0333a0-e045-42fb-8118-847b1a640f0a",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -347,6 +356,17 @@
                     "processors": "",
                     "groups": ";WASD",
                     "action": "SkipTutorial",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "10a70a20-6e2a-48ca-bf86-1402b6af182d",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": ";WASD",
+                    "action": "Escape",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

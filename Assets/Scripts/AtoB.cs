@@ -77,6 +77,7 @@ public class AtoB : MonoBehaviour
         yield return new WaitForSeconds(duration);
         tempo = speed;
         //tempo = 10;
+        AudioManager.Instance.Play(AudioManager.SoundType.ForkliftSwoosh);
 
         Mover.transform.Rotate(0f, 180f, 0f);
     }

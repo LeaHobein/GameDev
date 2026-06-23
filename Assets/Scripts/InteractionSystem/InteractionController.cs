@@ -93,6 +93,7 @@ public class InteractionController : MonoBehaviour
             if(interactAction.WasPerformedThisFrame() && currentTargetInteractable != null)
             {
                 currentTargetInteractable.Interact(gameObject);
+                AudioManager.Instance.Play(AudioManager.SoundType.PlayerInteract);
             }
         }
     }

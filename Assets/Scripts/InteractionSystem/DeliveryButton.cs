@@ -38,6 +38,8 @@ public class DeliveryButton : MonoBehaviour
 
         Debug.Log("Button Pressed");
 
+        AudioManager.Instance.Play(AudioManager.SoundType.DeliveryButtonPress);
+
         Renew();
     }
 
@@ -203,6 +205,7 @@ public class DeliveryButton : MonoBehaviour
             {
                 GameObject.Find("checkup").GetComponent<MeshRenderer>().material.color = new Color(1f, 0f, 0f);
                 GameObject.Find("checkup2").GetComponent<MeshRenderer>().material.color = new Color(1f, 0f, 0f);
+                AudioManager.Instance.Play(AudioManager.SoundType.Fail);
             }
         }
         else if (GameObject.Find("RecipeGen").GetComponent<RecipeGen>().numberOfMaterials == 2)   //checke für 2 Abgaben
@@ -222,6 +225,7 @@ public class DeliveryButton : MonoBehaviour
             {
                 GameObject.Find("checkup").GetComponent<MeshRenderer>().material.color = new Color(1f, 0f, 0f);
                 GameObject.Find("checkup2").GetComponent<MeshRenderer>().material.color = new Color(1f, 0f, 0f);
+                AudioManager.Instance.Play(AudioManager.SoundType.Fail);
             }
         }
         else if (GameObject.Find("RecipeGen").GetComponent<RecipeGen>().numberOfMaterials == 3)   //checke für 3 Abgaben
@@ -241,6 +245,7 @@ public class DeliveryButton : MonoBehaviour
             {
                 GameObject.Find("checkup").GetComponent<MeshRenderer>().material.color = new Color(1f, 0f, 0f);
                 GameObject.Find("checkup2").GetComponent<MeshRenderer>().material.color = new Color(1f, 0f, 0f);
+                AudioManager.Instance.Play(AudioManager.SoundType.Fail);
             }
         }
     }
