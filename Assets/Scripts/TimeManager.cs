@@ -68,7 +68,7 @@ public class TimeManager : MonoBehaviour
             {
                 timerText.text = Mathf.Floor(time).ToString();
 
-                //timer text wird geupdatet wenn die Runde läuft und time > 0
+                //timer text wird geupdatet wenn die Runde lï¿½uft und time > 0
             }
 
             if (time < 11)
@@ -78,13 +78,16 @@ public class TimeManager : MonoBehaviour
                 //ab 10 sekunden wird der timer text rot
             }
 
-            if (time <= 1) //wenn Zeit abgelaufen, alles stopp, Übergang zur nächsten Szene
+            if (time <= 1) //wenn Zeit abgelaufen, alles stopp, ï¿½bergang zur nï¿½chsten Szene
             {
                 if (done == false) //done bool damit ich nicht tausend coroutinen starte
                 {
                     gamePlaying = false;
                     Debug.Log("game over");
                     GameObject.Find("Forklift").GetComponent<AtoB>().tempo = 0f;
+                    //ScoreBoardManager.AddScore(ScoreManager.score); //Score speichern
+                    ScoreBoardManager.AddScore(ScoreBoardManager.playerCount + 1, ScoreManager.score);
+                    ScoreBoardManager.playerCount++;
                     done = true;
                     StartCoroutine(LoadLevel());
 
