@@ -4,6 +4,9 @@ using UnityEngine.InputSystem;
 public class Colorchange : MonoBehaviour, Materializer
 {
     [SerializeField]
+    GameObject objectus;
+    
+    [SerializeField]
     Material m_default;
 
     [SerializeField]
@@ -20,7 +23,7 @@ public class Colorchange : MonoBehaviour, Materializer
     {
         if(GameObject.Find("Player1").GetComponent<InteractionController>().looking == false && GameObject.Find("Player2").GetComponent<InteractionController>().looking == false)
         {
-            gameObject.GetComponent<MeshRenderer>().sharedMaterial = m_default;
+            deline();
         }
     }
 
@@ -33,12 +36,22 @@ public class Colorchange : MonoBehaviour, Materializer
         */
         if(GameObject.Find("Player1").GetComponent<InteractionController>().looking == true || GameObject.Find("Player2").GetComponent<InteractionController>().looking == true)
         {
-            gameObject.GetComponent<MeshRenderer>().sharedMaterial = m_outline;
+            outline();
         }
     }
     
     public void materialize()
     {
         change_color();
+    }
+
+    public void outline()
+    {
+        objectus.GetComponent<MeshRenderer>().sharedMaterial = m_outline;
+    }
+
+    public void deline()
+    {
+        objectus.GetComponent<MeshRenderer>().sharedMaterial = m_default;
     }
 }

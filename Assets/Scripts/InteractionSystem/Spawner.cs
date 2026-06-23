@@ -73,11 +73,5 @@ public class Spawner : MonoBehaviour, IInteractable
             Spawn(player);
             player.GetComponent<InteractionController>().holding = true;
         }
-        else
-        {
-            player.GetComponent<InteractionController>().holding = false;
-            transform.Find("hold1").GetComponent<MeshRenderer>().enabled = false;
-            transform.Find("hold2").GetComponent<MeshRenderer>().enabled = false;
-        }
     }
 }

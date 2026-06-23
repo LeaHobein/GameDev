@@ -9,11 +9,30 @@ public class ButtonPressController : MonoBehaviour
     DeliveryButton deliveryButton;
     Collider buttonCollider;
 
+    [SerializeField]
+    Material m_default;
+
+    [SerializeField]
+    Material m_outline;
+
     void Awake()
     {
         deliveryButton = FindAnyObjectByType<DeliveryButton>();
         if (deliveryButton != null)
             buttonCollider = deliveryButton.GetComponent<Collider>();
+    }
+
+    void Update()
+    {
+        if(IsNearButton())
+        {
+            GameObject.Find("button").GetComponent<MeshRenderer>().sharedMaterial = m_outline;
+            print("am Button nahe");
+        }
+        else
+        {
+            GameObject.Find("button").GetComponent<MeshRenderer>().sharedMaterial = m_default;
+        }
     }
 
     public void OnButtonPress(InputAction.CallbackContext context)
