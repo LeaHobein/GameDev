@@ -18,12 +18,15 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 playerMovement;
     private bool groundedPlayer;
     private bool isStunned;
+    [SerializeField]
+    private TimeManager timeManager;
 
     [Header("Input Actions")]
     public InputActionReference moveAction;
     public InputActionReference pickUpAction;
     private void Start()
     {
+        timeManager = GameObject.Find("timerText").GetComponent<TimeManager>();
         switch (gameObject.name)
         {
             case "Player1":
@@ -73,6 +76,8 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        bool timeout = timeManager.time <= 1;
+        print("time: " + timeManager.time);
         groundedPlayer = controller.isGrounded;
         if(groundedPlayer && playerVelocity.y <= 0)
         {
@@ -86,7 +91,7 @@ public class PlayerMovement : MonoBehaviour
             playerMovement.z * moveSpeed);
         //move = Vector3.ClampMagnitude(move, 1f);
 
-        if (move != Vector3.zero)
+        if (move != Vector3.zero && !timeout)
             transform.forward = move;
 
 
@@ -95,6 +100,7 @@ public class PlayerMovement : MonoBehaviour
 
         // Move
         Vector3 finalMove = move + Vector3.up * playerVelocity.y - Vector3.up;
-        controller.Move(finalMove * Time.deltaTime);
+
+        if(!timeout)controller.Move(finalMove * Time.deltaTime);
     }
 }

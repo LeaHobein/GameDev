@@ -381,8 +381,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2b378d0abe31fe4db966bd1c7c41851, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InteractionController
-  capsuleRadius: 1
-  interactionDistance: 1
+  boxHalfWidth: {x: 0.5, y: 0.5, z: 0.5}
+  interactionDistance: 0.5
   holding: 0
   looking: 0
   TutorialActive: 1
@@ -516,7 +516,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}

@@ -53,7 +53,10 @@ public class Spawner : MonoBehaviour, IInteractable
         }else if (gameObject.name == "box6"){
             player.transform.Find("hold6").GetComponent<MeshRenderer>().enabled = true;
         }
+        player.transform.Find("robot_arms").gameObject.transform.Translate(-1f,1f,0f);
+        player.transform.Find("robot_arms").gameObject.transform.Rotate(0f,0f,-90f);
 
+        
         //holding = true;
         print("player is holding object");
         /*

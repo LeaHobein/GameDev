@@ -63,6 +63,8 @@ public class TableSpot : MonoBehaviour, IInteractable
         else{
             //print("nothing to put down...");
         }
+        player.transform.Find("robot_arms").gameObject.transform.Rotate(0f,0f,90f);
+        player.transform.Find("robot_arms").gameObject.transform.Translate(1f,-1f,0f);
     }
 
     void pickup(GameObject player)
@@ -106,6 +108,8 @@ public class TableSpot : MonoBehaviour, IInteractable
         else{
             //print("nothing to pick up...");
         }
+        player.transform.Find("robot_arms").gameObject.transform.Translate(-1f,1f,0f);
+        player.transform.Find("robot_arms").gameObject.transform.Rotate(0f,0f,-90f);
     }
 
     public void Interact(GameObject player)

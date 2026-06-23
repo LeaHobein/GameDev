@@ -9,7 +9,7 @@ public class InteractionController : MonoBehaviour
     Vector3 point1;
     Vector3 point2;
     [SerializeField]
-    float capsuleRadius = 1f;
+    Vector3 boxHalfWidth = new Vector3(0.5f,0.5f,0.5f);
     [SerializeField]
     float interactionDistance = 0.5f;
     RaycastHit hit;
@@ -84,13 +84,13 @@ public class InteractionController : MonoBehaviour
     }
     void CheckForInteractionInput()
     {
-        Vector3 point1 = transform.position+Vector3.up;
-        Vector3 point2 = transform.position;
+        Vector3 boxCenter = transform.position-transform.forward*0.5f;
+        Vector3 point2 = transform.position-Vector3.up + Vector3.back;
         //print("in checkforinteractioninput of " + gameObject.name);
-        
-        if(Physics.CapsuleCast(point1, point2, capsuleRadius, transform.forward, out hit, interactionDistance)){ //visualisierung irgendwie? oder triggerbased den boxen nen trigger geben
+        //Physics.CapsuleCast(point1, point2, capsuleRadius, transform.forward, out hit, interactionDistance)
+        if(Physics.BoxCast(boxCenter, boxHalfWidth, transform.forward, out hit, Quaternion.identity, interactionDistance)){ //visualisierung irgendwie? oder triggerbased den boxen nen trigger geben
             print(gameObject.name + "just raycasted" + hit.collider.gameObject);
-            if(interactAction.WasPerformedThisFrame() && currentTargetInteractable != null)
+            if(interactAction.WasPerformedThisFrame() && currentTargetInteractable != null && !holding)
             {
                 currentTargetInteractable.Interact(gameObject);
                 AudioManager.Instance.Play(AudioManager.SoundType.PlayerInteract);

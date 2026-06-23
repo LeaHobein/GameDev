@@ -9,26 +9,29 @@ public class AtoB : MonoBehaviour
     public GameObject B;
     public float speed;
     public float tempo; //private float defaultspeed
+    public TimeManager timeManager;
     //private float distance;
     public bool goal = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        timeManager = GameObject.Find("timerText").GetComponent<TimeManager>();
         Mover.transform.position = A.transform.position;
         tempo = speed;
         //Mover.transform.Rotate(0f, 180f, 0f);
     }
 
     // Update is called once per frame
-    void Update() //public moveToPoint Methode stattdessen, ziel gameobject übergeben
+    void Update() //public moveToPoint Methode stattdessen, ziel gameobject ï¿½bergeben
     {
+        bool inGame = timeManager.gamePlaying;
         //trigger Volumes benutzen!!!
         //UND eigene Coroutine!!!
-        if(goal == false)
+        if(goal == false && inGame)
         {
             tob();
-        }else
+        }else if(goal == true && inGame)
         {
             toa();
         }

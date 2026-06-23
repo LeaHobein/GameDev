@@ -8684,6 +8684,7 @@ MonoBehaviour:
   B: {fileID: 830299979}
   speed: 10
   tempo: 0
+  timeManager: {fileID: 1865826421}
   goal: 0
 --- !u!114 &1096076314
 MonoBehaviour:
@@ -10139,10 +10140,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2543585756385547833, guid: 30cda35a3202ac547859a8457a56c733, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2748224885239743295, guid: 30cda35a3202ac547859a8457a56c733, type: 3}
       propertyPath: m_DefaultControlScheme
       value: WASD
       objectReference: {fileID: 0}
+    - target: {fileID: 3914516568578720452, guid: 30cda35a3202ac547859a8457a56c733, type: 3}
+      propertyPath: timeManager
+      value: 
+      objectReference: {fileID: 1865826421}
     - target: {fileID: 5237320839293759393, guid: 30cda35a3202ac547859a8457a56c733, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -10248,6 +10257,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: d1558a48a2f959c43bb4ce57a4d8c8af, type: 2}
     - target: {fileID: 8637812028581883746, guid: 30cda35a3202ac547859a8457a56c733, type: 3}
+      propertyPath: looking
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8637812028581883746, guid: 30cda35a3202ac547859a8457a56c733, type: 3}
       propertyPath: recipeGen
       value: 
       objectReference: {fileID: 287837856}
@@ -10256,9 +10269,25 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1865826421}
     - target: {fileID: 8637812028581883746, guid: 30cda35a3202ac547859a8457a56c733, type: 3}
+      propertyPath: boxHalfWidth.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8637812028581883746, guid: 30cda35a3202ac547859a8457a56c733, type: 3}
+      propertyPath: boxHalfWidth.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8637812028581883746, guid: 30cda35a3202ac547859a8457a56c733, type: 3}
+      propertyPath: boxHalfWidth.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8637812028581883746, guid: 30cda35a3202ac547859a8457a56c733, type: 3}
       propertyPath: deliveryButton
       value: 
       objectReference: {fileID: 766875939}
+    - target: {fileID: 8637812028581883746, guid: 30cda35a3202ac547859a8457a56c733, type: 3}
+      propertyPath: interactionDistance
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8801002804435719787, guid: 30cda35a3202ac547859a8457a56c733, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -14339,7 +14368,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 60
+  m_text: 10
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
