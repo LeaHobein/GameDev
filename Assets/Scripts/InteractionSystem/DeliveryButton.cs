@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class DeliveryButton : MonoBehaviour
+public class DeliveryButton : MonoBehaviour, IInteractable
 {
     [SerializeField]
     private GameObject spotOne;
@@ -186,10 +186,12 @@ public class DeliveryButton : MonoBehaviour
             }
         }
 
-        print(deliveryorder[0] + ", " + recipe[0] + ", " + deliveryorder[1] + ", " + recipe[1] + ", " + deliveryorder[2] + ", " + recipe[2]);
+        //print(deliveryorder[0] + ", " + recipe[0] + ", " + deliveryorder[1] + ", " + recipe[1] + ", " + deliveryorder[2] + ", " + recipe[2]);
 
         if (GameObject.Find("RecipeGen").GetComponent<RecipeGen>().numberOfMaterials == 1) //checke für 1 Abgabe
         {
+            string[] recipe = { "Dichtung" };
+
             if (deliveryorder[0] == recipe[0])
             {
                 Debug.Log("slay brudi");
@@ -253,5 +255,10 @@ public class DeliveryButton : MonoBehaviour
     private void moveit()
     {
         window.GetComponent<CtoD>().goal = true;
+    }
+
+    public void Interact(GameObject player)
+    {
+        Press();
     }
 }

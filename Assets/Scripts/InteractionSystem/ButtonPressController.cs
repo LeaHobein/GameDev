@@ -24,15 +24,18 @@ public class ButtonPressController : MonoBehaviour
 
     void Update()
     {
+        /*
         if(IsNearButton())
         {
             GameObject.Find("button").GetComponent<MeshRenderer>().sharedMaterial = m_outline;
-            //print("am Button nahe");
+            print("am Button nahe");
         }
         else
         {
             GameObject.Find("button").GetComponent<MeshRenderer>().sharedMaterial = m_default;
+            print("nict am Button nahe");
         }
+        */
     }
 
     public void OnButtonPress(InputAction.CallbackContext context)
@@ -52,6 +55,6 @@ public class ButtonPressController : MonoBehaviour
     bool IsNearButton()
     {
         var closestPoint = buttonCollider.ClosestPoint(transform.position);
-        return (closestPoint - transform.position).sqrMagnitude <= pressDistance * pressDistance;
+        return false; //(closestPoint - transform.position).sqrMagnitude <= pressDistance * pressDistance;
     }
 }

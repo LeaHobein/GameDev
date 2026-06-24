@@ -703,6 +703,18 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 615e4ddae55eceb41be8e102045fdc44, type: 2}
+    - target: {fileID: 7128495038475629105, guid: 30cda35a3202ac547859a8457a56c733, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7128495038475629105, guid: 30cda35a3202ac547859a8457a56c733, type: 3}
+      propertyPath: m_default
+      value: 
+      objectReference: {fileID: 2100000, guid: f96821bbefeea864b9b418af4b8615ac, type: 2}
+    - target: {fileID: 7128495038475629105, guid: 30cda35a3202ac547859a8457a56c733, type: 3}
+      propertyPath: m_outline
+      value: 
+      objectReference: {fileID: 2100000, guid: 21d9362ec8daa704cbac8ce4f5be9bee, type: 2}
     - target: {fileID: 7433146100539730950, guid: 30cda35a3202ac547859a8457a56c733, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -771,6 +783,22 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[2]'
       value: 
       objectReference: {fileID: 2100000, guid: 68a42b0194d60b74b85ee6160bffbd5c, type: 2}
+    - target: {fileID: 8637812028581883746, guid: 30cda35a3202ac547859a8457a56c733, type: 3}
+      propertyPath: boxHalfWidth.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8637812028581883746, guid: 30cda35a3202ac547859a8457a56c733, type: 3}
+      propertyPath: boxHalfWidth.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8637812028581883746, guid: 30cda35a3202ac547859a8457a56c733, type: 3}
+      propertyPath: boxHalfWidth.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8637812028581883746, guid: 30cda35a3202ac547859a8457a56c733, type: 3}
+      propertyPath: interactionDistance
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2310,7 +2338,6 @@ GameObject:
   m_Component:
   - component: {fileID: 287837857}
   - component: {fileID: 287837856}
-  - component: {fileID: 287837858}
   m_Layer: 0
   m_Name: RecipeGen
   m_TagString: Untagged
@@ -2358,19 +2385,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &287837858
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 287837855}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d313cc2f8b62ec840983cb900bb9ad3f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  recipeScript: {fileID: 287837856}
 --- !u!1 &290685406
 GameObject:
   m_ObjectHideFlags: 0
@@ -6546,6 +6560,7 @@ GameObject:
   - component: {fileID: 766875936}
   - component: {fileID: 766875935}
   - component: {fileID: 766875939}
+  - component: {fileID: 766875940}
   m_Layer: 0
   m_Name: delivery_button
   m_TagString: Untagged
@@ -6665,6 +6680,21 @@ MonoBehaviour:
   window: {fileID: 308731687}
   scoreManager: {fileID: 1552188515}
   timeManager: {fileID: 1865826421}
+--- !u!114 &766875940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 766875934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed967ba867b56e041b8c28f8d6fe4087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Colorchange
+  objectus: {fileID: 1575259215}
+  m_default: {fileID: 0}
+  m_outline: {fileID: 2100000, guid: 21d9362ec8daa704cbac8ce4f5be9bee, type: 2}
 --- !u!4 &775545426 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 74ff7790b0d0b504d85bc23c4a028eeb, type: 3}
@@ -10882,7 +10912,7 @@ PrefabInstance:
     - target: {fileID: 2543585756385547833, guid: 30cda35a3202ac547859a8457a56c733, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
     - target: {fileID: 2748224885239743295, guid: 30cda35a3202ac547859a8457a56c733, type: 3}
       propertyPath: m_DefaultControlScheme
       value: WASD
@@ -10939,6 +10969,14 @@ PrefabInstance:
       propertyPath: esc_schliessen_text
       value: 
       objectReference: {fileID: 626468729}
+    - target: {fileID: 7128495038475629105, guid: 30cda35a3202ac547859a8457a56c733, type: 3}
+      propertyPath: m_default
+      value: 
+      objectReference: {fileID: 2100000, guid: f96821bbefeea864b9b418af4b8615ac, type: 2}
+    - target: {fileID: 7128495038475629105, guid: 30cda35a3202ac547859a8457a56c733, type: 3}
+      propertyPath: m_outline
+      value: 
+      objectReference: {fileID: 2100000, guid: 21d9362ec8daa704cbac8ce4f5be9bee, type: 2}
     - target: {fileID: 7433146100539730950, guid: 30cda35a3202ac547859a8457a56c733, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8.35
