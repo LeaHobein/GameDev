@@ -20,8 +20,8 @@ public class WasteBin : MonoBehaviour, IInteractable
     {
         if (player.GetComponent<InteractionController>().holding)
         {
-            player.transform.Find("robot_arms").gameObject.transform.Rotate(0f,0f,90f);
-            player.transform.Find("robot_arms").gameObject.transform.Translate(1f,-1f,0f);
+            player.transform.Find("robot_arms_full").gameObject.transform.Rotate(0f,0f,90f);
+            player.transform.Find("robot_arms_full").gameObject.transform.Translate(1f,-1f,0f);
         }
         player.transform.Find("hold1").GetComponent<MeshRenderer>().enabled = false;
         player.transform.Find("hold2").GetComponent<MeshRenderer>().enabled = false;

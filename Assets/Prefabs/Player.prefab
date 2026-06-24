@@ -259,6 +259,7 @@ MonoBehaviour:
   speed: 5
   gravity: -9.81
   controller: {fileID: 8801002804435719787}
+  timeManager: {fileID: 0}
   moveAction: {fileID: 4986670558982917681, guid: 94e9f1687da6b71418ffd2e9840db55d, type: 3}
   pickUpAction: {fileID: 3655369242637800163, guid: 94e9f1687da6b71418ffd2e9840db55d, type: 3}
 --- !u!143 &8801002804435719787
@@ -383,7 +384,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2b378d0abe31fe4db966bd1c7c41851, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InteractionController
-  boxHalfWidth: {x: 0.5, y: 0.5, z: 0.5}
+  boxHalfWidth: {x: 1.5, y: 1, z: 0.5}
   interactionDistance: 0.5
   holding: 0
   looking: 0

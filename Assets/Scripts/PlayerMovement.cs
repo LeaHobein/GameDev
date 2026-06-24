@@ -77,7 +77,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         bool timeout = timeManager.time <= 1;
-        print("time: " + timeManager.time);
+        //print("time: " + timeManager.time);
         groundedPlayer = controller.isGrounded;
         if(groundedPlayer && playerVelocity.y <= 0)
         {

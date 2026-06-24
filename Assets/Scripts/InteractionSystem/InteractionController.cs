@@ -43,6 +43,8 @@ public class InteractionController : MonoBehaviour
 
     public void Update()
     {
+        //print(gameObject.name + " is holding something:" + holding);
+        
         UpdateCurrent();
 
         CheckForInteractionInput();
@@ -89,8 +91,8 @@ public class InteractionController : MonoBehaviour
         //print("in checkforinteractioninput of " + gameObject.name);
         //Physics.CapsuleCast(point1, point2, capsuleRadius, transform.forward, out hit, interactionDistance)
         if(Physics.BoxCast(boxCenter, boxHalfWidth, transform.forward, out hit, Quaternion.identity, interactionDistance)){ //visualisierung irgendwie? oder triggerbased den boxen nen trigger geben
-            print(gameObject.name + "just raycasted" + hit.collider.gameObject);
-            if(interactAction.WasPerformedThisFrame() && currentTargetInteractable != null && !holding)
+            //print(gameObject.name + "just raycasted" + hit.collider.gameObject);
+            if(interactAction.WasPerformedThisFrame() && currentTargetInteractable != null)
             {
                 currentTargetInteractable.Interact(gameObject);
                 AudioManager.Instance.Play(AudioManager.SoundType.PlayerInteract);

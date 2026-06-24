@@ -27,7 +27,7 @@ public class ButtonPressController : MonoBehaviour
         if(IsNearButton())
         {
             GameObject.Find("button").GetComponent<MeshRenderer>().sharedMaterial = m_outline;
-            print("am Button nahe");
+            //print("am Button nahe");
         }
         else
         {

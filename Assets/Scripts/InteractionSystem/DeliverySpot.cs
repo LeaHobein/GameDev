@@ -28,12 +28,14 @@ public class DeliverySpot : MonoBehaviour, IInteractable
         {
             player.transform.Find("hold1").GetComponent<MeshRenderer>().enabled = false;
             gameObject.transform.Find("spawnee").GetComponent<MeshRenderer>().enabled = true;
+            player.GetComponent<InteractionController>().holding = false;
             print("player delivered: spawnee");
         }
         else if (player.transform.Find("hold2").GetComponent<MeshRenderer>().enabled == true)
         {
             player.transform.Find("hold2").GetComponent<MeshRenderer>().enabled = false;
             gameObject.transform.Find("spawnee2").GetComponent<MeshRenderer>().enabled = true;
+            player.GetComponent<InteractionController>().holding = false;
             print("player delivered: spawnee2");
         }
         else if (player.transform.Find("hold3").GetComponent<MeshRenderer>().enabled == true)
@@ -68,8 +70,8 @@ public class DeliverySpot : MonoBehaviour, IInteractable
         {
             print("nothing to deliver/pickup");
         }
-        player.transform.Find("robot_arms").gameObject.transform.Rotate(0f,0f,90f);
-        player.transform.Find("robot_arms").gameObject.transform.Translate(1f,-1f,0f);
+        player.transform.Find("robot_arms_full").gameObject.transform.Rotate(0f,0f,90f);
+        player.transform.Find("robot_arms_full").gameObject.transform.Translate(1f,-1f,0f);
     }
 
     void pickup(GameObject player)
@@ -78,12 +80,14 @@ public class DeliverySpot : MonoBehaviour, IInteractable
         {
             transform.Find("spawnee").GetComponent<MeshRenderer>().enabled = false;
             player.transform.Find("hold1").GetComponent<MeshRenderer>().enabled = true;
+            player.GetComponent<InteractionController>().holding = true;
             print("player picked up: spawnee");
         }
         else if (transform.Find("spawnee2").GetComponent<MeshRenderer>().enabled == true)
         {
             transform.Find("spawnee2").GetComponent<MeshRenderer>().enabled = false;
             player.transform.Find("hold2").GetComponent<MeshRenderer>().enabled = true;
+            player.GetComponent<InteractionController>().holding = true;
             print("player picked up: spawnee2");
         }
         else if (transform.Find("spawnee3").GetComponent<MeshRenderer>().enabled == true)
@@ -118,8 +122,8 @@ public class DeliverySpot : MonoBehaviour, IInteractable
         {
             print("nothing to pick up...");
         }
-        player.transform.Find("robot_arms").gameObject.transform.Translate(-1f,1f,0f);
-        player.transform.Find("robot_arms").gameObject.transform.Rotate(0f,0f,-90f);
+        player.transform.Find("robot_arms_full").gameObject.transform.Translate(-1f,1f,0f);
+        player.transform.Find("robot_arms_full").gameObject.transform.Rotate(0f,0f,-90f);
     }
 
     public void Interact(GameObject player)

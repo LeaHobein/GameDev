@@ -186,7 +186,7 @@ public class DeliveryButton : MonoBehaviour
             }
         }
 
-        //print(deliveryorder[0] + ", " + recipe[0] + ", " + deliveryorder[1] + ", " + recipe[1] + ", " + deliveryorder[2] + ", " + recipe[2]);
+        print(deliveryorder[0] + ", " + recipe[0] + ", " + deliveryorder[1] + ", " + recipe[1] + ", " + deliveryorder[2] + ", " + recipe[2]);
 
         if (GameObject.Find("RecipeGen").GetComponent<RecipeGen>().numberOfMaterials == 1) //checke für 1 Abgabe
         {
