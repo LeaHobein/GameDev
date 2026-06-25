@@ -10,26 +10,34 @@ public class ScoreScreenManager : MonoBehaviour
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
-{
-    scoreScreenText.text = score.ToString();
-    //Sortieren nach Score
-    var sorted = ScoreBoardManager.entries
-            .OrderByDescending(e => e.score)
-            .ToList();
+    {
+        scoreScreenText.text = score.ToString();
+        //Sortieren nach Score
+        var sorted = ScoreBoardManager.entries
+                .OrderByDescending(e => e.score)
+                .ToList();
 
-    string scoreboard = "";
+        string scoreboard = "";
 
-    for (int i = 0; i < sorted.Count; i++)
+        scoreboard += string.Format("{0,-10}{1,-10}{2,-20}\n",
+                                "RUNDE", "PUNKTE", "UHRZEIT");
+
+        scoreboard += "-------------------------------------------\n";
+
+        for (int i = 0; i < sorted.Count; i++)
         {
-            scoreboard += $"Runde {sorted[i].playerId}\t\t{sorted[i].score}\n";
+            scoreboard += string.Format("{0,-10}{1,-10}{2,-20}\n",
+                                    sorted[i].playerId,
+                                        sorted[i].score,
+                                        sorted[i].endTime);
         }
 
-    scoreboardText.text = scoreboard;
-}
+        scoreboardText.text = scoreboard;
+    }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }
