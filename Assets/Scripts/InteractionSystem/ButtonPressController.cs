@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 public class ButtonPressController : MonoBehaviour
 {
     [SerializeField]
-    float pressDistance = 1.5f;
+    //float pressDistance = 1.5f;
 
     DeliveryButton deliveryButton;
     Collider buttonCollider;
