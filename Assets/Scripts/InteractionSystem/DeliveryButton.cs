@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using System.Collections;
 
 public class DeliveryButton : MonoBehaviour, IInteractable
 {
@@ -31,16 +32,31 @@ public class DeliveryButton : MonoBehaviour, IInteractable
         //recipe = GameObject.Find("RecipeGen").GetComponent<RecipeGen>().newRecipe;
     }
 
-    public void Press()
+    IEnumerator wait(float duration)
     {
+        Debug.Log("Coroutine executed");
+
+        //AbgabeAnimation
+        GameObject.Find("deliverystation").GetComponent<Animator>().SetBool("deliver", true);
+        
+        yield return new WaitForSeconds(duration);
+
+        //AbgabeAnimationBack
+        GameObject.Find("deliverystation").GetComponent<Animator>().SetBool("deliver", false);
+
         // ueberprüfe die Abgabestation
         checkup(spotOne, spotTwo, spotThree);
-
-        Debug.Log("Button Pressed");
 
         AudioManager.Instance.Play(AudioManager.SoundType.DeliveryButtonPress);
 
         Renew();
+    }
+
+    public void Press()
+    {
+        Debug.Log("Button Pressed");
+
+        StartCoroutine(wait(2f));
     }
 
     public void Renew()

@@ -280,7 +280,7 @@ CharacterController:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Height: 0
+  m_Height: 1.8
   m_Radius: 0.5
   m_SlopeLimit: 0
   m_StepOffset: 0.3
@@ -369,7 +369,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2c3d4e5f6a748901b2c3d4e5f6a7890, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ButtonPressController
-  pressDistance: 1.5
+  deliveryButton: {fileID: 0}
   m_default: {fileID: 2100000, guid: f96821bbefeea864b9b418af4b8615ac, type: 2}
   m_outline: {fileID: 2100000, guid: 21d9362ec8daa704cbac8ce4f5be9bee, type: 2}
 --- !u!114 &8637812028581883746
