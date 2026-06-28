@@ -11,25 +11,61 @@ public class ScoreScreenManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        
         scoreScreenText.text = score.ToString();
-        //Sortieren nach Score
+
+        // Nach Score sortieren
         var sorted = ScoreBoardManager.entries
-                .OrderByDescending(e => e.score)
-                .ToList();
+            .OrderByDescending(e => e.score)
+            .ToList();
+
+        // Zuletzt gespielte Runde
+        ScoreBoardManager.ScoreEntry currentEntry = ScoreBoardManager.entries.Last();
+
+        // Platz der aktuellen Runde in sortierter Liste
+        int currentIndex = sorted.IndexOf(currentEntry);
 
         string scoreboard = "";
 
-        scoreboard += string.Format("{0,-10}{1,-10}{2,-20}\n",
-                                "RUNDE", "PUNKTE", "UHRZEIT");
+        scoreboard += "TOP 3\n\n";
 
-        scoreboard += "-------------------------------------------\n";
-
-        for (int i = 0; i < sorted.Count; i++)
+        for (int i = 0; i < Mathf.Min(3, sorted.Count); i++)
         {
-            scoreboard += string.Format("{0,-10}{1,-10}{2,-20}\n",
-                                    sorted[i].playerId,
-                                        sorted[i].score,
-                                        sorted[i].endTime);
+            scoreboard += $"{i + 1}. Platz: " +
+                          $"Runde {sorted[i].playerId}   " +
+                          $"Score {sorted[i].score}   " +
+                          $"{sorted[i].endTime}\n";
+        }
+        scoreboard += "\n------------------------\n\n";
+
+        if (currentIndex > 0)
+        {
+            var above = sorted[currentIndex - 1];
+
+            scoreboard += "Über dir\n";
+            scoreboard += $"{currentIndex}. Platz: " +
+                          $"Runde {above.playerId}   " +
+                          $"Score {above.score}   " +
+                          $"{above.endTime}\n\n";
+        }
+
+        var me = sorted[currentIndex];
+
+        scoreboard += "Deine Runde\n";
+        scoreboard += $"{currentIndex + 1}. Platz: " +
+                      $"Runde {me.playerId}   " +
+                      $"Score {me.score}   " +
+                      $"{me.endTime}\n\n";
+
+        if (currentIndex < sorted.Count - 1)
+        {
+            var below = sorted[currentIndex + 1];
+
+            scoreboard += "Unter dir\n";
+            scoreboard += $"{currentIndex + 2}. Platz: " +
+                          $"Runde {below.playerId}   " +
+                          $"Score {below.score}   " +
+                          $"{below.endTime}\n";
         }
 
         scoreboardText.text = scoreboard;
