@@ -78,8 +78,15 @@ public class TimeManager : MonoBehaviour
             if (time < 11)
             {
                 timerText.color = Color.indianRed;
-                
+
                 //ab 10 sekunden wird der timer text rot
+            }
+
+            if (time > 10)
+            {
+                timerText.color = Color.white;
+
+                //über 10 sekunden ist timer text weiss
             }
 
             if (time <= 1) //wenn Zeit abgelaufen, alles stopp, �bergang zur n�chsten Szene
@@ -111,6 +118,12 @@ public class TimeManager : MonoBehaviour
         SceneManager.LoadScene(4);
 
     }
-   
-    
-} 
+
+    public void AddTime(float seconds)
+    {
+        time += seconds;
+        Debug.Log("+" + seconds + " Sekunden");
+    }
+
+
+}
