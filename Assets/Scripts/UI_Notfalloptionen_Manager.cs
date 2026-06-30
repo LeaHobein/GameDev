@@ -47,6 +47,7 @@ public class UI_Notfalloptionen_Manager : MonoBehaviour
             notfall_title_text.gameObject.SetActive(true);
             MenueButton.gameObject.SetActive(true);
             UnstuckButton.gameObject.SetActive(true);
+            GameObject.Find("Forklift").GetComponent<AtoB>().speed = 0f;
 
             NotfallOptionenActive = true;
 
@@ -57,11 +58,14 @@ public class UI_Notfalloptionen_Manager : MonoBehaviour
             notfall_title_text.gameObject.SetActive(false);
             MenueButton.gameObject.SetActive(false);
             UnstuckButton.gameObject.SetActive(false);
-            if(GameObject.Find("Forklift"))
+            if(GameObject.Find("Forklift").GetComponent<AtoB>().isOnAB)
             {
-                
+                GameObject.Find("Forklift").GetComponent<AtoB>().speed = 0f;
             }
-            GameObject.Find("Forklift").GetComponent<AtoB>().speed = GameObject.Find("Forklift").GetComponent<AtoB>().defaultSpeed;
+            else
+            {
+                GameObject.Find("Forklift").GetComponent<AtoB>().speed = GameObject.Find("Forklift").GetComponent<AtoB>().defaultSpeed;
+            }
             NotfallOptionenActive = false;
         }
     }

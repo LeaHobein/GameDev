@@ -12,7 +12,8 @@ public class AtoB : MonoBehaviour
     public float speed; //private float defaultspeed
     public TimeManager timeManager;
     //private float distance;
-    public bool goal = false;
+    public bool onB = false;
+    public bool isOnAB;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -31,20 +32,20 @@ public class AtoB : MonoBehaviour
         
         //trigger Volumes benutzen!!!
         //UND eigene Coroutine!!!
-        else if(goal == false && inGame)
+        else if(onB == false && inGame)
         {
             tob();
-        }else if(goal == true && inGame)
+        }else if(onB == true && inGame)
         {
             toa();
         }
 
         /*
-        if(goal == false)
+        if(onB == false)
         {
             if(Mover.transform.position == B.transform.position)
             {
-                goal = true;
+                onB = true;
                 Mover.transform.Rotate(0f, 180f, 0f);
                 StartCoroutine(delay(3f));
                 Mover.transform.position = Vector3.MoveTowards(Mover.transform.position, A.transform.position, speed);
@@ -53,11 +54,11 @@ public class AtoB : MonoBehaviour
                 tob();
             }
         }
-        else if(goal == true)
+        else if(onB == true)
         {
             if(Mover.transform.position == A.transform.position)
             {
-                goal = false;
+                onB = false;
                 Mover.transform.Rotate(0f, 180f, 0f);
                 StartCoroutine(delay(3f));
                 Mover.transform.position = Vector3.MoveTowards(Mover.transform.position, B.transform.position, speed);
@@ -80,11 +81,14 @@ public class AtoB : MonoBehaviour
     {
         Debug.Log("Coroutine executed");
         speed = 0f;
+        isOnAB = true;
         yield return new WaitForSeconds(duration);
         speed = defaultSpeed;
         //speed = 10;
         AudioManager.Instance.Play(AudioManager.SoundType.ForkliftSwoosh);
 
         Mover.transform.Rotate(0f, 180f, 0f);
+
+        isOnAB = false;
     }
 }
