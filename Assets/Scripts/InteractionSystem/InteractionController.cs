@@ -101,7 +101,7 @@ public class InteractionController : MonoBehaviour
         Debug.DrawLine(lineStart, lineEnd);
         Debug.DrawLine(Vector3.zero, transform.forward);
         
-        print(transform.position);
+        //print(transform.position);
         if(Physics.BoxCast(boxCenter, boxHalfWidth, transform.forward, out hit, Quaternion.identity, interactionDistance)){ //visualisierung irgendwie? oder triggerbased den boxen nen trigger geben
             //print(gameObject.name + "just raycasted" + hit.collider.gameObject);
             if(interactAction.WasPerformedThisFrame() && currentTargetInteractable != null)

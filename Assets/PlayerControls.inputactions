@@ -365,7 +365,7 @@
                     "path": "<Keyboard>/escape",
                     "interactions": "Press",
                     "processors": "",
-                    "groups": ";WASD",
+                    "groups": ";WASD;IJKL",
                     "action": "Escape",
                     "isComposite": false,
                     "isPartOfComposite": false

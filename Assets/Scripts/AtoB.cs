@@ -1,14 +1,15 @@
 using UnityEngine;
 using System.Collections;
 using System;
+using UnityEditor.Experimental.GraphView;
 
 public class AtoB : MonoBehaviour
 {
     public GameObject Mover;
     public GameObject A;
     public GameObject B;
-    public float speed;
-    public float tempo; //private float defaultspeed
+    public float defaultSpeed;
+    public float speed; //private float defaultspeed
     public TimeManager timeManager;
     //private float distance;
     public bool goal = false;
@@ -18,7 +19,7 @@ public class AtoB : MonoBehaviour
     {
         timeManager = GameObject.Find("timerText").GetComponent<TimeManager>();
         Mover.transform.position = A.transform.position;
-        tempo = speed;
+        speed = defaultSpeed;
         //Mover.transform.Rotate(0f, 180f, 0f);
     }
 
@@ -26,9 +27,11 @@ public class AtoB : MonoBehaviour
     void Update() //public moveToPoint Methode stattdessen, ziel gameobject �bergeben
     {
         bool inGame = timeManager.gamePlaying;
+        if(GameObject.Find("Player1").GetComponent<UI_Notfalloptionen_Manager>().NotfallOptionenActive) speed = 0f;
+        
         //trigger Volumes benutzen!!!
         //UND eigene Coroutine!!!
-        if(goal == false && inGame)
+        else if(goal == false && inGame)
         {
             tob();
         }else if(goal == true && inGame)
@@ -44,7 +47,7 @@ public class AtoB : MonoBehaviour
                 goal = true;
                 Mover.transform.Rotate(0f, 180f, 0f);
                 StartCoroutine(delay(3f));
-                Mover.transform.position = Vector3.MoveTowards(Mover.transform.position, A.transform.position, tempo);
+                Mover.transform.position = Vector3.MoveTowards(Mover.transform.position, A.transform.position, speed);
             }else
             {
                 tob();
@@ -57,7 +60,7 @@ public class AtoB : MonoBehaviour
                 goal = false;
                 Mover.transform.Rotate(0f, 180f, 0f);
                 StartCoroutine(delay(3f));
-                Mover.transform.position = Vector3.MoveTowards(Mover.transform.position, B.transform.position, tempo);
+                Mover.transform.position = Vector3.MoveTowards(Mover.transform.position, B.transform.position, speed);
             }else
             {
                 toa(); 
@@ -67,19 +70,19 @@ public class AtoB : MonoBehaviour
     }
 
     private void toa(){
-        Mover.transform.position = Vector3.MoveTowards(Mover.transform.position, A.transform.position, tempo * Time.deltaTime);
+        Mover.transform.position = Vector3.MoveTowards(Mover.transform.position, A.transform.position, speed * Time.deltaTime);
     }
     private void tob(){
-        Mover.transform.position = Vector3.MoveTowards(Mover.transform.position, B.transform.position, tempo * Time.deltaTime);
+        Mover.transform.position = Vector3.MoveTowards(Mover.transform.position, B.transform.position, speed * Time.deltaTime);
     }
 
     public IEnumerator delay(float duration)
     {
         Debug.Log("Coroutine executed");
-        tempo = 0f;
+        speed = 0f;
         yield return new WaitForSeconds(duration);
-        tempo = speed;
-        //tempo = 10;
+        speed = defaultSpeed;
+        //speed = 10;
         AudioManager.Instance.Play(AudioManager.SoundType.ForkliftSwoosh);
 
         Mover.transform.Rotate(0f, 180f, 0f);

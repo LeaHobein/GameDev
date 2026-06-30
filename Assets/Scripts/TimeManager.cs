@@ -64,6 +64,7 @@ public class TimeManager : MonoBehaviour
 
     void Update()
     {
+        if(GameObject.Find("Player1").GetComponent<UI_Notfalloptionen_Manager>().NotfallOptionenActive) return;
         if (gamePlaying == true)
         {
             time -= Time.deltaTime;
@@ -88,7 +89,7 @@ public class TimeManager : MonoBehaviour
                 {
                     gamePlaying = false;
                     Debug.Log("game over");
-                    GameObject.Find("Forklift").GetComponent<AtoB>().tempo = 0f;
+                    GameObject.Find("Forklift").GetComponent<AtoB>().speed = 0f;
                     //ScoreBoardManager.AddScore(ScoreManager.score); //Score speichern
                     ScoreBoardManager.AddScore(ScoreBoardManager.playerCount + 1, ScoreManager.score);
                     ScoreBoardManager.playerCount++;
@@ -98,6 +99,16 @@ public class TimeManager : MonoBehaviour
                 }
             }
         }
+    }
+    
+    public void Pause()
+    {
+        
+    }
+
+    public void Resume()
+    {
+        
     }
 
     IEnumerator LoadLevel()

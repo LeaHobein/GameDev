@@ -369,7 +369,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2c3d4e5f6a748901b2c3d4e5f6a7890, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ButtonPressController
-  pressDistance: 1.5
+  deliveryButton: {fileID: 0}
   m_default: {fileID: 2100000, guid: f96821bbefeea864b9b418af4b8615ac, type: 2}
   m_outline: {fileID: 2100000, guid: 21d9362ec8daa704cbac8ce4f5be9bee, type: 2}
 --- !u!114 &8637812028581883746
@@ -404,6 +404,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e5edc6c7264547428360cbbb3d5086f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UI_Notfalloptionen_Manager
+  escapeAction:
+    m_Name: Escape
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 3a177fe6-daa2-4664-843c-74bc8e44c9f6
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
   NotfallOptionenActive: 0
   esc_schliessen_text: {fileID: 0}
   notfall_title_text: {fileID: 0}
@@ -411,6 +420,7 @@ MonoBehaviour:
   UnstuckButton: {fileID: 0}
   player1: {fileID: 0}
   player2: {fileID: 0}
+  spawnPoints: []
 --- !u!1 &8428133967381186512
 GameObject:
   m_ObjectHideFlags: 0
