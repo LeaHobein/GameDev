@@ -2543,12 +2543,12 @@ MonoBehaviour:
   Material1: {fileID: 268931837}
   Material2: {fileID: 85730558}
   Material3: {fileID: 635236805}
-  Profil: {fileID: 2800000, guid: ab1ea98821016f64b80b239d082f4ad9, type: 3}
-  Dichtung: {fileID: 2800000, guid: 4fdb29b4314d34e47aee57a34abf1677, type: 3}
-  Beschlag: {fileID: 2800000, guid: 75a046c7fbc492341aac9ce7b5d22999, type: 3}
-  Glasleiste: {fileID: 2800000, guid: 89b4e551761c69a448df30e91238eb48, type: 3}
-  Isolierglas: {fileID: 2800000, guid: b200ef52cc45ebf41bf39a0eb7187b9d, type: 3}
-  Fluegel: {fileID: 2800000, guid: 2d7ee012364e7ff40a914a6a961e50db, type: 3}
+  Profil: {fileID: 2800000, guid: f017cc19f9ec6bc4f8008da1a95f058f, type: 3}
+  Dichtung: {fileID: 2800000, guid: 216ceb38c40a2a246969aa1a1be66ded, type: 3}
+  Beschlag: {fileID: 2800000, guid: 502b53a43ba45c541a55852714b41fbb, type: 3}
+  Glasleiste: {fileID: 2800000, guid: 275850c08c2a34d469492cd0ca11f8ea, type: 3}
+  Isolierglas: {fileID: 2800000, guid: 16d80a454acb6ba498d04ed13e30a8e5, type: 3}
+  Fluegel: {fileID: 2800000, guid: d791b8111213efd4fa2d033a4a8139c9, type: 3}
   numberOfMaterials: 0
   newRecipe: []
   deliveryButton: {fileID: 766875939}
