@@ -11955,7 +11955,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   powerUps:
   - prefab: {fileID: 5147916991666484852, guid: 79e2c4d29e303da43ad9bbfbfd06718c, type: 3}
-    type: 1
+    type: 0
   - prefab: {fileID: 5147916991666484852, guid: 79e2c4d29e303da43ad9bbfbfd06718c, type: 3}
     type: 1
   spawnPoints:
