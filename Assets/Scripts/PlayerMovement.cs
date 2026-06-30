@@ -10,6 +10,8 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField]
     private float speed = 5.0f;
+    
+    private float normalSpeed;
     [SerializeField]
     private float gravity = -9.81f;
 
@@ -38,6 +40,7 @@ public class PlayerMovement : MonoBehaviour
             default:
                 break;
         }
+        normalSpeed = speed;
         //controller = gameObject.GetComponent<CharacterController>();
     }
     public void OnMove(InputAction.CallbackContext mov)
@@ -102,5 +105,19 @@ public class PlayerMovement : MonoBehaviour
         Vector3 finalMove = move + Vector3.up * playerVelocity.y - Vector3.up;
 
         if(!timeout)controller.Move(finalMove * Time.deltaTime);
+    }
+
+    public void ActivateSpeedBoost(float duration)
+    {
+        StopCoroutine(nameof(SpeedBoost));
+        StartCoroutine(SpeedBoost(duration));
+    }
+
+    private IEnumerator SpeedBoost (float duration)
+    {
+        speed = normalSpeed * 1.5f;
+        yield return new WaitForSeconds(duration);
+        speed = normalSpeed;
+        
     }
 }

@@ -5,7 +5,7 @@ public class PowerUp : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        powerUpSpawner = GameObject.Find("PowerUp_SpawnPoints").GetComponent<PowerUpSpawner>();
     }
 
     // Update is called once per frame
@@ -25,6 +25,9 @@ public class PowerUp : MonoBehaviour
 
     public float amount = 10f;
     public float duration = 5f;
+    public float speed = 5.0f;
+
+    public PowerUpSpawner powerUpSpawner;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -39,6 +42,14 @@ public class PowerUp : MonoBehaviour
                 break;
 
             case PowerUpType.SpeedBoost:
+
+                PlayerMovement player = other.GetComponent<PlayerMovement>();
+
+                if (player != null)
+                {
+                    player.ActivateSpeedBoost(duration);
+                }
+
                 break;
 
             case PowerUpType.DoubleScore:
@@ -46,6 +57,8 @@ public class PowerUp : MonoBehaviour
         }
 
         Destroy(gameObject);
+        powerUpSpawner.PowerUpOnField = false;
+
     }
 }
 

@@ -30,9 +30,13 @@ public class PowerUpSpawner : MonoBehaviour
 
     private GameObject currentPowerUp;
 
+    public TimeManager timeManager;
+    //public InteractionController interactionController;
+    public bool PowerUpOnField = false;
+
     private void SpawnPowerUp()
     {
-        if (currentPowerUp != null)
+        if (/*currentPowerUp != null &&*/PowerUpOnField || timeManager.gamePlaying == false)
             return;
 
         int powerUpIndex = Random.Range(0, powerUps.Length);
@@ -45,7 +49,7 @@ public class PowerUpSpawner : MonoBehaviour
         );
 
         obj.GetComponent<PowerUp>().type = powerUps[powerUpIndex].type;
-
+        PowerUpOnField = true;
         currentPowerUp = obj;
     }
 
