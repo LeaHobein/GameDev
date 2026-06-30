@@ -11955,12 +11955,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   powerUps:
   - prefab: {fileID: 5147916991666484852, guid: 79e2c4d29e303da43ad9bbfbfd06718c, type: 3}
-    type: 0
+    type: 1
+  - prefab: {fileID: 5147916991666484852, guid: 79e2c4d29e303da43ad9bbfbfd06718c, type: 3}
+    type: 1
   spawnPoints:
   - {fileID: 787395987}
   - {fileID: 336617932}
   - {fileID: 373659466}
   spawnInterval: 10
+  timeManager: {fileID: 1865826421}
+  PowerUpOnField: 0
 --- !u!4 &1287485952
 Transform:
   m_ObjectHideFlags: 0
