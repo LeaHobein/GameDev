@@ -6,8 +6,10 @@ using UnityEngine.UI;
 
 public class UI_Notfalloptionen_Manager : MonoBehaviour
 {
-    private InputAction escapeAction;
+    public InputAction escapeAction;
     public bool NotfallOptionenActive = false;
+
+    public TimeManager timeManager;
 
     public TMP_Text esc_schliessen_text;
     public TMP_Text notfall_title_text;
@@ -16,7 +18,7 @@ public class UI_Notfalloptionen_Manager : MonoBehaviour
 
     public GameObject player1;
     public GameObject player2;
-
+    public Transform[] spawnPoints;
     void Start()
     {
         NotfallOptionenActive = false;
@@ -45,6 +47,7 @@ public class UI_Notfalloptionen_Manager : MonoBehaviour
             notfall_title_text.gameObject.SetActive(true);
             MenueButton.gameObject.SetActive(true);
             UnstuckButton.gameObject.SetActive(true);
+            GameObject.Find("Forklift").GetComponent<AtoB>().speed = 0f;
 
             NotfallOptionenActive = true;
 
@@ -55,7 +58,14 @@ public class UI_Notfalloptionen_Manager : MonoBehaviour
             notfall_title_text.gameObject.SetActive(false);
             MenueButton.gameObject.SetActive(false);
             UnstuckButton.gameObject.SetActive(false);
-
+            if(GameObject.Find("Forklift").GetComponent<AtoB>().isOnAB)
+            {
+                GameObject.Find("Forklift").GetComponent<AtoB>().speed = 0f;
+            }
+            else
+            {
+                GameObject.Find("Forklift").GetComponent<AtoB>().speed = GameObject.Find("Forklift").GetComponent<AtoB>().defaultSpeed;
+            }
             NotfallOptionenActive = false;
         }
     }
@@ -67,7 +77,9 @@ public class UI_Notfalloptionen_Manager : MonoBehaviour
 
     public void resetBots()
     {
-        //player1.gameObject.transform.position = new Vector3(-8, 1, 3);
-        //player2.gameObject.transform.position = new Vector3(8, 1, 3);
+        Debug.Log(GameObject.Find("Player1").transform.position);
+        Debug.Log(GameObject.Find("spawnPoint_1").transform.position);
+        GameObject.Find("Player1").transform.position = GameObject.Find("spawnPoint_1").transform.position;
+        GameObject.Find("Player2").transform.position = GameObject.Find("spawnPoint_2").transform.position;
     }
 }

@@ -8,7 +8,7 @@ public class OnA : MonoBehaviour
         {
             print("Enter on A");
             
-            other.GetComponent<AtoB>().goal = false;
+            other.GetComponent<AtoB>().onB = false;
             other.GetComponent<AtoB>().StartCoroutine(other.GetComponent<AtoB>().delay(UnityEngine.Random.Range(3, 9)));
         }
     }

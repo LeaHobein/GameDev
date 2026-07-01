@@ -79,6 +79,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        if(gameObject.GetComponent<UI_Notfalloptionen_Manager>().NotfallOptionenActive) return;
         bool timeout = timeManager.time <= 1;
         //print("time: " + timeManager.time);
         groundedPlayer = controller.isGrounded;
