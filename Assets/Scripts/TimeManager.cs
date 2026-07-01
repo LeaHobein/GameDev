@@ -94,6 +94,8 @@ public class TimeManager : MonoBehaviour
                 if (done == false) //done bool damit ich nicht tausend coroutinen starte
                 {
                     gamePlaying = false;
+                    countdownText.gameObject.SetActive(true);
+                    countdownText.text = "ENDE!";
                     Debug.Log("game over");
                     GameObject.Find("Forklift").GetComponent<AtoB>().tempo = 0f;
                     //ScoreBoardManager.AddScore(ScoreManager.score); //Score speichern
