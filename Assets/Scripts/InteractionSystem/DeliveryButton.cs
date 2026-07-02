@@ -30,6 +30,10 @@ public class DeliveryButton : MonoBehaviour, IInteractable
         deliveryorder = new string[GameObject.Find("RecipeGen").GetComponent<RecipeGen>().numberOfMaterials];
         //recipe = new string[GameObject.Find("RecipeGen").GetComponent<RecipeGen>().numberOfMaterials];
         //recipe = GameObject.Find("RecipeGen").GetComponent<RecipeGen>().newRecipe;
+
+        GameObject.Find("checklight1").GetComponent<Light>().intensity = 0;
+        GameObject.Find("checklight2").GetComponent<Light>().intensity = 0;
+        GameObject.Find("checklight3").GetComponent<Light>().intensity = 0;
     }
 
     IEnumerator wait(float duration)
@@ -50,6 +54,12 @@ public class DeliveryButton : MonoBehaviour, IInteractable
         AudioManager.Instance.Play(AudioManager.SoundType.DeliveryButtonPress);
 
         Renew();
+
+        yield return new WaitForSeconds(duration);
+
+        GameObject.Find("checklight1").GetComponent<Light>().intensity = 0;
+        GameObject.Find("checklight2").GetComponent<Light>().intensity = 0;
+        GameObject.Find("checklight3").GetComponent<Light>().intensity = 0;
     }
 
     public void Press()
@@ -215,6 +225,12 @@ public class DeliveryButton : MonoBehaviour, IInteractable
                 Debug.Log("slay brudi");
                 GameObject.Find("checkup").GetComponent<MeshRenderer>().material.color = new Color(0f, 1f, 0f);
                 GameObject.Find("checkup2").GetComponent<MeshRenderer>().material.color = new Color(0f, 1f, 0f);
+                GameObject.Find("checklight1").GetComponent<Light>().color = Color.green;
+                GameObject.Find("checklight2").GetComponent<Light>().color = Color.green;
+                GameObject.Find("checklight3").GetComponent<Light>().color = Color.green;
+                GameObject.Find("checklight1").GetComponent<Light>().intensity = 300;
+                GameObject.Find("checklight2").GetComponent<Light>().intensity = 300;
+                GameObject.Find("checklight3").GetComponent<Light>().intensity = 300;
                 //Nach richtiger Abgabe -> neues Rezept in RecipeGen
                 GameObject.Find("RecipeGen").GetComponent<RecipeGen>().RoundRecipe();
                 //das Tutorial wurde abgeschlossen, starte die Runde
@@ -225,6 +241,12 @@ public class DeliveryButton : MonoBehaviour, IInteractable
             {
                 GameObject.Find("checkup").GetComponent<MeshRenderer>().material.color = new Color(1f, 0f, 0f);
                 GameObject.Find("checkup2").GetComponent<MeshRenderer>().material.color = new Color(1f, 0f, 0f);
+                GameObject.Find("checklight1").GetComponent<Light>().color = Color.red;
+                GameObject.Find("checklight2").GetComponent<Light>().color = Color.red;
+                GameObject.Find("checklight3").GetComponent<Light>().color = Color.red;
+                GameObject.Find("checklight1").GetComponent<Light>().intensity = 300;
+                GameObject.Find("checklight2").GetComponent<Light>().intensity = 300;
+                GameObject.Find("checklight3").GetComponent<Light>().intensity = 300;
                 AudioManager.Instance.Play(AudioManager.SoundType.Fail);
             }
         }
@@ -234,6 +256,12 @@ public class DeliveryButton : MonoBehaviour, IInteractable
             {
                 GameObject.Find("checkup").GetComponent<MeshRenderer>().material.color = new Color(0f, 1f, 0f);
                 GameObject.Find("checkup2").GetComponent<MeshRenderer>().material.color = new Color(0f, 1f, 0f);
+                GameObject.Find("checklight1").GetComponent<Light>().color = Color.green;
+                GameObject.Find("checklight2").GetComponent<Light>().color = Color.green;
+                GameObject.Find("checklight3").GetComponent<Light>().color = Color.green;
+                GameObject.Find("checklight1").GetComponent<Light>().intensity = 300;
+                GameObject.Find("checklight2").GetComponent<Light>().intensity = 300;
+                GameObject.Find("checklight3").GetComponent<Light>().intensity = 300;
                 // sende fertiges Fenster uebers Band
                  moveit();
                 //Nach richtiger Abgabe -> neues Rezept in RecipeGen
@@ -245,6 +273,12 @@ public class DeliveryButton : MonoBehaviour, IInteractable
             {
                 GameObject.Find("checkup").GetComponent<MeshRenderer>().material.color = new Color(1f, 0f, 0f);
                 GameObject.Find("checkup2").GetComponent<MeshRenderer>().material.color = new Color(1f, 0f, 0f);
+                GameObject.Find("checklight1").GetComponent<Light>().color = Color.red;
+                GameObject.Find("checklight2").GetComponent<Light>().color = Color.red;
+                GameObject.Find("checklight3").GetComponent<Light>().color = Color.red;
+                GameObject.Find("checklight1").GetComponent<Light>().intensity = 300;
+                GameObject.Find("checklight2").GetComponent<Light>().intensity = 300;
+                GameObject.Find("checklight3").GetComponent<Light>().intensity = 300;
                 AudioManager.Instance.Play(AudioManager.SoundType.Fail);
             }
         }
@@ -254,6 +288,12 @@ public class DeliveryButton : MonoBehaviour, IInteractable
             {
                 GameObject.Find("checkup").GetComponent<MeshRenderer>().material.color = new Color(0f, 1f, 0f);
                 GameObject.Find("checkup2").GetComponent<MeshRenderer>().material.color = new Color(0f, 1f, 0f);
+                GameObject.Find("checklight1").GetComponent<Light>().color = Color.green;
+                GameObject.Find("checklight2").GetComponent<Light>().color = Color.green;
+                GameObject.Find("checklight3").GetComponent<Light>().color = Color.green;
+                GameObject.Find("checklight1").GetComponent<Light>().intensity = 300;
+                GameObject.Find("checklight2").GetComponent<Light>().intensity = 300;
+                GameObject.Find("checklight3").GetComponent<Light>().intensity = 300;
                 // sende fertiges Fenster uebers Band
                 moveit();
                 //Nach richtiger Abgabe -> neues Rezept in RecipeGen
@@ -265,6 +305,12 @@ public class DeliveryButton : MonoBehaviour, IInteractable
             {
                 GameObject.Find("checkup").GetComponent<MeshRenderer>().material.color = new Color(1f, 0f, 0f);
                 GameObject.Find("checkup2").GetComponent<MeshRenderer>().material.color = new Color(1f, 0f, 0f);
+                GameObject.Find("checklight1").GetComponent<Light>().color = Color.red;
+                GameObject.Find("checklight2").GetComponent<Light>().color = Color.red;
+                GameObject.Find("checklight3").GetComponent<Light>().color = Color.red;
+                GameObject.Find("checklight1").GetComponent<Light>().intensity = 300;
+                GameObject.Find("checklight2").GetComponent<Light>().intensity = 300;
+                GameObject.Find("checklight3").GetComponent<Light>().intensity = 300;
                 AudioManager.Instance.Play(AudioManager.SoundType.Fail);
             }
         }
