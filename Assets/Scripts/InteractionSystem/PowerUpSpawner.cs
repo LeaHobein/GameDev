@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class PowerUpSpawner : MonoBehaviour
 {
@@ -31,12 +32,12 @@ public class PowerUpSpawner : MonoBehaviour
     private GameObject currentPowerUp;
 
     public TimeManager timeManager;
-    //public InteractionController interactionController;
+
     public bool PowerUpOnField = false;
 
     private void SpawnPowerUp()
     {
-        if (/*currentPowerUp != null &&*/PowerUpOnField || timeManager.gamePlaying == false)
+        if (PowerUpOnField || timeManager.gamePlaying == false)
             return;
 
         int powerUpIndex = Random.Range(0, powerUps.Length);
@@ -51,6 +52,25 @@ public class PowerUpSpawner : MonoBehaviour
         obj.GetComponent<PowerUp>().type = powerUps[powerUpIndex].type;
         PowerUpOnField = true;
         currentPowerUp = obj;
+
+        StartCoroutine(DestroyPowerUpAfterTime(obj));
     }
+
+    private IEnumerator DestroyPowerUpAfterTime(GameObject powerUp)
+    {
+        yield return new WaitForSeconds(10f);
+
+        if (powerUp != null)
+        {
+            Destroy(powerUp);
+            ClearCurrentPowerUp();
+        }
+    }
+
+    public void ClearCurrentPowerUp()
+{
+    PowerUpOnField = false;
+    currentPowerUp = null;
+}
 
 }

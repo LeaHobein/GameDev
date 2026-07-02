@@ -64,7 +64,8 @@ public class PowerUp : MonoBehaviour
         }
 
         Destroy(gameObject);
-        powerUpSpawner.PowerUpOnField = false;
+        powerUpSpawner.ClearCurrentPowerUp();
+
 
     }
 }
