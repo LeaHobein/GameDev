@@ -734,6 +734,7 @@ GameObject:
   m_Component:
   - component: {fileID: 923428293}
   - component: {fileID: 923428292}
+  - component: {fileID: 923428294}
   m_Layer: 0
   m_Name: MenuManager
   m_TagString: Untagged
@@ -770,6 +771,36 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &923428294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 923428291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.PlayerInput
+  m_Actions: {fileID: -944628639613478452, guid: 904a5a431a3eb934e9f80275c9b8df22, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: Controller
+  m_DefaultActionMap: Menu
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &1045855101
 GameObject:
   m_ObjectHideFlags: 0
@@ -1274,13 +1305,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 923428292}
+      - m_Target: {fileID: 923428291}
         m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
-        m_MethodName: SpielStarten
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1712,6 +1743,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1801947907}
     m_Modifications:
+    - target: {fileID: 3740417659489540094, guid: b901ef04975f33c4a952315100126349, type: 3}
+      propertyPath: startGame.m_Name
+      value: Start Game
+      objectReference: {fileID: 0}
     - target: {fileID: 6630052893614110389, guid: b901ef04975f33c4a952315100126349, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1796,7 +1831,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: transition
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3740417659489540094, guid: b901ef04975f33c4a952315100126349, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
