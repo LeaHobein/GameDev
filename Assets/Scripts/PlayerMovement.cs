@@ -29,13 +29,16 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         timeManager = GameObject.Find("timerText").GetComponent<TimeManager>();
+        Debug.Log(Gamepad.all);
         switch (gameObject.name)
         {
             case "Player1":
-                gameObject.GetComponent<PlayerInput>().SwitchCurrentControlScheme("WASD", Keyboard.current);
+                //gameObject.GetComponent<PlayerInput>().SwitchCurrentControlScheme("WASD", Keyboard.current);
+                gameObject.GetComponent<PlayerInput>().SwitchCurrentControlScheme("Controller", Gamepad.all[0]);
                 break;
             case "Player2":
-                gameObject.GetComponent<PlayerInput>().SwitchCurrentControlScheme("IJKL", Keyboard.current);
+                //gameObject.GetComponent<PlayerInput>().SwitchCurrentControlScheme("IJKL", Keyboard.current);
+                gameObject.GetComponent<PlayerInput>().SwitchCurrentControlScheme("Controller", Gamepad.all[1]);
                 break;
             default:
                 break;
