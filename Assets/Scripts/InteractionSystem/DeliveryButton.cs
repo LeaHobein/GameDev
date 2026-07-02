@@ -56,6 +56,8 @@ public class DeliveryButton : MonoBehaviour, IInteractable
     {
         Debug.Log("Button Pressed");
 
+        gameObject.GetComponent<Animator>().SetTrigger("push");
+
         StartCoroutine(wait(2f));
     }
 
