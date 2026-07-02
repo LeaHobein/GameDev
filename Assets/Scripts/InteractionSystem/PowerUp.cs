@@ -6,6 +6,8 @@ public class PowerUp : MonoBehaviour
     void Start()
     {
         powerUpSpawner = GameObject.Find("PowerUp_SpawnPoints").GetComponent<PowerUpSpawner>();
+        timeManager = FindAnyObjectByType<TimeManager>();
+        scoreManager = FindAnyObjectByType<ScoreManager>();
     }
 
     // Update is called once per frame
@@ -24,10 +26,12 @@ public class PowerUp : MonoBehaviour
     public PowerUpType type;
 
     public float amount = 10f;
-    public float duration = 5f;
+    public float duration = 10f;
     public float speed = 5.0f;
 
     public PowerUpSpawner powerUpSpawner;
+    public TimeManager timeManager;
+    public ScoreManager scoreManager;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -37,7 +41,7 @@ public class PowerUp : MonoBehaviour
         switch (type)
         {
             case PowerUpType.AddTime:
-                FindFirstObjectByType<TimeManager>().AddTime(amount);
+                timeManager.AddTime(amount);
                 Debug.Log("AddTime-PowerUp benutzt");
                 break;
 
@@ -48,11 +52,14 @@ public class PowerUp : MonoBehaviour
                 if (player != null)
                 {
                     player.ActivateSpeedBoost(duration);
+                    Debug.Log("SpeedBoost-PowerUp benutzt");
                 }
 
                 break;
 
             case PowerUpType.DoubleScore:
+                scoreManager.ActivateDoubleScore(duration);
+                Debug.Log("DoubleScore-PowerUp benutzt");
                 break;
         }
 
