@@ -9,7 +9,7 @@ using UnityEngine.UI;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField]
-    private float speed = 5.0f;
+    public float speed = 5.0f;
     
     private float normalSpeed;
     [SerializeField]
