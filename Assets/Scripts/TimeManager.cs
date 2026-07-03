@@ -138,5 +138,11 @@ public class TimeManager : MonoBehaviour
         Debug.Log("+" + seconds + " Sekunden");
     }
 
+    public void DecreaseTime(float seconds)
+    {
+        time -= seconds;
+        Debug.Log("-" + seconds + " Sekunden");
+    }
+
 
 }

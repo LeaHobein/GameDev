@@ -1,11 +1,13 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.InputSystem;
+using System.Collections;
 
 public class ScoreManager : MonoBehaviour
 {
     public TMP_Text scoreText;
     public static int score = 0;
+    public static int scoreMultiplier = 1;
 
     private InputActionAsset InputActions;
     private InputAction p_addpoints;
@@ -46,7 +48,7 @@ public class ScoreManager : MonoBehaviour
     }
     public void addScore()
     {
-        score++;
+        score += scoreMultiplier;
         scoreText.text = score.ToString();
     }
 
@@ -55,5 +57,20 @@ public class ScoreManager : MonoBehaviour
         score--;
         scoreText.text = score.ToString();
     }
+
+    public void ActivateDoubleScore(float duration)
+{
+    StopCoroutine(nameof(DoubleScore));
+    StartCoroutine(DoubleScore(duration));
+}
+
+private IEnumerator DoubleScore(float duration)
+{
+    scoreMultiplier = 2;
+
+    yield return new WaitForSeconds(duration);
+
+    scoreMultiplier = 1;
+}
 
 }

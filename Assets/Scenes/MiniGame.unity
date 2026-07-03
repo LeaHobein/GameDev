@@ -17516,6 +17516,12 @@ MonoBehaviour:
     type: 0
   - prefab: {fileID: 5147916991666484852, guid: 79e2c4d29e303da43ad9bbfbfd06718c, type: 3}
     type: 1
+  - prefab: {fileID: 5147916991666484852, guid: 79e2c4d29e303da43ad9bbfbfd06718c, type: 3}
+    type: 2
+  - prefab: {fileID: 5147916991666484852, guid: 79e2c4d29e303da43ad9bbfbfd06718c, type: 3}
+    type: 3
+  - prefab: {fileID: 5147916991666484852, guid: 79e2c4d29e303da43ad9bbfbfd06718c, type: 3}
+    type: 4
   spawnPoints:
   - {fileID: 787395987}
   - {fileID: 336617932}

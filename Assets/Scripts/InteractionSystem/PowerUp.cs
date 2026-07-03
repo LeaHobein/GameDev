@@ -6,6 +6,8 @@ public class PowerUp : MonoBehaviour
     void Start()
     {
         powerUpSpawner = GameObject.Find("PowerUp_SpawnPoints").GetComponent<PowerUpSpawner>();
+        timeManager = FindAnyObjectByType<TimeManager>();
+        scoreManager = FindAnyObjectByType<ScoreManager>();
     }
 
     // Update is called once per frame
@@ -18,47 +20,67 @@ public class PowerUp : MonoBehaviour
     {
         AddTime,
         SpeedBoost,
-        DoubleScore
+        DoubleScore,
+        DecreaseTime,
+        SlowDown
     }
 
     public PowerUpType type;
 
     public float amount = 10f;
-    public float duration = 5f;
+    public float duration = 10f;
     public float speed = 5.0f;
 
     public PowerUpSpawner powerUpSpawner;
+    public TimeManager timeManager;
+    public ScoreManager scoreManager;
 
-    private void OnTriggerEnter(Collider other)
+
+     private void OnTriggerEnter(Collider other)
     {
         if (!other.CompareTag("Player"))
             return;
 
+        PlayerMovement player = other.GetComponent<PlayerMovement>();
+
         switch (type)
         {
+            // POWERUPS
             case PowerUpType.AddTime:
-                FindFirstObjectByType<TimeManager>().AddTime(amount);
+                timeManager.AddTime(amount);
                 Debug.Log("AddTime-PowerUp benutzt");
                 break;
 
             case PowerUpType.SpeedBoost:
-
-                PlayerMovement player = other.GetComponent<PlayerMovement>();
-
                 if (player != null)
                 {
                     player.ActivateSpeedBoost(duration);
+                    Debug.Log("SpeedBoost-PowerUp benutzt");
                 }
-
                 break;
 
             case PowerUpType.DoubleScore:
+                scoreManager.ActivateDoubleScore(duration);
+                Debug.Log("DoubleScore-PowerUp benutzt");
+                break;
+
+            // DEBUFFS
+            case PowerUpType.DecreaseTime:
+                timeManager.DecreaseTime(amount * 0.5f);
+                Debug.Log("DecreaseTime-Debuff benutzt");
+                break;
+
+            case PowerUpType.SlowDown:
+                if (player != null)
+                {
+                    player.ActivateSlowDown(duration);
+                    Debug.Log("SlowDown-Debuff benutzt");
+                }
                 break;
         }
 
         Destroy(gameObject);
-        powerUpSpawner.PowerUpOnField = false;
-
+        powerUpSpawner.ClearCurrentPowerUp();
     }
 }
 

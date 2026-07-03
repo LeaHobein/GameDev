@@ -124,4 +124,20 @@ public class PlayerMovement : MonoBehaviour
         speed = normalSpeed;
         
     }
+
+    public void ActivateSlowDown(float duration)
+    {
+        StopCoroutine(nameof(SlowDown));
+        StartCoroutine(SlowDown(duration));
+    }
+
+    private IEnumerator SlowDown (float duration)
+    {
+        speed = normalSpeed * 0.5f;
+        yield return new WaitForSeconds(duration);
+        speed = normalSpeed;
+        
+    }
+
+
 }
