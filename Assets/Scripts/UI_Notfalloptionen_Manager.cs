@@ -9,16 +9,16 @@ public class UI_Notfalloptionen_Manager : MonoBehaviour
     public InputAction escapeAction;
     public bool NotfallOptionenActive = false;
 
-    public TimeManager timeManager;
-
     public TMP_Text esc_schliessen_text;
     public TMP_Text notfall_title_text;
     public Button MenueButton;
-    public Button UnstuckButton;
+    public Button resetButton;
+    public RawImage pause_background;
 
     public GameObject player1;
     public GameObject player2;
     public Transform[] spawnPoints;
+
     void Start()
     {
         NotfallOptionenActive = false;
@@ -26,7 +26,8 @@ public class UI_Notfalloptionen_Manager : MonoBehaviour
         esc_schliessen_text.gameObject.SetActive(false);
         notfall_title_text.gameObject.SetActive(false);
         MenueButton.gameObject.SetActive(false);
-        UnstuckButton.gameObject.SetActive(false);
+        resetButton.gameObject.SetActive(false);
+        pause_background.gameObject.SetActive(false);
     }
 
     void Update()
@@ -43,10 +44,12 @@ public class UI_Notfalloptionen_Manager : MonoBehaviour
         if (escapeAction.WasPerformedThisFrame() && !NotfallOptionenActive)
         {
             Debug.Log("was geht");
+            AudioManager.Instance.Play(AudioManager.SoundType.UiAppear);
             esc_schliessen_text.gameObject.SetActive(true);
             notfall_title_text.gameObject.SetActive(true);
             MenueButton.gameObject.SetActive(true);
-            UnstuckButton.gameObject.SetActive(true);
+            resetButton.gameObject.SetActive(true);
+            pause_background.gameObject.SetActive(true);
             GameObject.Find("Forklift").GetComponent<AtoB>().speed = 0f;
 
             NotfallOptionenActive = true;
@@ -54,11 +57,14 @@ public class UI_Notfalloptionen_Manager : MonoBehaviour
         } else if (escapeAction.WasPerformedThisFrame() && NotfallOptionenActive)
         {
             Debug.Log("hiya");
+            AudioManager.Instance.Play(AudioManager.SoundType.UiDissappear);
             esc_schliessen_text.gameObject.SetActive(false);
             notfall_title_text.gameObject.SetActive(false);
             MenueButton.gameObject.SetActive(false);
-            UnstuckButton.gameObject.SetActive(false);
-            if(GameObject.Find("Forklift").GetComponent<AtoB>().isOnAB)
+            resetButton.gameObject.SetActive(false);
+            pause_background.gameObject.SetActive(false);
+
+            if (GameObject.Find("Forklift").GetComponent<AtoB>().isOnAB)
             {
                 GameObject.Find("Forklift").GetComponent<AtoB>().speed = 0f;
             }
@@ -72,14 +78,19 @@ public class UI_Notfalloptionen_Manager : MonoBehaviour
     public void ZumMenue()
     {
         AudioManager.Instance.Play(AudioManager.SoundType.ButtonClick);
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(0);
     }
 
-    public void resetBots()
+    public void ResetGame()
     {
+        SceneManager.LoadScene(1);
+        /*
         Debug.Log(GameObject.Find("Player1").transform.position);
         Debug.Log(GameObject.Find("spawnPoint_1").transform.position);
         GameObject.Find("Player1").transform.position = GameObject.Find("spawnPoint_1").transform.position;
         GameObject.Find("Player2").transform.position = GameObject.Find("spawnPoint_2").transform.position;
+        */
     }
+
+
 }

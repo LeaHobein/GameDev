@@ -27,6 +27,8 @@ public class OnE : MonoBehaviour
                 GameObject.Find("door_right").GetComponent<Animator>().SetBool("forky_entering", true);
                 GameObject.Find("door_right/Signal_Final").GetComponent<MeshRenderer>().sharedMaterial = m_alarm;
                 GameObject.Find("alarm1").GetComponent<Light>().intensity = 100;
+                AudioManager.Instance.Play(AudioManager.SoundType.doorOpenLeft);
+                AudioManager.Instance.Play(AudioManager.SoundType.ForkliftSwoosh);
             }
             else if(GameObject.Find("door_right").GetComponent<Animator>().GetBool("forky_entering") == true)
             {
@@ -43,6 +45,7 @@ public class OnE : MonoBehaviour
                 GameObject.Find("door_left").GetComponent<Animator>().SetBool("forky_entering", false);
                 GameObject.Find("door_left/Signal_Final").GetComponent<MeshRenderer>().sharedMaterial = m_base;
                 GameObject.Find("alarm2").GetComponent<Light>().intensity = 0;
+                AudioManager.Instance.Play(AudioManager.SoundType.doorCloseRight);
             }
         }
     }

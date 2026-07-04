@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using System.Collections;
 
@@ -65,6 +64,7 @@ public class DeliveryButton : MonoBehaviour, IInteractable
     public void Press()
     {
         Debug.Log("Button Pressed");
+        AudioManager.Instance.Play(AudioManager.SoundType.deliveryStation);
 
         gameObject.GetComponent<Animator>().SetTrigger("push");
 

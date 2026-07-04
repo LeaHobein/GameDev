@@ -1,9 +1,6 @@
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.iOS;
-using UnityEngine.UI;
 
 [RequireComponent(typeof(CharacterController))]
 public class PlayerMovement : MonoBehaviour
@@ -60,6 +57,7 @@ public class PlayerMovement : MonoBehaviour
     }
     public void Stun(float duration)
     {
+        AudioManager.Instance.Play(AudioManager.SoundType.Punch);
         StopCoroutine(nameof(StunCoroutine));
         StartCoroutine(StunCoroutine(duration));
     }

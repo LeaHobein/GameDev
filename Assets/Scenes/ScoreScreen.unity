@@ -406,7 +406,7 @@ GameObject:
   - component: {fileID: 868620745}
   - component: {fileID: 868620744}
   m_Layer: 5
-  m_Name: PlayButton
+  m_Name: PlayButton_score
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -618,7 +618,7 @@ GameObject:
   - component: {fileID: 1248658548}
   - component: {fileID: 1248658547}
   m_Layer: 5
-  m_Name: SettingsButton
+  m_Name: SettingsButton_score
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1102,7 +1102,7 @@ GameObject:
   - component: {fileID: 1565311207}
   - component: {fileID: 1565311206}
   m_Layer: 5
-  m_Name: MenueButton
+  m_Name: MenueButton_score
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1235,7 +1235,7 @@ GameObject:
   - component: {fileID: 1752898059}
   - component: {fileID: 1752898058}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Canvas_score
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1347,7 +1347,7 @@ GameObject:
   - component: {fileID: 1786880037}
   - component: {fileID: 1786880040}
   m_Layer: 0
-  m_Name: Main Camera
+  m_Name: MainCamera_score
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2177,7 +2177,7 @@ GameObject:
   - component: {fileID: 2025107393}
   - component: {fileID: 2025107395}
   m_Layer: 0
-  m_Name: Directional Light
+  m_Name: DirectionalLight_score
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

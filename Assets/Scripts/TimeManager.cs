@@ -8,18 +8,17 @@ public class TimeManager : MonoBehaviour
 {
     public int countdownTime = 3;
     public float time = 10;
+    public float transitionTime = 1f;
+    public bool done = false;
+    public bool gamePlaying = false;
+
     public TMP_Text timerText;
     public TMP_Text countdownText;
-
     public TMP_Text skipText;
     public TMP_Text tutorial;
 
     public Animator transition;
-    public float transitionTime = 1f;
-
-    public bool done = false;
-
-    public bool gamePlaying = false;
+    public ScoreManager scoreManager;
 
     private void Start()
     {
@@ -136,7 +135,7 @@ public class TimeManager : MonoBehaviour
 
         yield return new WaitForSeconds(1f);
 
-        SceneManager.LoadScene(4);
+        SceneManager.LoadScene(3);
 
     }
 

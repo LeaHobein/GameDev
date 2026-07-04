@@ -46,12 +46,15 @@ public class PowerUp : MonoBehaviour
 
         PlayerMovement player = other.GetComponent<PlayerMovement>();
 
+        AudioManager.Instance.Play(AudioManager.SoundType.PowerUpPop);
+
         switch (type)
         {
             // POWERUPS
             case PowerUpType.AddTime:
                 timeManager.AddTime(amount);
                 Debug.Log("AddTime-PowerUp benutzt");
+                AudioManager.Instance.Play(AudioManager.SoundType.PosPowerUp);
                 break;
 
             case PowerUpType.SpeedBoost:
@@ -59,18 +62,21 @@ public class PowerUp : MonoBehaviour
                 {
                     player.ActivateSpeedBoost(duration);
                     Debug.Log("SpeedBoost-PowerUp benutzt");
+                    AudioManager.Instance.Play(AudioManager.SoundType.PosPowerUp);
                 }
                 break;
 
             case PowerUpType.DoubleScore:
                 scoreManager.ActivateDoubleScore(duration);
                 Debug.Log("DoubleScore-PowerUp benutzt");
+                AudioManager.Instance.Play(AudioManager.SoundType.PosPowerUp);
                 break;
 
             // DEBUFFS
             case PowerUpType.DecreaseTime:
                 timeManager.DecreaseTime(amount * 0.5f);
                 Debug.Log("DecreaseTime-Debuff benutzt");
+                AudioManager.Instance.Play(AudioManager.SoundType.NegPowerUp);
                 break;
 
             case PowerUpType.SlowDown:
@@ -78,6 +84,7 @@ public class PowerUp : MonoBehaviour
                 {
                     player.ActivateSlowDown(duration);
                     Debug.Log("SlowDown-Debuff benutzt");
+                    AudioManager.Instance.Play(AudioManager.SoundType.NegPowerUp);
                 }
                 break;
 

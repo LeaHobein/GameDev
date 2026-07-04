@@ -13,7 +13,19 @@ public class AudioManager : MonoBehaviour
         DeliveryButtonPress,
         PlayerInteract,
         Fail,
-        ForkliftSwoosh
+        ForkliftSwoosh,
+        Fanfare,
+        PowerUpPop,
+        PosPowerUp,
+        NegPowerUp,
+        UiAppear,
+        UiDissappear,
+        Punch,
+        doorOpenLeft,
+        doorOpenRight,
+        doorCloseLeft,
+        doorCloseRight,
+        deliveryStation
         // Add more sound types as needed
     }
 

@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class TableSpot : MonoBehaviour, IInteractable
 {

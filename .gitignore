@@ -23,6 +23,9 @@
 # They also could contain extremely sensitive data
 /[Mm]emoryCaptures/
 
+/Assets/TextMesh Pro/Resources/Fonts_Materials/Druk_grosserText.asset
+/Assets/TextMesh Pro/Resources/Fonts_Materials/Druk_grosserText.asset.meta
+
 # Recordings can get excessive in size
 /[Rr]ecordings/
 
