@@ -8,6 +8,7 @@ public class PowerUp : MonoBehaviour
         powerUpSpawner = GameObject.Find("PowerUp_SpawnPoints").GetComponent<PowerUpSpawner>();
         timeManager = FindAnyObjectByType<TimeManager>();
         scoreManager = FindAnyObjectByType<ScoreManager>();
+        deliverySpot = FindAnyObjectByType<DeliverySpot>();
     }
 
     // Update is called once per frame
@@ -22,7 +23,8 @@ public class PowerUp : MonoBehaviour
         SpeedBoost,
         DoubleScore,
         DecreaseTime,
-        SlowDown
+        SlowDown,
+        DisableDeliverySpot
     }
 
     public PowerUpType type;
@@ -34,9 +36,10 @@ public class PowerUp : MonoBehaviour
     public PowerUpSpawner powerUpSpawner;
     public TimeManager timeManager;
     public ScoreManager scoreManager;
+    public DeliverySpot deliverySpot;
 
 
-     private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (!other.CompareTag("Player"))
             return;
@@ -76,6 +79,16 @@ public class PowerUp : MonoBehaviour
                     player.ActivateSlowDown(duration);
                     Debug.Log("SlowDown-Debuff benutzt");
                 }
+                break;
+
+            case PowerUpType.DisableDeliverySpot:
+
+                foreach (var spot in DeliverySpot.allSpots)
+                {
+                    spot.BlockForSeconds(duration);
+                }
+                Debug.Log("DisableDeliverySpot-Debuff benutzt");
+
                 break;
         }
 

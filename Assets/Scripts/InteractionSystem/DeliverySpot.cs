@@ -1,14 +1,18 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections;
 
 public class DeliverySpot : MonoBehaviour, IInteractable
 {
     public bool occupado = false;
+    public bool isBlocked = false;
+    public static System.Collections.Generic.List<DeliverySpot> allSpots = new();
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        allSpots.Add(this);
     }
 
     // Update is called once per frame
@@ -70,8 +74,8 @@ public class DeliverySpot : MonoBehaviour, IInteractable
         {
             print("nothing to deliver/pickup");
         }
-        player.transform.Find("robot_arms_full").gameObject.transform.Rotate(0f,0f,90f);
-        player.transform.Find("robot_arms_full").gameObject.transform.Translate(1f,-1f,0f);
+        player.transform.Find("robot_arms_full").gameObject.transform.Rotate(0f, 0f, 90f);
+        player.transform.Find("robot_arms_full").gameObject.transform.Translate(1f, -1f, 0f);
     }
 
     void pickup(GameObject player)
@@ -122,11 +126,11 @@ public class DeliverySpot : MonoBehaviour, IInteractable
         {
             print("nothing to pick up...");
         }
-        player.transform.Find("robot_arms_full").gameObject.transform.Translate(-1f,1f,0f);
-        player.transform.Find("robot_arms_full").gameObject.transform.Rotate(0f,0f,-90f);
+        player.transform.Find("robot_arms_full").gameObject.transform.Translate(-1f, 1f, 0f);
+        player.transform.Find("robot_arms_full").gameObject.transform.Rotate(0f, 0f, -90f);
     }
 
-    public void Interact(GameObject player)
+    /*public void Interact(GameObject player)
     {
         if(player.GetComponent<InteractionController>().holding == true && occupado == false){
             deliver(player);
@@ -135,5 +139,45 @@ public class DeliverySpot : MonoBehaviour, IInteractable
             pickup(player);
             occupado = false;
         }
+    }*/
+
+    public void Interact(GameObject player)
+    {
+        if (isBlocked)
+        {
+            Debug.Log("DeliverySpot ist blockiert");
+            Debug.Log(gameObject.name + " blocked: " + isBlocked);
+            return;
+        }
+
+        if (player.GetComponent<InteractionController>().holding == true && occupado == false)
+        {
+            deliver(player);
+            occupado = true;
+        }
+        else if (player.GetComponent<InteractionController>().holding == false && occupado == true)
+        {
+            pickup(player);
+            occupado = false;
+        }
+    }
+
+    public void BlockForSeconds(float duration)
+    {
+        StartCoroutine(BlockCoroutine(duration));
+    }
+
+    private IEnumerator BlockCoroutine(float duration)
+    {
+        isBlocked = true;
+
+        yield return new WaitForSeconds(duration);
+
+        isBlocked = false;
+    }
+
+    void OnDestroy()
+    {
+        allSpots.Remove(this);
     }
 }
