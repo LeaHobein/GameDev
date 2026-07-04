@@ -18,6 +18,8 @@ public class WasteBin : MonoBehaviour, IInteractable
 
     void DestroyItem(GameObject player)
     {
+        gameObject.GetComponent<Animator>().SetTrigger("throw");
+
         if (player.GetComponent<InteractionController>().holding)
         {
             player.transform.Find("robot_arms_full").gameObject.transform.Rotate(0f,0f,90f);

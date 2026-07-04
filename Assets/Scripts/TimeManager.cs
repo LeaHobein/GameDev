@@ -46,6 +46,9 @@ public class TimeManager : MonoBehaviour
 
             AudioManager.Instance.Play(AudioManager.SoundType.CountdownClick);
 
+            GameObject.Find("Player1").GetComponent<PlayerMovement>().speed = 0f;
+            GameObject.Find("Player2").GetComponent<PlayerMovement>().speed = 0f;
+
             yield return new WaitForSeconds(1f);
 
             countdownTime--;
@@ -60,6 +63,9 @@ public class TimeManager : MonoBehaviour
         countdownText.gameObject.SetActive(false);
 
         gamePlaying = true; //startet die Runde
+
+        GameObject.Find("Player1").GetComponent<PlayerMovement>().speed = 5.0f;
+        GameObject.Find("Player2").GetComponent<PlayerMovement>().speed = 5.0f;
     }
 
     void Update()
@@ -98,6 +104,8 @@ public class TimeManager : MonoBehaviour
                     countdownText.gameObject.SetActive(true);
                     countdownText.text = "ENDE!";
                     Debug.Log("game over");
+                    GameObject.Find("Player1").GetComponent<PlayerMovement>().speed = 0f;
+                    GameObject.Find("Player2").GetComponent<PlayerMovement>().speed = 0f;
                     GameObject.Find("Forklift").GetComponent<AtoB>().speed = 0f;
                     //ScoreBoardManager.AddScore(ScoreManager.score); //Score speichern
                     ScoreBoardManager.AddScore(ScoreBoardManager.playerCount + 1, ScoreManager.score);

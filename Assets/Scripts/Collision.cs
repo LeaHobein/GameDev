@@ -8,6 +8,8 @@ public class Collision : MonoBehaviour
         {
             print("Enter");
 
+            other.GetComponent<Animator>().SetTrigger("collide");
+
             var movement = other.GetComponentInParent<PlayerMovement>();
             if (movement != null)
                 movement.Stun(1f); //Stun duration
