@@ -17025,6 +17025,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78c12b35dce59144d908750f0e299ffa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  m_addTimeSymbol: {fileID: 2100000, guid: 57124d5fb0df4354aa6b335291eec7eb, type: 2}
+  m_speedBoostSymbol: {fileID: 2100000, guid: dbc78044ea1e7e34c9f395e773f0307e, type: 2}
+  m_doubleScoreSymbol: {fileID: 2100000, guid: a1ab0b42468861f4cb41608f593e305a, type: 2}
+  m_decreaseTimeSymbol: {fileID: 2100000, guid: e04e27acfda2fd4488e730283e8918a6, type: 2}
+  m_slowDownSymbol: {fileID: 2100000, guid: c08106e3068aff148aa48a44a23fcb4b, type: 2}
+  m_powerUpOrb: {fileID: 2100000, guid: 139753afed938ba4eb4aefdc9426fece, type: 2}
+  m_powerDownOrb: {fileID: 2100000, guid: 37faf00c93874254d87eb700fa14c12f, type: 2}
+  m_powerUpOutline: {fileID: 2100000, guid: 64d0002bc3a46854dba898aa1d0b0785, type: 2}
+  m_powerDownOutline: {fileID: 2100000, guid: b675a9e41dcb69949b3d8d235be6c4bf, type: 2}
   powerUps:
   - prefab: {fileID: 5147916991666484852, guid: 79e2c4d29e303da43ad9bbfbfd06718c, type: 3}
     type: 0
