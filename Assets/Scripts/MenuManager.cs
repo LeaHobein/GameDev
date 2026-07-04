@@ -1,5 +1,4 @@
 using System.Collections;
-using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
@@ -16,35 +15,38 @@ public class MenuManager : MonoBehaviour
 
     public void Awake()
     {
+        /*
         startGame = gameObject.GetComponent<PlayerInput>().actions["Confirm"];
         endGame = gameObject.GetComponent<PlayerInput>().actions["Cancel"];
         gameOptions = gameObject.GetComponent<PlayerInput>().actions["Option_1"];
         credits = gameObject.GetComponent<PlayerInput>().actions["Option_2"];
+        */
     }
     public void Update()
     {
+        /*
         if(startGame.WasPerformedThisFrame()) SpielStarten();
         if(endGame.WasPerformedThisFrame()) Beenden();
-        if(gameOptions.WasPerformedThisFrame()) Einstellungen();
+        if(gameOptions.WasPerformedThisFrame()) Credits();
         if(credits.WasPerformedThisFrame()) Beenden();
-
+        */
     }
     public void ZumMenue()
     {
         AudioManager.Instance.Play(AudioManager.SoundType.ButtonClick);
-        StartCoroutine(LoadLevel(1));
+        StartCoroutine(LoadLevel(0));
     }
     public void SpielStarten()
     {
         //SceneManager.LoadSceneAsync("MiniGame"); Spiel starten ohne Fade Animation
         AudioManager.Instance.Play(AudioManager.SoundType.ButtonClick);
-        StartCoroutine(LoadLevel(2));
+        StartCoroutine(LoadLevel(1));
     }
 
-    public void Einstellungen()
+    public void Credits()
     {
         AudioManager.Instance.Play(AudioManager.SoundType.ButtonClick);
-        StartCoroutine(LoadLevel(3));
+        StartCoroutine(LoadLevel(2));
     }
 
    

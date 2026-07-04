@@ -1,7 +1,5 @@
 using UnityEngine;
 using System.Collections;
-using System;
-using UnityEditor.Experimental.GraphView;
 
 public class AtoB : MonoBehaviour
 {
