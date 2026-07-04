@@ -11,7 +11,7 @@ public class ScoreScreenManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+
         scoreScreenText.text = score.ToString();
 
         // Nach Score sortieren
@@ -34,7 +34,7 @@ public class ScoreScreenManager : MonoBehaviour
             scoreboard += $"{i + 1}. Platz: " +
                           $"Runde {sorted[i].playerId}   " +
                           $"Score {sorted[i].score}   " +
-                          $"{sorted[i].endTime}\n";
+                          $"{sorted[i].endTime} Uhr\n";
         }
         scoreboard += "\n------------------------\n\n";
 
@@ -46,16 +46,16 @@ public class ScoreScreenManager : MonoBehaviour
             scoreboard += $"{currentIndex}. Platz: " +
                           $"Runde {above.playerId}   " +
                           $"Score {above.score}   " +
-                          $"{above.endTime}\n\n";
+                          $"{above.endTime} Uhr\n\n";
         }
 
         var me = sorted[currentIndex];
 
-        scoreboard += "Deine Runde\n";
-        scoreboard += $"{currentIndex + 1}. Platz: " +
+        scoreboard += "<b><color=#FFA500>Deine Runde</color></b>\n";
+        scoreboard += $"<b><color=#FFA500>{currentIndex + 1}. Platz: " +
                       $"Runde {me.playerId}   " +
                       $"Score {me.score}   " +
-                      $"{me.endTime}\n\n";
+                      $"{me.endTime} Uhr</color></b>\n\n";
 
         if (currentIndex < sorted.Count - 1)
         {
@@ -65,7 +65,21 @@ public class ScoreScreenManager : MonoBehaviour
             scoreboard += $"{currentIndex + 2}. Platz: " +
                           $"Runde {below.playerId}   " +
                           $"Score {below.score}   " +
-                          $"{below.endTime}\n";
+                          $"{below.endTime} Uhr\n";
+        }
+
+        scoreboard += "\n------------------------\n\n";
+
+        int totalRounds = ScoreBoardManager.entries.Count;
+        string firstRoundTime = ScoreBoardManager.entries.First().endTime;
+
+        if (totalRounds == 1)
+        {
+            scoreboard += $"Von insgesamt {totalRounds} Runde seit {firstRoundTime} Uhr";
+        }
+        else
+        {
+            scoreboard += $"Von insgesamt {totalRounds} Runden seit {firstRoundTime} Uhr";
         }
 
         scoreboardText.text = scoreboard;
