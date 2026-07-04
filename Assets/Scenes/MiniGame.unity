@@ -17030,6 +17030,7 @@ MonoBehaviour:
   m_doubleScoreSymbol: {fileID: 2100000, guid: a1ab0b42468861f4cb41608f593e305a, type: 2}
   m_decreaseTimeSymbol: {fileID: 2100000, guid: e04e27acfda2fd4488e730283e8918a6, type: 2}
   m_slowDownSymbol: {fileID: 2100000, guid: c08106e3068aff148aa48a44a23fcb4b, type: 2}
+  m_disableSymbol: {fileID: 2100000, guid: 4f85198333ea6a642bedb283f1416587, type: 2}
   m_powerUpOrb: {fileID: 2100000, guid: 139753afed938ba4eb4aefdc9426fece, type: 2}
   m_powerDownOrb: {fileID: 2100000, guid: 37faf00c93874254d87eb700fa14c12f, type: 2}
   m_powerUpOutline: {fileID: 2100000, guid: 64d0002bc3a46854dba898aa1d0b0785, type: 2}

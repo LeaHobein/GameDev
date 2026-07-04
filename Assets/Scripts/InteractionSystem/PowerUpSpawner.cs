@@ -8,6 +8,7 @@ public class PowerUpSpawner : MonoBehaviour
     public Material m_doubleScoreSymbol;
     public Material m_decreaseTimeSymbol;
     public Material m_slowDownSymbol;
+    public Material m_disableSymbol;
     public Material m_powerUpOrb;
     public Material m_powerDownOrb;
     public Material m_powerUpOutline;
@@ -88,6 +89,12 @@ public class PowerUpSpawner : MonoBehaviour
             case 4:
                 GameObject.Find("powerUpOrb").GetComponent<MeshRenderer>().sharedMaterial = m_powerDownOrb;
                 GameObject.Find("powerUpSymbol").GetComponent<MeshRenderer>().sharedMaterial = m_slowDownSymbol;
+                obj.GetComponent<MeshRenderer>().sharedMaterial = m_powerDownOutline;
+                break;
+
+            case 5:
+                GameObject.Find("powerUpOrb").GetComponent<MeshRenderer>().sharedMaterial = m_powerDownOrb;
+                GameObject.Find("powerUpSymbol").GetComponent<MeshRenderer>().sharedMaterial = m_disableSymbol;
                 obj.GetComponent<MeshRenderer>().sharedMaterial = m_powerDownOutline;
                 break;
             default:
