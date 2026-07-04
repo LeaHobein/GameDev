@@ -19,7 +19,13 @@ public class AudioManager : MonoBehaviour
         PosPowerUp,
         NegPowerUp,
         UiAppear,
-        UiDissappear
+        UiDissappear,
+        Punch,
+        doorOpenLeft,
+        doorOpenRight,
+        doorCloseLeft,
+        doorCloseRight,
+        deliveryStation
         // Add more sound types as needed
     }
 

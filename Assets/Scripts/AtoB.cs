@@ -1,5 +1,6 @@
-using UnityEngine;
 using System.Collections;
+using System.Xml.Linq;
+using UnityEngine;
 
 public class AtoB : MonoBehaviour
 {
@@ -83,7 +84,6 @@ public class AtoB : MonoBehaviour
         yield return new WaitForSeconds(duration);
         speed = defaultSpeed;
         //speed = 10;
-        AudioManager.Instance.Play(AudioManager.SoundType.ForkliftSwoosh);
 
         Mover.transform.Rotate(0f, 180f, 0f);
 

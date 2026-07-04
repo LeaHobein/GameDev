@@ -43,6 +43,8 @@ public class PowerUp : MonoBehaviour
 
         PlayerMovement player = other.GetComponent<PlayerMovement>();
 
+        AudioManager.Instance.Play(AudioManager.SoundType.PowerUpPop);
+
         switch (type)
         {
             // POWERUPS

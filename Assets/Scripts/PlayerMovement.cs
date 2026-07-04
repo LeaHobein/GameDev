@@ -53,6 +53,7 @@ public class PlayerMovement : MonoBehaviour
     }
     public void Stun(float duration)
     {
+        AudioManager.Instance.Play(AudioManager.SoundType.Punch);
         StopCoroutine(nameof(StunCoroutine));
         StartCoroutine(StunCoroutine(duration));
     }
