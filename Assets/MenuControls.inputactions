@@ -7,7 +7,7 @@
             "id": "72f4b3f0-e50b-443c-ada8-24ffee7b7cc3",
             "actions": [
                 {
-                    "name": "Confirm",
+                    "name": "A",
                     "type": "Button",
                     "id": "0e70d779-219d-4397-af93-8fc8782941f1",
                     "expectedControlType": "",
@@ -16,7 +16,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Option_1",
+                    "name": "X",
                     "type": "Button",
                     "id": "1dfcaeac-abd7-43c9-a5bf-3b2f285f7e19",
                     "expectedControlType": "",
@@ -25,7 +25,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Cancel",
+                    "name": "B",
                     "type": "Button",
                     "id": "bfc993ad-5cf2-4919-bcdd-2b69475731eb",
                     "expectedControlType": "",
@@ -34,9 +34,18 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Option_2",
+                    "name": "Y",
                     "type": "Button",
                     "id": "d4fd1e3b-4549-49ab-aca1-a415e9d9b56f",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Pause",
+                    "type": "Button",
+                    "id": "a90ccaca-6bea-4630-9def-f29f7777be98",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -51,18 +60,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Controller",
-                    "action": "Confirm",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "836e0011-44e4-456c-996b-8502f33ad056",
-                    "path": "<Keyboard>/e",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Keyboard",
-                    "action": "Confirm",
+                    "action": "A",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -73,18 +71,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Controller",
-                    "action": "Option_1",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "7565b9cb-a167-4cc0-8996-043f0df792be",
-                    "path": "<Keyboard>/u",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Keyboard",
-                    "action": "Option_1",
+                    "action": "X",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -95,18 +82,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Controller",
-                    "action": "Cancel",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "23dd2c24-6bf8-43d6-b1e0-611a80cbda13",
-                    "path": "<Keyboard>/y",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Keyboard",
-                    "action": "Cancel",
+                    "action": "B",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -117,7 +93,18 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Controller",
-                    "action": "Option_2",
+                    "action": "Y",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fa337395-f6f6-439c-b8d3-c0cb49578758",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Controller",
+                    "action": "Pause",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

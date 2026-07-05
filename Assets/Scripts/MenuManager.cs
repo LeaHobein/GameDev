@@ -10,26 +10,33 @@ public class MenuManager : MonoBehaviour
     public float transitionTime = 1f;
     private InputAction startGame;
     private InputAction endGame;
-    private InputAction gameOptions;
+    private InputAction toMainMenu;
     private InputAction credits;
 
     public void Awake()
     {
-        /*
-        startGame = gameObject.GetComponent<PlayerInput>().actions["Confirm"];
-        endGame = gameObject.GetComponent<PlayerInput>().actions["Cancel"];
-        gameOptions = gameObject.GetComponent<PlayerInput>().actions["Option_1"];
-        credits = gameObject.GetComponent<PlayerInput>().actions["Option_2"];
-        */
+        startGame = gameObject.GetComponent<PlayerInput>().actions["A"];
+        endGame = gameObject.GetComponent<PlayerInput>().actions["B"];
+        toMainMenu = gameObject.GetComponent<PlayerInput>().actions["X"];
+        credits = gameObject.GetComponent<PlayerInput>().actions["Y"];
     }
     public void Update()
     {
-        /*
-        if(startGame.WasPerformedThisFrame()) SpielStarten();
-        if(endGame.WasPerformedThisFrame()) Beenden();
-        if(gameOptions.WasPerformedThisFrame()) Credits();
-        if(credits.WasPerformedThisFrame()) Beenden();
-        */
+        if (!inCreditScene())
+        {
+            if(startGame.WasPerformedThisFrame()) SpielStarten();
+            if(endGame.WasPerformedThisFrame()) Beenden();
+            if(!inScoreScene() && credits.WasPerformedThisFrame()) Credits();
+        }
+        if(toMainMenu.WasPerformedThisFrame()) ZumMenue();
+    }
+    bool inCreditScene()
+    {
+        return SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(2);
+    }
+    bool inScoreScene()
+    {
+        return SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(3);
     }
     public void ZumMenue()
     {

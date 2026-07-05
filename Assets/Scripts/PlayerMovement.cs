@@ -23,8 +23,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Input Actions")]
     public InputActionReference moveAction;
     public InputActionReference pickUpAction;
-    bool p1Controller = !ControllerManager.playerOneOnKeyboard;
-    bool p2Controller = !ControllerManager.playerTwoOnKeyboard;
+    bool onController = !ControllerManager.playersOnKeyboard;
     private void Start()
     {
         timeManager = GameObject.Find("timerText").GetComponent<TimeManager>();
@@ -32,12 +31,12 @@ public class PlayerMovement : MonoBehaviour
         switch (gameObject.name)
         {
             case "Player1":
-                if (p1Controller && Gamepad.all.Count > 1) gameObject.GetComponent<PlayerInput>().SwitchCurrentControlScheme("Controller", Gamepad.all[0]);
+                if (onController && Gamepad.all.Count > 1) gameObject.GetComponent<PlayerInput>().SwitchCurrentControlScheme("Controller", Gamepad.all[0]);
                 else gameObject.GetComponent<PlayerInput>().SwitchCurrentControlScheme("WASD", Keyboard.current);
                 //gameObject.GetComponent<PlayerInput>().SwitchCurrentControlScheme("Controller", Gamepad.all[0]);
                 break;
             case "Player2":
-                if (p2Controller && Gamepad.all.Count > 1) gameObject.GetComponent<PlayerInput>().SwitchCurrentControlScheme("Controller", Gamepad.all[1]);
+                if (onController && Gamepad.all.Count > 1) gameObject.GetComponent<PlayerInput>().SwitchCurrentControlScheme("Controller", Gamepad.all[1]);
                 else gameObject.GetComponent<PlayerInput>().SwitchCurrentControlScheme("IJKL", Keyboard.current);
                 //
                 break;

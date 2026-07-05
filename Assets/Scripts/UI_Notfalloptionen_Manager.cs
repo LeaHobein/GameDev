@@ -7,6 +7,8 @@ using UnityEngine.UI;
 public class UI_Notfalloptionen_Manager : MonoBehaviour
 {
     public InputAction escapeAction;
+    public InputAction restartAction;
+    public InputAction returnAction;
     public bool NotfallOptionenActive = false;
 
     public TMP_Text esc_schliessen_text;
@@ -33,12 +35,23 @@ public class UI_Notfalloptionen_Manager : MonoBehaviour
     void Update()
     {
         CheckForEscape();
+        checkForRestart();
+        checkForReturn();
     }
     void Awake()
     {
         escapeAction = gameObject.GetComponent<PlayerInput>().actions["Escape"];
+        restartAction = gameObject.GetComponent<PlayerInput>().actions["restartGame"];
+        returnAction = gameObject.GetComponent<PlayerInput>().actions["toMainMenu"];
     }
-    
+    void checkForRestart()
+    {
+        if (restartAction.WasPerformedThisFrame() && NotfallOptionenActive) ResetGame();
+    }
+    void checkForReturn()
+    {
+        if (returnAction.WasPerformedThisFrame() && NotfallOptionenActive) ZumMenue();
+    }
     void CheckForEscape()
     {
         if (escapeAction.WasPerformedThisFrame() && !NotfallOptionenActive)
