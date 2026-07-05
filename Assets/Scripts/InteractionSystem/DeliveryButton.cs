@@ -11,6 +11,7 @@ public class DeliveryButton : MonoBehaviour, IInteractable
     private GameObject spotThree;
     [SerializeField]
     private GameObject window;
+    private bool useDoubleScore;
 
     string[] deliveryorder;
     string[] recipe = { "Dichtung" };
@@ -63,6 +64,8 @@ public class DeliveryButton : MonoBehaviour, IInteractable
 
     public void Press()
     {
+        useDoubleScore = ScoreManager.scoreMultiplier == 2;
+
         Debug.Log("Button Pressed");
         AudioManager.Instance.Play(AudioManager.SoundType.deliveryStation);
 
@@ -267,7 +270,8 @@ public class DeliveryButton : MonoBehaviour, IInteractable
                 //Nach richtiger Abgabe -> neues Rezept in RecipeGen
                 GameObject.Find("RecipeGen").GetComponent<RecipeGen>().RoundRecipe();
                 //Nach richtiger Abgabe -> gib einen Punkt
-                scoreManager.addScore();
+                //scoreManager.addScore();
+                scoreManager.addScore(useDoubleScore);
             }
             else
             {
@@ -299,7 +303,8 @@ public class DeliveryButton : MonoBehaviour, IInteractable
                 //Nach richtiger Abgabe -> neues Rezept in RecipeGen
                 GameObject.Find("RecipeGen").GetComponent<RecipeGen>().RoundRecipe();
                 //Nach richtiger Abgabe -> gib einen Punkt
-                scoreManager.addScore();
+                //scoreManager.addScore();
+                scoreManager.addScore(useDoubleScore);
             }
             else
             {
