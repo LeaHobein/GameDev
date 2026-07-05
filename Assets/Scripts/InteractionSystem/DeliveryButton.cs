@@ -28,8 +28,6 @@ public class DeliveryButton : MonoBehaviour, IInteractable
         Debug.Log("recipe: " + recipe[0]); 
 
         deliveryorder = new string[GameObject.Find("RecipeGen").GetComponent<RecipeGen>().numberOfMaterials];
-        //recipe = new string[GameObject.Find("RecipeGen").GetComponent<RecipeGen>().numberOfMaterials];
-        //recipe = GameObject.Find("RecipeGen").GetComponent<RecipeGen>().newRecipe;
 
         GameObject.Find("checklight1").GetComponent<Light>().intensity = 0;
         GameObject.Find("checklight2").GetComponent<Light>().intensity = 0;
@@ -217,8 +215,6 @@ public class DeliveryButton : MonoBehaviour, IInteractable
             }
         }
 
-        //print(deliveryorder[0] + ", " + recipe[0] + ", " + deliveryorder[1] + ", " + recipe[1] + ", " + deliveryorder[2] + ", " + recipe[2]);
-
         if (GameObject.Find("RecipeGen").GetComponent<RecipeGen>().numberOfMaterials == 1) //checke für 1 Abgabe
         {
             string[] recipe = { "Dichtung" };
@@ -293,7 +289,6 @@ public class DeliveryButton : MonoBehaviour, IInteractable
                 //Nach richtiger Abgabe -> neues Rezept in RecipeGen
                 GameObject.Find("RecipeGen").GetComponent<RecipeGen>().RoundRecipe();
                 //Nach richtiger Abgabe -> gib einen Punkt
-                //scoreManager.addScore();
                 scoreManager.addScore(useDoubleScore);
             }
             else

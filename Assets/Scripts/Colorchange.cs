@@ -29,11 +29,6 @@ public class Colorchange : MonoBehaviour, Materializer
 
     void change_color()
     {
-        /*
-        print("iz lookylooky");
-        print(GameObject.Find("Player1").GetComponent<InteractionController>().looking);
-        print(gameObject.GetComponent<MeshRenderer>().sharedMaterial);
-        */
         if(GameObject.Find("Player1").GetComponent<InteractionController>().looking == true || GameObject.Find("Player2").GetComponent<InteractionController>().looking == true)
         {
             outline();

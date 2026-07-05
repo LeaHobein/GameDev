@@ -81,8 +81,6 @@ public class ScoreScreenManager : MonoBehaviour
         }
 
             var me = sorted[currentIndex];
-
-        //scoreboard += "<b><color=#FFA500>Deine Runde</color></b>\n";
         scoreboard2 += $"<b><color=#FFA500>{currentIndex + 1}.        " +
                       $"Runde {me.playerId}      " +
                       $"{me.score} P.      " +
@@ -91,8 +89,6 @@ public class ScoreScreenManager : MonoBehaviour
         if (currentIndex < sorted.Count - 1)
         {
             var below = sorted[currentIndex + 1];
-
-            //scoreboard += "Unter dir\n";
             scoreboard2 += $"{currentIndex + 2}.            " +
                           $"Runde {below.playerId}          " +
                           $"{below.score} P.         " +
@@ -102,9 +98,6 @@ public class ScoreScreenManager : MonoBehaviour
         {
             background2.gameObject.SetActive(true);
         }
-
-            //scoreboard += "\n------------------------\n\n";
-
             int totalRounds = ScoreBoardManager.entries.Count;
         string firstRoundTime = ScoreBoardManager.entries.First().endTime;
 
@@ -120,12 +113,6 @@ public class ScoreScreenManager : MonoBehaviour
             top3text.text = scoreboard1;
         yourScoreText.text = scoreboard2;
         totalRoundsText.text = scoreboard3;
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
 
     }
 }

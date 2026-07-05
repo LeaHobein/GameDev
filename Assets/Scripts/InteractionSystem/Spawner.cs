@@ -3,39 +3,6 @@ using UnityEngine.InputSystem;
 
 public class Spawner : MonoBehaviour, IInteractable
 {
-    //[SerializeField]
-    //GameObject spawnPrefab;
-
-    //[SerializeField]
-    //GameObject spawner;
-
-    //[SerializeField]
-    //GameObject spot;
-
-    //private GameObject hold;
-    //private bool holding;
-
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        /*
-        if(holding == true){
-            //Debug.Log("Spawner position:" + spawner.transform.position);
-            //hold.transform.position = spawner.transform.position;
-        }
-
-        if(Keyboard.current.hKey.wasPressedThisFrame){
-            //hold.transform.position = spot.transform.position;
-            holding = false;
-            print("object is gone");
-        }
-        */
-    }
-
     void Spawn(GameObject player)
     {
         // Enable Mesh Renderer of Coin in Player Prefab that interacted with this box
@@ -61,16 +28,7 @@ public class Spawner : MonoBehaviour, IInteractable
         }
         player.transform.Find("robot_arms_full").gameObject.transform.Translate(-1f,1f,0f);
         player.transform.Find("robot_arms_full").gameObject.transform.Rotate(0f,0f,-90f);
-
-        
-        //holding = true;
         print("player is holding object");
-        /*
-        hold = Instantiate(spawnPrefab, spawner.transform.position + Vector3.up, Quaternion.identity);
-
-        var randomSize = Random.Range(0.1f, 1f);
-        hold.transform.localScale *= randomSize;
-        */
     }
 
     public void Interact(GameObject player)

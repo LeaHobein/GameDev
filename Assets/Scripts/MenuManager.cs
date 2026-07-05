@@ -45,7 +45,6 @@ public class MenuManager : MonoBehaviour
     }
     public void SpielStarten()
     {
-        //SceneManager.LoadSceneAsync("MiniGame"); Spiel starten ohne Fade Animation
         AudioManager.Instance.Play(AudioManager.SoundType.ButtonClick);
         StartCoroutine(LoadLevel(1));
     }

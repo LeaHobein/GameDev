@@ -8,16 +8,10 @@ public class OnE : MonoBehaviour
     [SerializeField]
     Material m_alarm;
 
-    void Start()
-    {
-        
-    }
-
     void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("Enemy"))
         {
-            print("E durchdrungen");
             print(GameObject.Find("door_right").GetComponent<Animator>().GetBool("forky_entering"));
             print(GameObject.Find("door_right").GetComponent<Animator>().GetBool("forky_entering"));
 

@@ -130,17 +130,6 @@ public class DeliverySpot : MonoBehaviour, IInteractable
         player.transform.Find("robot_arms_full").gameObject.transform.Rotate(0f, 0f, -90f);
     }
 
-    /*public void Interact(GameObject player)
-    {
-        if(player.GetComponent<InteractionController>().holding == true && occupado == false){
-            deliver(player);
-            occupado = true;
-        }else if(player.GetComponent<InteractionController>().holding == false && occupado == true){
-            pickup(player);
-            occupado = false;
-        }
-    }*/
-
     public void Interact(GameObject player)
     {
         if (isBlocked)

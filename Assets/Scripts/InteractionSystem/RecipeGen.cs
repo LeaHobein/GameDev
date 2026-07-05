@@ -42,8 +42,7 @@ public class RecipeGen : MonoBehaviour
 
         for (int i = 0; i < numberOfMaterials; i++)
         {
-            recipe[i] = materials[UnityEngine.Random.Range(0, materials.Length)]; //steckt zuf�llige Materials in recipe[]
-            //Debug.Log(materials[UnityEngine.Random.Range(0, materials.Length)]);
+            recipe[i] = materials[UnityEngine.Random.Range(0, materials.Length)]; //steckt zufaellige Materials in recipe[]
         }
 
         return recipe;
@@ -51,10 +50,10 @@ public class RecipeGen : MonoBehaviour
 
     public void RoundRecipe()
     {
-        newRecipe = GenerateRecipe(); //holt ein 2-3 langes Array mit zuf�lligen Materials drin
+        newRecipe = GenerateRecipe(); //holt ein 2-3 langes Array mit zufaelligen Materials drin
         Debug.Log(string.Join(", ", newRecipe));
 
-        //code f�r recipe text on screen (aktuell hidden)
+        //code fuer recipe text on screen (aktuell hidden)
         string recipeString = (string.Join(", ", newRecipe));
         recipeText.text = recipeString;
         UpdateIcons(newRecipe);

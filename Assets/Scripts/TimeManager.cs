@@ -119,16 +119,6 @@ public class TimeManager : MonoBehaviour
             }
         }
     }
-    
-    public void Pause()
-    {
-        
-    }
-
-    public void Resume()
-    {
-        
-    }
 
     IEnumerator LoadLevel()
     {

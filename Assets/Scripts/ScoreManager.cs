@@ -13,17 +13,6 @@ public class ScoreManager : MonoBehaviour
     private InputActionAsset InputActions;
     private InputAction p_addpoints;
     private InputAction o_decreasePoints;
-
-    /* private void OnEnable()
-     {
-         InputActions.FindActionMap("Player").Enable();
-     }
-
-     private void OnDisable()
-     {
-         InputActions.FindActionMap("Player").Disable();
-     }
-    */
     private void Start()
     {
         score = 0;

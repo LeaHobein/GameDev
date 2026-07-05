@@ -41,8 +41,6 @@ public class InteractionController : MonoBehaviour
 
     public void Update()
     {
-        //print(gameObject.name + " is holding something:" + holding);
-        
         UpdateCurrent();
 
         CheckForInteractionInput();
@@ -54,17 +52,6 @@ public class InteractionController : MonoBehaviour
         transform.Find("hold4").transform.Rotate(0f, 1f, 0f, Space.World);
         transform.Find("hold5").transform.Rotate(0f, 1f, 0f, Space.World);
         transform.Find("hold6").transform.Rotate(0f, 1f, 0f, Space.World);
-
-        /*
-        if (Keyboard.current.hKey.wasPressedThisFrame){
-            transform.Find("hold1").GetComponent<MeshRenderer>().enabled = false;
-            transform.Find("hold2").GetComponent<MeshRenderer>().enabled = false;
-            transform.Find("hold3").GetComponent<MeshRenderer>().enabled = false;
-            transform.Find("hold4").GetComponent<MeshRenderer>().enabled = false;
-            transform.Find("hold5").GetComponent<MeshRenderer>().enabled = false;
-            transform.Find("hold6").GetComponent<MeshRenderer>().enabled = false;
-        }
-        */
     }
 
     void UpdateCurrent()
@@ -93,15 +80,10 @@ public class InteractionController : MonoBehaviour
         Vector3 boxCenter = transform.position-transform.forward*0.5f;
         Vector3 lineStart = new Vector3(boxCenter.x - boxHalfWidth.x, boxCenter.y, boxCenter.z);
         Vector3 lineEnd = new Vector3(boxCenter.x + boxHalfWidth.x, boxCenter.y, boxCenter.z);
-        Vector3 point2 = transform.position-Vector3.up + Vector3.back;
-        //print("in checkforinteractioninput of " + gameObject.name);
-        //Physics.CapsuleCast(point1, point2, capsuleRadius, transform.forward, out hit, interactionDistance)
         Debug.DrawLine(lineStart, lineEnd);
         Debug.DrawLine(Vector3.zero, transform.forward);
         
-        //print(transform.position);
-        if(Physics.BoxCast(boxCenter, boxHalfWidth, transform.forward, out hit, Quaternion.identity, interactionDistance)){ //visualisierung irgendwie? oder triggerbased den boxen nen trigger geben
-            //print(gameObject.name + "just raycasted" + hit.collider.gameObject);
+        if(Physics.BoxCast(boxCenter, boxHalfWidth, transform.forward, out hit, Quaternion.identity, interactionDistance)){
             if(interactAction.WasPerformedThisFrame() && currentTargetInteractable != null)
             {
                 currentTargetInteractable.Interact(gameObject);

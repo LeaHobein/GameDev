@@ -5,9 +5,7 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(CharacterController))]
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField]
     public float speed = 5.0f;
-    
     private float normalSpeed;
     [SerializeField]
     private float gravity = -9.81f;
@@ -33,26 +31,19 @@ public class PlayerMovement : MonoBehaviour
             case "Player1":
                 if (onController && Gamepad.all.Count > 1) gameObject.GetComponent<PlayerInput>().SwitchCurrentControlScheme("Controller", Gamepad.all[0]);
                 else gameObject.GetComponent<PlayerInput>().SwitchCurrentControlScheme("WASD", Keyboard.current);
-                //gameObject.GetComponent<PlayerInput>().SwitchCurrentControlScheme("Controller", Gamepad.all[0]);
                 break;
             case "Player2":
                 if (onController && Gamepad.all.Count > 1) gameObject.GetComponent<PlayerInput>().SwitchCurrentControlScheme("Controller", Gamepad.all[1]);
                 else gameObject.GetComponent<PlayerInput>().SwitchCurrentControlScheme("IJKL", Keyboard.current);
-                //
                 break;
             default:
                 break;
         }
         normalSpeed = speed;
-        //controller = gameObject.GetComponent<CharacterController>();
     }
     public void OnMove(InputAction.CallbackContext mov)
     {
         playerMovement = mov.ReadValue<Vector3>();
-    }
-    public void OnPickUp(InputAction.CallbackContext pickup)
-    {
-        Debug.Log("Picked Up");
     }
     public void Stun(float duration)
     {
@@ -85,7 +76,6 @@ public class PlayerMovement : MonoBehaviour
     {
         if(gameObject.GetComponent<UI_Notfalloptionen_Manager>().NotfallOptionenActive) return;
         bool timeout = timeManager.time <= 1;
-        //print("time: " + timeManager.time);
         groundedPlayer = controller.isGrounded;
         if(groundedPlayer && playerVelocity.y <= 0)
         {
@@ -97,16 +87,12 @@ public class PlayerMovement : MonoBehaviour
             playerMovement.x * moveSpeed,
             playerMovement.y * moveSpeed,
             playerMovement.z * moveSpeed);
-        //move = Vector3.ClampMagnitude(move, 1f);
 
         if (move != Vector3.zero && !timeout)
             transform.forward = move;
 
-
-        // Apply gravity
         playerVelocity.y += gravity * Time.deltaTime;
 
-        // Move
         Vector3 finalMove = move + Vector3.up * playerVelocity.y - Vector3.up;
 
         if(!timeout)controller.Move(finalMove * Time.deltaTime);
@@ -123,7 +109,6 @@ public class PlayerMovement : MonoBehaviour
         speed = normalSpeed * 1.5f;
         yield return new WaitForSeconds(duration);
         speed = normalSpeed;
-        
     }
 
     public void ActivateSlowDown(float duration)
@@ -137,8 +122,5 @@ public class PlayerMovement : MonoBehaviour
         speed = normalSpeed * 0.5f;
         yield return new WaitForSeconds(duration);
         speed = normalSpeed;
-        
     }
-
-
 }

@@ -97,13 +97,5 @@ public class UI_Notfalloptionen_Manager : MonoBehaviour
     public void ResetGame()
     {
         SceneManager.LoadScene(1);
-        /*
-        Debug.Log(GameObject.Find("Player1").transform.position);
-        Debug.Log(GameObject.Find("spawnPoint_1").transform.position);
-        GameObject.Find("Player1").transform.position = GameObject.Find("spawnPoint_1").transform.position;
-        GameObject.Find("Player2").transform.position = GameObject.Find("spawnPoint_2").transform.position;
-        */
     }
-
-
 }

@@ -26,7 +26,6 @@ public class AudioManager : MonoBehaviour
         doorCloseLeft,
         doorCloseRight,
         deliveryStation
-        // Add more sound types as needed
     }
 
     [System.Serializable]
@@ -42,10 +41,8 @@ public class AudioManager : MonoBehaviour
         public AudioSource Source;
     }
 
-    //Singleton
     public static AudioManager Instance;
 
-    //All sounds and their associated type - Set these in the inspector
     public Sound[] AllSounds;
 
     //Runtime collections
@@ -63,35 +60,25 @@ public class AudioManager : MonoBehaviour
             _soundDictionary[s.Type] = s;
         }
     }
-
-
-
-    //Call this method to play a sound
     public void Play(SoundType type)
     {
-        //Make sure there's a sound assigned to your specified type
         if (!_soundDictionary.TryGetValue(type, out Sound s))
         {
             Debug.LogWarning($"Sound type {type} not found!");
             return;
         }
 
-        //Creates a new sound object
         var soundObj = new GameObject($"Sound_{type}");
         var audioSrc = soundObj.AddComponent<AudioSource>();
 
-        //Assigns your sound properties
         audioSrc.clip = s.Clip;
         audioSrc.volume = s.Volume;
 
-        //Play the sound
         audioSrc.Play();
 
-        //Destroy the object
         Destroy(soundObj, s.Clip.length);
     }
-
-    //Call this method to change music tracks
+    
     public void ChangeMusic(SoundType type)
     {
         if (!_soundDictionary.TryGetValue(type, out Sound track))

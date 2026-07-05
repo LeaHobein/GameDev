@@ -8,11 +8,6 @@ public class OnF : MonoBehaviour
     [SerializeField]
     Material m_alarm;
 
-    void Start()
-    {
-        
-    }
-
     void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("Enemy"))
