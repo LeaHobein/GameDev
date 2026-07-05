@@ -226,8 +226,6 @@ public class DeliveryButton : MonoBehaviour, IInteractable
             if (deliveryorder[0] == recipe[0])
             {
                 Debug.Log("slay brudi");
-                GameObject.Find("checkup").GetComponent<MeshRenderer>().material.color = new Color(0f, 1f, 0f);
-                GameObject.Find("checkup2").GetComponent<MeshRenderer>().material.color = new Color(0f, 1f, 0f);
                 GameObject.Find("checklight1").GetComponent<Light>().color = Color.green;
                 GameObject.Find("checklight2").GetComponent<Light>().color = Color.green;
                 GameObject.Find("checklight3").GetComponent<Light>().color = Color.green;
@@ -242,8 +240,6 @@ public class DeliveryButton : MonoBehaviour, IInteractable
             }
             else
             {
-                GameObject.Find("checkup").GetComponent<MeshRenderer>().material.color = new Color(1f, 0f, 0f);
-                GameObject.Find("checkup2").GetComponent<MeshRenderer>().material.color = new Color(1f, 0f, 0f);
                 GameObject.Find("checklight1").GetComponent<Light>().color = Color.red;
                 GameObject.Find("checklight2").GetComponent<Light>().color = Color.red;
                 GameObject.Find("checklight3").GetComponent<Light>().color = Color.red;
@@ -257,8 +253,6 @@ public class DeliveryButton : MonoBehaviour, IInteractable
         {
             if (deliveryorder[0] == recipe[0] && deliveryorder[1] == recipe[1])
             {
-                GameObject.Find("checkup").GetComponent<MeshRenderer>().material.color = new Color(0f, 1f, 0f);
-                GameObject.Find("checkup2").GetComponent<MeshRenderer>().material.color = new Color(0f, 1f, 0f);
                 GameObject.Find("checklight1").GetComponent<Light>().color = Color.green;
                 GameObject.Find("checklight2").GetComponent<Light>().color = Color.green;
                 GameObject.Find("checklight3").GetComponent<Light>().color = Color.green;
@@ -275,8 +269,6 @@ public class DeliveryButton : MonoBehaviour, IInteractable
             }
             else
             {
-                GameObject.Find("checkup").GetComponent<MeshRenderer>().material.color = new Color(1f, 0f, 0f);
-                GameObject.Find("checkup2").GetComponent<MeshRenderer>().material.color = new Color(1f, 0f, 0f);
                 GameObject.Find("checklight1").GetComponent<Light>().color = Color.red;
                 GameObject.Find("checklight2").GetComponent<Light>().color = Color.red;
                 GameObject.Find("checklight3").GetComponent<Light>().color = Color.red;
@@ -290,8 +282,6 @@ public class DeliveryButton : MonoBehaviour, IInteractable
         {
             if (deliveryorder[0] == recipe[0] && deliveryorder[1] == recipe[1] && deliveryorder[2] == recipe[2])
             {
-                GameObject.Find("checkup").GetComponent<MeshRenderer>().material.color = new Color(0f, 1f, 0f);
-                GameObject.Find("checkup2").GetComponent<MeshRenderer>().material.color = new Color(0f, 1f, 0f);
                 GameObject.Find("checklight1").GetComponent<Light>().color = Color.green;
                 GameObject.Find("checklight2").GetComponent<Light>().color = Color.green;
                 GameObject.Find("checklight3").GetComponent<Light>().color = Color.green;
@@ -308,8 +298,6 @@ public class DeliveryButton : MonoBehaviour, IInteractable
             }
             else
             {
-                GameObject.Find("checkup").GetComponent<MeshRenderer>().material.color = new Color(1f, 0f, 0f);
-                GameObject.Find("checkup2").GetComponent<MeshRenderer>().material.color = new Color(1f, 0f, 0f);
                 GameObject.Find("checklight1").GetComponent<Light>().color = Color.red;
                 GameObject.Find("checklight2").GetComponent<Light>().color = Color.red;
                 GameObject.Find("checklight3").GetComponent<Light>().color = Color.red;
