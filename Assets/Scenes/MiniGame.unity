@@ -24708,7 +24708,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TimeManager
   countdownTime: 3
-  time: 5
+  time: 60
   transitionTime: 1
   done: 0
   gamePlaying: 0
