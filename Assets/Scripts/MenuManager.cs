@@ -15,21 +15,17 @@ public class MenuManager : MonoBehaviour
 
     public void Awake()
     {
-        /*
         startGame = gameObject.GetComponent<PlayerInput>().actions["Confirm"];
         endGame = gameObject.GetComponent<PlayerInput>().actions["Cancel"];
         gameOptions = gameObject.GetComponent<PlayerInput>().actions["Option_1"];
         credits = gameObject.GetComponent<PlayerInput>().actions["Option_2"];
-        */
     }
     public void Update()
     {
-        /*
         if(startGame.WasPerformedThisFrame()) SpielStarten();
         if(endGame.WasPerformedThisFrame()) Beenden();
         if(gameOptions.WasPerformedThisFrame()) Credits();
-        if(credits.WasPerformedThisFrame()) Beenden();
-        */
+        if(credits.WasPerformedThisFrame()) ZumMenue();
     }
     public void ZumMenue()
     {
