@@ -8,6 +8,7 @@ public class ScoreManager : MonoBehaviour
     public TMP_Text scoreText;
     public static int score = 0;
     public static int scoreMultiplier = 1;
+    public TMP_Text doubleScoreText;
 
     private InputActionAsset InputActions;
     private InputAction p_addpoints;
@@ -26,6 +27,7 @@ public class ScoreManager : MonoBehaviour
     private void Start()
     {
         score = 0;
+        doubleScoreText.text = "";
     }
 
     private void Awake()
@@ -44,11 +46,23 @@ public class ScoreManager : MonoBehaviour
         if (o_decreasePoints.WasPressedThisFrame())
         {
             decreaseScore();
-        }   
+        }
     }
     public void addScore()
     {
         score += scoreMultiplier;
+        scoreText.text = score.ToString();
+
+
+    }
+
+    public void addScore(bool doubleScore)
+    {
+        if (doubleScore)
+            score += 2;
+        else
+            score += 1;
+
         scoreText.text = score.ToString();
     }
 
@@ -59,18 +73,21 @@ public class ScoreManager : MonoBehaviour
     }
 
     public void ActivateDoubleScore(float duration)
-{
-    StopCoroutine(nameof(DoubleScore));
-    StartCoroutine(DoubleScore(duration));
-}
+    {
+        StopCoroutine(nameof(DoubleScore));
+        StartCoroutine(DoubleScore(duration));
+    }
 
-private IEnumerator DoubleScore(float duration)
-{
-    scoreMultiplier = 2;
+    private IEnumerator DoubleScore(float duration)
+    {
+        scoreMultiplier = 2;
+        doubleScoreText.text = "×2";
+        doubleScoreText.color = Color.yellow;
 
-    yield return new WaitForSeconds(duration);
+        yield return new WaitForSeconds(duration);
 
-    scoreMultiplier = 1;
-}
+        scoreMultiplier = 1;
+        doubleScoreText.text = "";
+    }
 
 }

@@ -16,6 +16,8 @@ public class TimeManager : MonoBehaviour
     public TMP_Text countdownText;
     public TMP_Text skipText;
     public TMP_Text tutorial;
+    public TMP_Text AddDecreaseTimeText;
+    private Coroutine timeTextCoroutine;
 
     public Animator transition;
     public ScoreManager scoreManager;
@@ -23,6 +25,7 @@ public class TimeManager : MonoBehaviour
     private void Start()
     {
         countdownText.gameObject.SetActive(false);
+        AddDecreaseTimeText.text = "";
     }
 
     public void StartRound()
@@ -143,13 +146,40 @@ public class TimeManager : MonoBehaviour
     {
         time += seconds;
         Debug.Log("+" + seconds + " Sekunden");
+        ShowTimeChange(seconds, Color.green);
     }
 
     public void DecreaseTime(float seconds)
     {
         time -= seconds;
         Debug.Log("-" + seconds + " Sekunden");
+        ShowTimeChange(-seconds, Color.red);
     }
+
+    private void ShowTimeChange(float seconds, Color color)
+{
+    // Falls gerade noch alte Anzeige läuft -> abbrechen
+    if (timeTextCoroutine != null)
+    {
+        StopCoroutine(timeTextCoroutine);
+    }
+
+    timeTextCoroutine = StartCoroutine(ShowTimeChangeCoroutine(seconds, color));
+}
+
+private IEnumerator ShowTimeChangeCoroutine(float seconds, Color color)
+{
+    AddDecreaseTimeText.color = color;
+
+    if (seconds > 0)
+        AddDecreaseTimeText.text = "+" + seconds;
+    else
+        AddDecreaseTimeText.text = seconds.ToString();
+
+    yield return new WaitForSeconds(3f);
+
+    AddDecreaseTimeText.text = "";
+}
 
 
 }

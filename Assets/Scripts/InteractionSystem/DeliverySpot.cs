@@ -147,6 +147,7 @@ public class DeliverySpot : MonoBehaviour, IInteractable
         {
             Debug.Log("DeliverySpot ist blockiert");
             Debug.Log(gameObject.name + " blocked: " + isBlocked);
+            AudioManager.Instance.Play(AudioManager.SoundType.Fail);
             return;
         }
 
