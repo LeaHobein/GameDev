@@ -2,6 +2,7 @@ using TMPro;
 using UnityEngine;
 using System.Linq;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class ScoreScreenManager : MonoBehaviour
 {
@@ -44,68 +45,83 @@ public class ScoreScreenManager : MonoBehaviour
             .OrderByDescending(e => e.score)
             .ToList();
 
+        // Rangliste erstellen (gleiche Scores = gleicher Platz)
+        Dictionary<ScoreBoardManager.ScoreEntry, int> ranks = new();
+
+        int currentRank = 1;
+
+        for (int i = 0; i < sorted.Count; i++)
+        {
+            if (i > 0 && sorted[i].score < sorted[i - 1].score)
+            {
+                currentRank++;
+            }
+
+            ranks[sorted[i]] = currentRank;
+        }
+
         // Zuletzt gespielte Runde
         ScoreBoardManager.ScoreEntry currentEntry = ScoreBoardManager.entries.Last();
 
-        // Platz der aktuellen Runde in sortierter Liste
+        // Position in der sortierten Liste
         int currentIndex = sorted.IndexOf(currentEntry);
 
         string scoreboard1 = "";
         string scoreboard2 = "";
         string scoreboard3 = "";
 
-        //scoreboard += "TOP 3\n\n";
-
+        // TOP 3
         for (int i = 0; i < Mathf.Min(3, sorted.Count); i++)
         {
-            scoreboard1 += $"{i + 1}.               " +
-                          $"Runde {sorted[i].playerId}              " +
-                          $"{sorted[i].score} P.              " +
-                          $"{sorted[i].endTime} Uhr\n";
+            scoreboard1 +=
+                $"{ranks[sorted[i]]}.               " +
+                $"Runde {sorted[i].playerId}              " +
+                $"{sorted[i].score} P.              " +
+                $"{sorted[i].endTime} Uhr\n";
         }
-        //scoreboard += "\n------------------------\n\n";
 
+        // Spieler über dir
         if (currentIndex > 0)
         {
             var above = sorted[currentIndex - 1];
 
-            //scoreboard += "Über dir\n";
-            scoreboard2 += $"{currentIndex}.            " +
-                          $"Runde {above.playerId}          " +
-                          $"{above.score} P.         " +
-                          $"{above.endTime} Uhr\n";
+            scoreboard2 +=
+                $"{ranks[above]}.            " +
+                $"Runde {above.playerId}          " +
+                $"{above.score} P.         " +
+                $"{above.endTime} Uhr\n";
         }
         else
         {
             background2.gameObject.SetActive(true);
         }
 
-            var me = sorted[currentIndex];
+        // Deine Runde
+        var me = sorted[currentIndex];
 
-        //scoreboard += "<b><color=#FFA500>Deine Runde</color></b>\n";
-        scoreboard2 += $"<b><color=#FFA500>{currentIndex + 1}.        " +
-                      $"Runde {me.playerId}      " +
-                      $"{me.score} P.      " +
-                      $"{me.endTime} Uhr</color></b>\n";
+        scoreboard2 +=
+            $"<b><color=#FFA500>{ranks[me]}.        " +
+            $"Runde {me.playerId}      " +
+            $"{me.score} P.      " +
+            $"{me.endTime} Uhr</color></b>\n";
 
+        // Spieler unter dir
         if (currentIndex < sorted.Count - 1)
         {
             var below = sorted[currentIndex + 1];
 
-            //scoreboard += "Unter dir\n";
-            scoreboard2 += $"{currentIndex + 2}.            " +
-                          $"Runde {below.playerId}          " +
-                          $"{below.score} P.         " +
-                          $"{below.endTime} Uhr\n";
+            scoreboard2 +=
+                $"{ranks[below]}.            " +
+                $"Runde {below.playerId}          " +
+                $"{below.score} P.         " +
+                $"{below.endTime} Uhr\n";
         }
         else
         {
             background2.gameObject.SetActive(true);
         }
 
-            //scoreboard += "\n------------------------\n\n";
-
-            int totalRounds = ScoreBoardManager.entries.Count;
+        int totalRounds = ScoreBoardManager.entries.Count;
         string firstRoundTime = ScoreBoardManager.entries.First().endTime;
 
         if (totalRounds == 1)
@@ -117,7 +133,7 @@ public class ScoreScreenManager : MonoBehaviour
             scoreboard3 += $"Von insgesamt {totalRounds} Runden seit {firstRoundTime} Uhr";
         }
 
-            top3text.text = scoreboard1;
+        top3text.text = scoreboard1;
         yourScoreText.text = scoreboard2;
         totalRoundsText.text = scoreboard3;
 
