@@ -16761,7 +16761,7 @@ PrefabInstance:
       objectReference: {fileID: -944628639613478452, guid: 94e9f1687da6b71418ffd2e9840db55d, type: 3}
     - target: {fileID: 2748224885239743295, guid: 30cda35a3202ac547859a8457a56c733, type: 3}
       propertyPath: m_DefaultControlScheme
-      value: WASD
+      value: Controller
       objectReference: {fileID: 0}
     - target: {fileID: 2795869267843364039, guid: 30cda35a3202ac547859a8457a56c733, type: 3}
       propertyPath: m_StaticEditorFlags

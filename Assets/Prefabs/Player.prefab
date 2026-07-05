@@ -414,12 +414,30 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings: []
     m_Flags: 0
+  restartAction:
+    m_Name: Restart
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: d2bdc460-00c6-4793-8f8d-4f2d22e9c27c
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  returnAction:
+    m_Name: Return
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 5b4f42d8-df0e-437c-82c7-569ba730ceca
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
   NotfallOptionenActive: 0
-  timeManager: {fileID: 0}
   esc_schliessen_text: {fileID: 0}
   notfall_title_text: {fileID: 0}
   MenueButton: {fileID: 0}
-  UnstuckButton: {fileID: 0}
+  resetButton: {fileID: 0}
+  pause_background: {fileID: 0}
   player1: {fileID: 0}
   player2: {fileID: 0}
   spawnPoints: []

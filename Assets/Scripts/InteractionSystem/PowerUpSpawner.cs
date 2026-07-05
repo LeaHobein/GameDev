@@ -65,36 +65,48 @@ public class PowerUpSpawner : MonoBehaviour
             case 0:
                 GameObject.Find("powerUpOrb").GetComponent<MeshRenderer>().sharedMaterial = m_powerUpOrb;
                 GameObject.Find("powerUpSymbol").GetComponent<MeshRenderer>().sharedMaterial = m_addTimeSymbol;
+                GameObject.Find("powerUpLight").SetActive(true);
+                GameObject.Find("powerDownLight").SetActive(false);
                 obj.GetComponent<MeshRenderer>().sharedMaterial = m_powerUpOutline;
                 break;
 
             case 1:
                 GameObject.Find("powerUpOrb").GetComponent<MeshRenderer>().sharedMaterial = m_powerUpOrb;
                 GameObject.Find("powerUpSymbol").GetComponent<MeshRenderer>().sharedMaterial = m_speedBoostSymbol;
+                GameObject.Find("powerUpLight").SetActive(true);
+                GameObject.Find("powerDownLight").SetActive(false);
                 obj.GetComponent<MeshRenderer>().sharedMaterial = m_powerUpOutline;
                 break;
             
             case 2:
                 GameObject.Find("powerUpOrb").GetComponent<MeshRenderer>().sharedMaterial = m_powerUpOrb;
                 GameObject.Find("powerUpSymbol").GetComponent<MeshRenderer>().sharedMaterial = m_doubleScoreSymbol;
+                GameObject.Find("powerUpLight").SetActive(true);
+                GameObject.Find("powerDownLight").SetActive(false);
                 obj.GetComponent<MeshRenderer>().sharedMaterial = m_powerUpOutline;
                 break;
             
             case 3:
                 GameObject.Find("powerUpOrb").GetComponent<MeshRenderer>().sharedMaterial = m_powerDownOrb;
                 GameObject.Find("powerUpSymbol").GetComponent<MeshRenderer>().sharedMaterial = m_decreaseTimeSymbol;
+                GameObject.Find("powerUpLight").SetActive(false);
+                GameObject.Find("powerDownLight").SetActive(true);
                 obj.GetComponent<MeshRenderer>().sharedMaterial = m_powerDownOutline;
                 break;
             
             case 4:
                 GameObject.Find("powerUpOrb").GetComponent<MeshRenderer>().sharedMaterial = m_powerDownOrb;
                 GameObject.Find("powerUpSymbol").GetComponent<MeshRenderer>().sharedMaterial = m_slowDownSymbol;
+                GameObject.Find("powerUpLight").SetActive(false);
+                GameObject.Find("powerDownLight").SetActive(true);
                 obj.GetComponent<MeshRenderer>().sharedMaterial = m_powerDownOutline;
                 break;
 
             case 5:
                 GameObject.Find("powerUpOrb").GetComponent<MeshRenderer>().sharedMaterial = m_powerDownOrb;
                 GameObject.Find("powerUpSymbol").GetComponent<MeshRenderer>().sharedMaterial = m_disableSymbol;
+                GameObject.Find("powerUpLight").SetActive(false);
+                GameObject.Find("powerDownLight").SetActive(true);
                 obj.GetComponent<MeshRenderer>().sharedMaterial = m_powerDownOutline;
                 break;
             default:
