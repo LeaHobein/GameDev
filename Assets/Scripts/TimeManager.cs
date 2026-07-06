@@ -71,7 +71,9 @@ public class TimeManager : MonoBehaviour
 
     void Update()
     {
-        if(GameObject.Find("Player1").GetComponent<UI_Notfalloptionen_Manager>().NotfallOptionenActive) return;
+        //Debug.Log("TIME UPDATE: " + time + " | ID: " + GetInstanceID());
+        
+        if (GameObject.Find("Player1").GetComponent<UI_Notfalloptionen_Manager>().NotfallOptionenActive) return;
         if (gamePlaying == true)
         {
             time -= Time.deltaTime;
@@ -118,15 +120,15 @@ public class TimeManager : MonoBehaviour
             }
         }
     }
-    
+
     public void Pause()
     {
-        
+
     }
 
     public void Resume()
     {
-        
+
     }
 
     IEnumerator LoadLevel()
@@ -146,6 +148,7 @@ public class TimeManager : MonoBehaviour
         time += seconds;
         Debug.Log("+" + seconds + " Sekunden");
         ShowTimeChange(seconds, Color.green);
+        //Debug.Log($"ADD TIME {seconds} -> NEW TIME: {time}");
     }
 
     public void DecreaseTime(float seconds)
@@ -153,32 +156,33 @@ public class TimeManager : MonoBehaviour
         time -= seconds;
         Debug.Log("-" + seconds + " Sekunden");
         ShowTimeChange(-seconds, Color.red);
+        //Debug.Log($"DEC TIME {seconds} -> NEW TIME: {time}");
     }
 
     private void ShowTimeChange(float seconds, Color color)
-{
-    // Falls gerade noch alte Anzeige läuft -> abbrechen
-    if (timeTextCoroutine != null)
     {
-        StopCoroutine(timeTextCoroutine);
+        // Falls gerade noch alte Anzeige läuft -> abbrechen
+        if (timeTextCoroutine != null)
+        {
+            StopCoroutine(timeTextCoroutine);
+        }
+
+        timeTextCoroutine = StartCoroutine(ShowTimeChangeCoroutine(seconds, color));
     }
 
-    timeTextCoroutine = StartCoroutine(ShowTimeChangeCoroutine(seconds, color));
-}
+    private IEnumerator ShowTimeChangeCoroutine(float seconds, Color color)
+    {
+        AddDecreaseTimeText.color = color;
 
-private IEnumerator ShowTimeChangeCoroutine(float seconds, Color color)
-{
-    AddDecreaseTimeText.color = color;
+        if (seconds > 0)
+            AddDecreaseTimeText.text = "+" + seconds;
+        else
+            AddDecreaseTimeText.text = seconds.ToString();
 
-    if (seconds > 0)
-        AddDecreaseTimeText.text = "+" + seconds;
-    else
-        AddDecreaseTimeText.text = seconds.ToString();
+        yield return new WaitForSeconds(3f);
 
-    yield return new WaitForSeconds(3f);
-
-    AddDecreaseTimeText.text = "";
-}
+        AddDecreaseTimeText.text = "";
+    }
 
 
 }

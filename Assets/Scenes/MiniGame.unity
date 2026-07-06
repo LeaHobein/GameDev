@@ -11290,7 +11290,6 @@ GameObject:
   - component: {fileID: 811549369}
   - component: {fileID: 811549372}
   - component: {fileID: 811549371}
-  - component: {fileID: 811549370}
   m_Layer: 5
   m_Name: Add_und_Decrease_Time
   m_TagString: Untagged
@@ -11317,30 +11316,6 @@ RectTransform:
   m_AnchoredPosition: {x: -145, y: -187}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &811549370
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 811549368}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 766dde85f27d0eb4fb3c1bd068ad177c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TimeManager
-  countdownTime: 3
-  time: 60
-  transitionTime: 1
-  done: 0
-  gamePlaying: 0
-  timerText: {fileID: 811549371}
-  countdownText: {fileID: 513264751}
-  skipText: {fileID: 1602488974}
-  tutorial: {fileID: 914666152}
-  AddDecreaseTimeText: {fileID: 811549371}
-  transition: {fileID: 534569166}
-  scoreManager: {fileID: 1552188515}
 --- !u!114 &811549371
 MonoBehaviour:
   m_ObjectHideFlags: 0
