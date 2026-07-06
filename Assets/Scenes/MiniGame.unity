@@ -22974,11 +22974,11 @@ MonoBehaviour:
     Source: {fileID: 0}
   - Type: 8
     Clip: {fileID: 8300000, guid: eb9764377d2e33343be9743ed67a7279, type: 3}
-    Volume: 0.21
+    Volume: 0.2
     Source: {fileID: 0}
   - Type: 9
     Clip: {fileID: 8300000, guid: d5f4faf95de905d4ab4995eb5924f210, type: 3}
-    Volume: 0.21
+    Volume: 0.2
     Source: {fileID: 0}
   - Type: 10
     Clip: {fileID: 8300000, guid: 0b5b47323f2638745a9a208b57cc504a, type: 3}
