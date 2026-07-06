@@ -13,6 +13,7 @@ public class PowerUpSpawner : MonoBehaviour
     public Material m_powerDownOrb;
     public Material m_powerUpOutline;
     public Material m_powerDownOutline;
+    [SerializeField] private UI_Notfalloptionen_Manager pauseManager;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -77,7 +78,7 @@ public class PowerUpSpawner : MonoBehaviour
                 GameObject.Find("powerDownLight").SetActive(false);
                 obj.GetComponent<MeshRenderer>().sharedMaterial = m_powerUpOutline;
                 break;
-            
+
             case 2:
                 GameObject.Find("powerUpOrb").GetComponent<MeshRenderer>().sharedMaterial = m_powerUpOrb;
                 GameObject.Find("powerUpSymbol").GetComponent<MeshRenderer>().sharedMaterial = m_doubleScoreSymbol;
@@ -85,7 +86,7 @@ public class PowerUpSpawner : MonoBehaviour
                 GameObject.Find("powerDownLight").SetActive(false);
                 obj.GetComponent<MeshRenderer>().sharedMaterial = m_powerUpOutline;
                 break;
-            
+
             case 3:
                 GameObject.Find("powerUpOrb").GetComponent<MeshRenderer>().sharedMaterial = m_powerDownOrb;
                 GameObject.Find("powerUpSymbol").GetComponent<MeshRenderer>().sharedMaterial = m_decreaseTimeSymbol;
@@ -93,7 +94,7 @@ public class PowerUpSpawner : MonoBehaviour
                 GameObject.Find("powerDownLight").SetActive(true);
                 obj.GetComponent<MeshRenderer>().sharedMaterial = m_powerDownOutline;
                 break;
-            
+
             case 4:
                 GameObject.Find("powerUpOrb").GetComponent<MeshRenderer>().sharedMaterial = m_powerDownOrb;
                 GameObject.Find("powerUpSymbol").GetComponent<MeshRenderer>().sharedMaterial = m_slowDownSymbol;
@@ -120,7 +121,17 @@ public class PowerUpSpawner : MonoBehaviour
 
     private IEnumerator DestroyPowerUpAfterTime(GameObject powerUp)
     {
-        yield return new WaitForSeconds(10f);
+        float timer = 10f;
+
+        while (timer > 0f)
+        {
+            if (!pauseManager.NotfallOptionenActive)
+            {
+                timer -= Time.deltaTime;
+            }
+
+            yield return null;
+        }
 
         if (powerUp != null)
         {
@@ -130,9 +141,18 @@ public class PowerUpSpawner : MonoBehaviour
     }
 
     public void ClearCurrentPowerUp()
-{
-    PowerUpOnField = false;
-    currentPowerUp = null;
-}
+    {
+        PowerUpOnField = false;
+        currentPowerUp = null;
+    }
 
+    public void PauseSpawner()
+    {
+        CancelInvoke(nameof(SpawnPowerUp));
+    }
+
+    public void ResumeSpawner()
+    {
+        InvokeRepeating(nameof(SpawnPowerUp), spawnInterval, spawnInterval);
+    }
 }
