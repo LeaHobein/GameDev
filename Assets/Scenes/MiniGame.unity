@@ -11520,6 +11520,7 @@ GameObject:
   - component: {fileID: 811549369}
   - component: {fileID: 811549372}
   - component: {fileID: 811549371}
+  - component: {fileID: 811549370}
   m_Layer: 5
   m_Name: Add_und_Decrease_Time
   m_TagString: Untagged
@@ -11568,7 +11569,7 @@ MonoBehaviour:
   skipText: {fileID: 1602488974}
   tutorial: {fileID: 914666152}
   AddDecreaseTimeText: {fileID: 811549371}
-  X_icon2: {fileID: 0}
+  X_icon2: {fileID: 546933984}
   transition: {fileID: 534569166}
   scoreManager: {fileID: 1552188515}
 --- !u!114 &811549371
