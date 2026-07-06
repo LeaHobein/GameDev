@@ -139,10 +139,4 @@ public class ScoreScreenManager : MonoBehaviour
         totalRoundsText.text = scoreboard3;
 
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 }

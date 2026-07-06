@@ -109,7 +109,6 @@ public class TimeManager : MonoBehaviour
                     gamePlaying = false;
                     countdownText.gameObject.SetActive(true);
                     countdownText.text = "ENDE!";
-                    Debug.Log("game over");
                     GameObject.Find("Player1").GetComponent<PlayerMovement>().speed = 0f;
                     GameObject.Find("Player2").GetComponent<PlayerMovement>().speed = 0f;
                     GameObject.Find("Forklift").GetComponent<AtoB>().speed = 0f;
@@ -122,16 +121,6 @@ public class TimeManager : MonoBehaviour
                 }
             }
         }
-    }
-
-    public void Pause()
-    {
-
-    }
-
-    public void Resume()
-    {
-
     }
 
     IEnumerator LoadLevel()
@@ -149,7 +138,6 @@ public class TimeManager : MonoBehaviour
     public void AddTime(float seconds)
     {
         time += seconds;
-        Debug.Log("+" + seconds + " Sekunden");
         ShowTimeChange(seconds, Color.green);
         //Debug.Log($"ADD TIME {seconds} -> NEW TIME: {time}");
     }
@@ -157,7 +145,6 @@ public class TimeManager : MonoBehaviour
     public void DecreaseTime(float seconds)
     {
         time -= seconds;
-        Debug.Log("-" + seconds + " Sekunden");
         ShowTimeChange(-seconds, Color.red);
         //Debug.Log($"DEC TIME {seconds} -> NEW TIME: {time}");
     }

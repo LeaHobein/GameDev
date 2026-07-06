@@ -3,34 +3,18 @@ using System.Collections;
 
 public class DeliveryButton : MonoBehaviour, IInteractable
 {
-    [SerializeField]
-    private GameObject spotOne;
-    [SerializeField]
-    private GameObject spotTwo;
-    [SerializeField]
-    private GameObject spotThree;
-    [SerializeField]
-    private GameObject window;
+    public GameObject spotOne;
+    public GameObject spotTwo;
+    public GameObject spotThree;
+    public GameObject window;
     private bool useDoubleScore;
-
     string[] deliveryorder;
     string[] recipe = { "Dichtung" };
-
-    [SerializeField]
-    private ScoreManager scoreManager;
-
-    [SerializeField]
-    private TimeManager timeManager;
-
+    public ScoreManager scoreManager;
+    public TimeManager timeManager;
     void Start() 
     {
-        Debug.Log("number of materials: " + GameObject.Find("RecipeGen").GetComponent<RecipeGen>().numberOfMaterials);
-        Debug.Log("recipe: " + recipe[0]); 
-
         deliveryorder = new string[GameObject.Find("RecipeGen").GetComponent<RecipeGen>().numberOfMaterials];
-        //recipe = new string[GameObject.Find("RecipeGen").GetComponent<RecipeGen>().numberOfMaterials];
-        //recipe = GameObject.Find("RecipeGen").GetComponent<RecipeGen>().newRecipe;
-
         GameObject.Find("checklight1").GetComponent<Light>().intensity = 0;
         GameObject.Find("checklight2").GetComponent<Light>().intensity = 0;
         GameObject.Find("checklight3").GetComponent<Light>().intensity = 0;
@@ -38,8 +22,6 @@ public class DeliveryButton : MonoBehaviour, IInteractable
 
     IEnumerator wait(float duration)
     {
-        Debug.Log("Coroutine executed");
-
         //AbgabeAnimation
         GameObject.Find("deliverystation").GetComponent<Animator>().SetBool("deliver", true);
         
@@ -65,8 +47,7 @@ public class DeliveryButton : MonoBehaviour, IInteractable
     public void Press()
     {
         useDoubleScore = ScoreManager.scoreMultiplier == 2;
-
-        Debug.Log("Button Pressed");
+        
         AudioManager.Instance.Play(AudioManager.SoundType.deliveryStation);
 
         gameObject.GetComponent<Animator>().SetTrigger("push");
@@ -107,32 +88,26 @@ public class DeliveryButton : MonoBehaviour, IInteractable
         if (one.transform.Find("spawnee").GetComponent<MeshRenderer>().enabled == true)
         {
             deliveryorder[0] = "Profil";
-            print("Abgabe 1: Profil");
         }
         else if (one.transform.Find("spawnee2").GetComponent<MeshRenderer>().enabled == true)
         {
             deliveryorder[0] = "Dichtung";
-            print("Abgabe 1: Dichtung");
         }
         else if (one.transform.Find("spawnee3").GetComponent<MeshRenderer>().enabled == true)
         {
             deliveryorder[0] = "Beschlag";
-            print("Abgabe 1: Beschlag");
         }
         else if (one.transform.Find("spawnee4").GetComponent<MeshRenderer>().enabled == true)
         {
             deliveryorder[0] = "Glasleiste";
-            print("Abgabe 1: Glasleiste");
         }
         else if (one.transform.Find("spawnee5").GetComponent<MeshRenderer>().enabled == true)
         {
             deliveryorder[0] = "Isolierglas";
-            print("Abgabe 1: Isolierglas");
         }
         else if (one.transform.Find("spawnee6").GetComponent<MeshRenderer>().enabled == true)
         {
             deliveryorder[0] = "Fluegel";
-            print("Abgabe 1: Fluegel");
         }
         else
         {
@@ -145,32 +120,26 @@ public class DeliveryButton : MonoBehaviour, IInteractable
             if (two.transform.Find("spawnee").GetComponent<MeshRenderer>().enabled == true)
             {
                 deliveryorder[1] = "Profil";
-                print("Abgabe 2: Profil");
             }
             else if (two.transform.Find("spawnee2").GetComponent<MeshRenderer>().enabled == true)
             {
                 deliveryorder[1] = "Dichtung";
-                print("Abgabe 2: Dichtung");
             }
             else if (two.transform.Find("spawnee3").GetComponent<MeshRenderer>().enabled == true)
             {
                 deliveryorder[1] = "Beschlag";
-                print("Abgabe 2: Beschlag");
             }
             else if (two.transform.Find("spawnee4").GetComponent<MeshRenderer>().enabled == true)
             {
                 deliveryorder[1] = "Glasleiste";
-                print("Abgabe 2: Glasleiste");
             }
             else if (two.transform.Find("spawnee5").GetComponent<MeshRenderer>().enabled == true)
             {
                 deliveryorder[1] = "Isolierglas";
-                print("Abgabe 2: Isolierglas");
             }
             else if (two.transform.Find("spawnee6").GetComponent<MeshRenderer>().enabled == true)
             {
                 deliveryorder[1] = "Fluegel";
-                print("Abgabe 2: Fluegel");
             }
             else
             {
@@ -184,32 +153,26 @@ public class DeliveryButton : MonoBehaviour, IInteractable
             if (three.transform.Find("spawnee").GetComponent<MeshRenderer>().enabled == true)
             {
                 deliveryorder[2] = "Profil";
-                print("Abgabe 3: Profil");
             }
             else if (three.transform.Find("spawnee2").GetComponent<MeshRenderer>().enabled == true)
             {
                 deliveryorder[2] = "Dichtung";
-                print("Abgabe 3: Dichtung");
             }
             else if (three.transform.Find("spawnee3").GetComponent<MeshRenderer>().enabled == true)
             {
                 deliveryorder[2] = "Beschlag";
-                print("Abgabe 3: Beschlag");
             }
             else if (three.transform.Find("spawnee4").GetComponent<MeshRenderer>().enabled == true)
             {
                 deliveryorder[2] = "Glasleiste";
-                print("Abgabe 3: Glasleiste");
             }
             else if (three.transform.Find("spawnee5").GetComponent<MeshRenderer>().enabled == true)
             {
                 deliveryorder[2] = "Isolierglas";
-                print("Abgabe 3: Isolierglas");
             }
             else if (three.transform.Find("spawnee6").GetComponent<MeshRenderer>().enabled == true)
             {
                 deliveryorder[2] = "Fluegel";
-                print("Abgabe 3: Fluegel");
             }
             else
             {
@@ -217,15 +180,12 @@ public class DeliveryButton : MonoBehaviour, IInteractable
             }
         }
 
-        //print(deliveryorder[0] + ", " + recipe[0] + ", " + deliveryorder[1] + ", " + recipe[1] + ", " + deliveryorder[2] + ", " + recipe[2]);
-
         if (GameObject.Find("RecipeGen").GetComponent<RecipeGen>().numberOfMaterials == 1) //checke für 1 Abgabe
         {
             string[] recipe = { "Dichtung" };
 
             if (deliveryorder[0] == recipe[0])
             {
-                Debug.Log("slay brudi");
                 GameObject.Find("checklight1").GetComponent<Light>().color = Color.green;
                 GameObject.Find("checklight2").GetComponent<Light>().color = Color.green;
                 GameObject.Find("checklight3").GetComponent<Light>().color = Color.green;
@@ -293,7 +253,6 @@ public class DeliveryButton : MonoBehaviour, IInteractable
                 //Nach richtiger Abgabe -> neues Rezept in RecipeGen
                 GameObject.Find("RecipeGen").GetComponent<RecipeGen>().RoundRecipe();
                 //Nach richtiger Abgabe -> gib einen Punkt
-                //scoreManager.addScore();
                 scoreManager.addScore(useDoubleScore);
             }
             else

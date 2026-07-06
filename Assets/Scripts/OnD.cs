@@ -6,8 +6,6 @@ public class OnD : MonoBehaviour
     {
         if(other.CompareTag("Item"))
         {
-            print("Enter on D");
-
             other.GetComponent<CtoD>().goal = false;
             other.transform.position = other.GetComponent<CtoD>().C.transform.position;
         }

@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class PowerUp : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         powerUpSpawner = GameObject.Find("PowerUp_SpawnPoints").GetComponent<PowerUpSpawner>();
@@ -10,13 +9,6 @@ public class PowerUp : MonoBehaviour
         scoreManager = FindAnyObjectByType<ScoreManager>();
         deliverySpot = FindAnyObjectByType<DeliverySpot>();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public enum PowerUpType
     {
         AddTime,
@@ -28,7 +20,6 @@ public class PowerUp : MonoBehaviour
     }
 
     public PowerUpType type;
-
     public float amount = 10f;
     public float duration = 10f;
     public float speed = 5.0f;
@@ -53,7 +44,6 @@ public class PowerUp : MonoBehaviour
             // POWERUPS
             case PowerUpType.AddTime:
                 timeManager.AddTime(amount);
-                Debug.Log("AddTime-PowerUp benutzt");
                 AudioManager.Instance.Play(AudioManager.SoundType.PosPowerUp);
                 //Debug.Log("POWERUP TIME MANAGER ID: " + timeManager.GetInstanceID());
                 break;
@@ -62,21 +52,18 @@ public class PowerUp : MonoBehaviour
                 if (player != null)
                 {
                     player.ActivateSpeedBoost(duration);
-                    Debug.Log("SpeedBoost-PowerUp benutzt");
                     AudioManager.Instance.Play(AudioManager.SoundType.PosPowerUp);
                 }
                 break;
 
             case PowerUpType.DoubleScore:
                 scoreManager.ActivateDoubleScore(duration);
-                Debug.Log("DoubleScore-PowerUp benutzt");
                 AudioManager.Instance.Play(AudioManager.SoundType.PosPowerUp);
                 break;
 
             // DEBUFFS
             case PowerUpType.DecreaseTime:
                 timeManager.DecreaseTime(amount * 0.5f);
-                Debug.Log("DecreaseTime-Debuff benutzt");
                 AudioManager.Instance.Play(AudioManager.SoundType.NegPowerUp);
                 //Debug.Log("POWERUP TIME MANAGER ID: " + timeManager.GetInstanceID());
                 break;
@@ -85,22 +72,17 @@ public class PowerUp : MonoBehaviour
                 if (player != null)
                 {
                     player.ActivateSlowDown(duration);
-                    Debug.Log("SlowDown-Debuff benutzt");
                     AudioManager.Instance.Play(AudioManager.SoundType.NegPowerUp);
                 }
                 break;
 
             case PowerUpType.DisableDeliverySpot:
-
                 foreach (var spot in DeliverySpot.allSpots)
                 {
                     spot.BlockForSeconds(duration);
                 }
-                Debug.Log("DisableDeliverySpot-Debuff benutzt");
-
                 break;
         }
-
         Destroy(gameObject);
         powerUpSpawner.ClearCurrentPowerUp();
     }

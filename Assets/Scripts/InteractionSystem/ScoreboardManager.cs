@@ -8,7 +8,6 @@ public static class ScoreBoardManager
         public int playerId;
         public int score;
         public string endTime;
-
         public ScoreEntry(int playerId, int score, string endTime)
         {
             this.playerId = playerId;
@@ -16,7 +15,6 @@ public static class ScoreBoardManager
             this.endTime = endTime;
         }
     }
-
     public static List<ScoreEntry> entries = new List<ScoreEntry>();
 
     public static void AddScore(int playerId, int score)
@@ -24,6 +22,5 @@ public static class ScoreBoardManager
         string currentTime = DateTime.Now.ToString("HH:mm");//("dd.MM.yyyy HH:mm:ss");
         entries.Add(new ScoreEntry(playerId, score, currentTime));
     }
-
     public static int playerCount = 0;
 }

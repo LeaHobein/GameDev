@@ -2,18 +2,6 @@ using UnityEngine;
 
 public class WasteBin : MonoBehaviour, IInteractable
 {
-    //public GameObject other;
-   /*void Update()
-    {
-        if(Keyboard.current.xKey.wasPressedThisFrame)
-        {
-        Destroy(other);
-        Debug.Log("Item deleted");
-        }
-
-    }*/
-
-
     void DestroyItem(GameObject player)
     {
         gameObject.GetComponent<Animator>().SetTrigger("throw");
