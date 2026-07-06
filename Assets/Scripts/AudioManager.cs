@@ -27,7 +27,7 @@ public class AudioManager : MonoBehaviour
         doorCloseRight,
         deliveryStation
     }
-
+    [System.Serializable]
     public class Sound
     {
         public SoundType Type;
@@ -42,7 +42,7 @@ public class AudioManager : MonoBehaviour
 
     public static AudioManager Instance;
 
-    public Sound[] AllSounds;
+    [SerializeField] Sound[] AllSounds;
     private Dictionary<SoundType, Sound> _soundDictionary = new Dictionary<SoundType, Sound>();
     private AudioSource _musicSource;
 
