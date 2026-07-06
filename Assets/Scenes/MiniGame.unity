@@ -454,6 +454,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7568060103018338499, guid: 30cda35a3202ac547859a8457a56c733, type: 3}
   m_PrefabInstance: {fileID: 1264084343}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &49308182 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6634469069094973621, guid: 30cda35a3202ac547859a8457a56c733, type: 3}
+  m_PrefabInstance: {fileID: 1264084343}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 49308180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e5edc6c7264547428360cbbb3d5086f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UI_Notfalloptionen_Manager
 --- !u!1001 &50789502
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1579,6 +1590,10 @@ PrefabInstance:
       propertyPath: settings_icon
       value: 
       objectReference: {fileID: 237183419}
+    - target: {fileID: 6634469069094973621, guid: 30cda35a3202ac547859a8457a56c733, type: 3}
+      propertyPath: powerUpSpawner
+      value: 
+      objectReference: {fileID: 1287485951}
     - target: {fileID: 6634469069094973621, guid: 30cda35a3202ac547859a8457a56c733, type: 3}
       propertyPath: notfallOptionen
       value: 
@@ -11505,7 +11520,6 @@ GameObject:
   - component: {fileID: 811549369}
   - component: {fileID: 811549372}
   - component: {fileID: 811549371}
-  - component: {fileID: 811549370}
   m_Layer: 5
   m_Name: Add_und_Decrease_Time
   m_TagString: Untagged
@@ -17115,6 +17129,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 237183419}
     - target: {fileID: 6634469069094973621, guid: 30cda35a3202ac547859a8457a56c733, type: 3}
+      propertyPath: powerUpSpawner
+      value: 
+      objectReference: {fileID: 1287485951}
+    - target: {fileID: 6634469069094973621, guid: 30cda35a3202ac547859a8457a56c733, type: 3}
       propertyPath: notfallOptionen
       value: 
       objectReference: {fileID: 1938447386}
@@ -17714,6 +17732,7 @@ MonoBehaviour:
   m_powerDownOrb: {fileID: 2100000, guid: 37faf00c93874254d87eb700fa14c12f, type: 2}
   m_powerUpOutline: {fileID: 2100000, guid: 64d0002bc3a46854dba898aa1d0b0785, type: 2}
   m_powerDownOutline: {fileID: 2100000, guid: b675a9e41dcb69949b3d8d235be6c4bf, type: 2}
+  pauseManager: {fileID: 49308182}
   powerUps:
   - prefab: {fileID: 5147916991666484852, guid: 79e2c4d29e303da43ad9bbfbfd06718c, type: 3}
     type: 0

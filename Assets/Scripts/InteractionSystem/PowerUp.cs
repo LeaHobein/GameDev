@@ -55,6 +55,7 @@ public class PowerUp : MonoBehaviour
                 timeManager.AddTime(amount);
                 Debug.Log("AddTime-PowerUp benutzt");
                 AudioManager.Instance.Play(AudioManager.SoundType.PosPowerUp);
+                //Debug.Log("POWERUP TIME MANAGER ID: " + timeManager.GetInstanceID());
                 break;
 
             case PowerUpType.SpeedBoost:
@@ -77,6 +78,7 @@ public class PowerUp : MonoBehaviour
                 timeManager.DecreaseTime(amount * 0.5f);
                 Debug.Log("DecreaseTime-Debuff benutzt");
                 AudioManager.Instance.Play(AudioManager.SoundType.NegPowerUp);
+                //Debug.Log("POWERUP TIME MANAGER ID: " + timeManager.GetInstanceID());
                 break;
 
             case PowerUpType.SlowDown:

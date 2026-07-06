@@ -23,6 +23,7 @@ public class UI_Notfalloptionen_Manager : MonoBehaviour
     public GameObject player1;
     public GameObject player2;
     public Transform[] spawnPoints;
+    public PowerUpSpawner powerUpSpawner;
 
     void Start()
     {
@@ -73,10 +74,12 @@ public class UI_Notfalloptionen_Manager : MonoBehaviour
             Y_icon.gameObject.SetActive(true);
             settings_icon.gameObject.SetActive(true);
             GameObject.Find("Forklift").GetComponent<AtoB>().speed = 0f;
+            powerUpSpawner.PauseSpawner();
 
             NotfallOptionenActive = true;
 
-        } else if (escapeAction.WasPerformedThisFrame() && NotfallOptionenActive)
+        }
+        else if (escapeAction.WasPerformedThisFrame() && NotfallOptionenActive)
         {
             Debug.Log("hiya");
             AudioManager.Instance.Play(AudioManager.SoundType.UiDissappear);
@@ -88,6 +91,7 @@ public class UI_Notfalloptionen_Manager : MonoBehaviour
             X_icon.gameObject.SetActive(false);
             Y_icon.gameObject.SetActive(false);
             settings_icon.gameObject.SetActive(false);
+            powerUpSpawner.ResumeSpawner();
 
             if (GameObject.Find("Forklift").GetComponent<AtoB>().isOnAB)
             {
