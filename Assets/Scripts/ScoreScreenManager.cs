@@ -94,6 +94,7 @@ public class ScoreScreenManager : MonoBehaviour
         else
         {
             background2.gameObject.SetActive(true);
+            gutgemacht.text = "NEUER HIGHSCORE!";
         }
 
         // Deine Runde

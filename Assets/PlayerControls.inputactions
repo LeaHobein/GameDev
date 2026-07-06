@@ -7,24 +7,6 @@
             "id": "36d25489-12f1-4934-966e-a6f325201e11",
             "actions": [
                 {
-                    "name": "PickUp",
-                    "type": "Button",
-                    "id": "388abb16-d380-42a5-b2a3-a27c4d2c0ebe",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "PutDown",
-                    "type": "Button",
-                    "id": "b2c4d6e8-f0a1-4b3c-8d5e-6f708192a3b4",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "Movement",
                     "type": "PassThrough",
                     "id": "838a2834-a971-4894-9797-3d7bc53a3d6d",
@@ -80,72 +62,6 @@
                 }
             ],
             "bindings": [
-                {
-                    "name": "",
-                    "id": "ca9d37cb-b052-49b3-98be-db5d5529ba56",
-                    "path": "<Keyboard>/f",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";WASD",
-                    "action": "PickUp",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "cfed43e0-c7e4-46b5-93f2-778d7e8e93be",
-                    "path": "<Keyboard>/m",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "IJKL",
-                    "action": "PickUp",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "1083cf53-ea8d-4b23-aa2b-09df707d9240",
-                    "path": "<Gamepad>/buttonSouth",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Controller",
-                    "action": "PickUp",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "a1b2c3d4-e5f6-7890-abcd-111111111111",
-                    "path": "<Keyboard>/e",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";WASD",
-                    "action": "PutDown",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "a1b2c3d4-e5f6-7890-abcd-222222222222",
-                    "path": "<Keyboard>/u",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "IJKL",
-                    "action": "PutDown",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "90f57eca-db25-4a29-b33d-62c167f7fe79",
-                    "path": "<Gamepad>/buttonSouth",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Controller",
-                    "action": "PutDown",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
                 {
                     "name": "",
                     "id": "46bd14b1-7885-4ae9-ace0-f7c57d83c16b",

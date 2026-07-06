@@ -13,6 +13,8 @@ public class MenuManager : MonoBehaviour
     private InputAction toMainMenu;
     private InputAction credits;
 
+    public VideoManager videoManager;
+
     public void Awake()
     {
         startGame = gameObject.GetComponent<PlayerInput>().actions["A"];
@@ -22,13 +24,13 @@ public class MenuManager : MonoBehaviour
     }
     public void Update()
     {
-        if (!inCreditScene())
-        {
-            if(startGame.WasPerformedThisFrame()) SpielStarten();
-            if(endGame.WasPerformedThisFrame()) Beenden();
-            if(!inScoreScene() && credits.WasPerformedThisFrame()) Credits();
-        }
-        if(toMainMenu.WasPerformedThisFrame()) ZumMenue();
+            if (!inCreditScene() && videoManager.videoPlaying == false)
+            {
+                if (startGame.WasPerformedThisFrame()) SpielStarten();
+                if (endGame.WasPerformedThisFrame()) Beenden();
+                if (!inScoreScene() && credits.WasPerformedThisFrame()) Credits();
+            }
+            if (toMainMenu.WasPerformedThisFrame()) ZumMenue();
     }
     bool inCreditScene()
     {

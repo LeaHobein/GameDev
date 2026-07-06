@@ -7,11 +7,16 @@ public class DeliverySpot : MonoBehaviour, IInteractable
     public bool isBlocked = false;
     public static System.Collections.Generic.List<DeliverySpot> allSpots = new();
 
+    public GameObject pngPlane; //icon, das erscheint, wenn Abgabe gesperrt
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         allSpots.Add(this);
+
+        pngPlane.GetComponent<SpriteRenderer>().enabled = false;
+
     }
 
     // Update is called once per frame
@@ -171,9 +176,13 @@ public class DeliverySpot : MonoBehaviour, IInteractable
     {
         isBlocked = true;
 
+        pngPlane.GetComponent<SpriteRenderer>().enabled = true;
+
         yield return new WaitForSeconds(duration);
 
         isBlocked = false;
+
+        pngPlane.GetComponent<SpriteRenderer>().enabled = false;
     }
 
     void OnDestroy()

@@ -50,6 +50,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "skipVideo",
+                    "type": "Button",
+                    "id": "e2bee769-ba61-4b7d-967c-1b2f0efd80d5",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -105,6 +114,17 @@
                     "processors": "",
                     "groups": ";Controller",
                     "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2d902831-93db-418a-bc35-883d2be62a4b",
+                    "path": "<Keyboard>/space",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": ";Controller",
+                    "action": "skipVideo",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
