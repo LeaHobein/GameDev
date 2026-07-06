@@ -11,38 +11,15 @@ public class ScoreManager : MonoBehaviour
     public TMP_Text doubleScoreText;
 
     private InputActionAsset InputActions;
-    private InputAction p_addpoints;
-    private InputAction o_decreasePoints;
     private void Start()
     {
         score = 0;
         doubleScoreText.text = "";
     }
-
-    private void Awake()
-    {
-        p_addpoints = InputSystem.actions.FindAction("Test_addPoints");
-        o_decreasePoints = InputSystem.actions.FindAction("Test_decreasePoints");
-    }
-
-    private void Update()
-    {
-        if (p_addpoints.WasPressedThisFrame())
-        {
-            addScore();
-        }
-
-        if (o_decreasePoints.WasPressedThisFrame())
-        {
-            decreaseScore();
-        }
-    }
     public void addScore()
     {
         score += scoreMultiplier;
         scoreText.text = score.ToString();
-
-
     }
 
     public void addScore(bool doubleScore)
@@ -54,7 +31,6 @@ public class ScoreManager : MonoBehaviour
 
         scoreText.text = score.ToString();
     }
-
     public void decreaseScore()
     {
         score--;

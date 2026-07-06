@@ -56,7 +56,6 @@ public class UI_Notfalloptionen_Manager : MonoBehaviour
     {
         if (escapeAction.WasPerformedThisFrame() && !NotfallOptionenActive)
         {
-            Debug.Log("was geht");
             AudioManager.Instance.Play(AudioManager.SoundType.UiAppear);
             esc_schliessen_text.gameObject.SetActive(true);
             notfall_title_text.gameObject.SetActive(true);
@@ -69,7 +68,6 @@ public class UI_Notfalloptionen_Manager : MonoBehaviour
 
         } else if (escapeAction.WasPerformedThisFrame() && NotfallOptionenActive)
         {
-            Debug.Log("hiya");
             AudioManager.Instance.Play(AudioManager.SoundType.UiDissappear);
             esc_schliessen_text.gameObject.SetActive(false);
             notfall_title_text.gameObject.SetActive(false);

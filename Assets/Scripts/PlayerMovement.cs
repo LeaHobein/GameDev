@@ -7,17 +7,13 @@ public class PlayerMovement : MonoBehaviour
 {
     public float speed = 5.0f;
     private float normalSpeed;
-    [SerializeField]
-    private float gravity = -9.81f;
-
+    public float gravity = -9.81f;
     public CharacterController controller;
     private Vector3 playerVelocity;
     private Vector3 playerMovement;
     private bool groundedPlayer;
     private bool isStunned;
-    [SerializeField]
-    private TimeManager timeManager;
-
+    public TimeManager timeManager;
     [Header("Input Actions")]
     public InputActionReference moveAction;
     public InputActionReference pickUpAction;
@@ -25,7 +21,6 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         timeManager = GameObject.Find("timerText").GetComponent<TimeManager>();
-        Debug.Log(Gamepad.all);
         switch (gameObject.name)
         {
             case "Player1":
@@ -41,10 +36,12 @@ public class PlayerMovement : MonoBehaviour
         }
         normalSpeed = speed;
     }
+
     public void OnMove(InputAction.CallbackContext mov)
     {
         playerMovement = mov.ReadValue<Vector3>();
     }
+
     public void Stun(float duration)
     {
         AudioManager.Instance.Play(AudioManager.SoundType.Punch);
@@ -58,18 +55,15 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(duration);
         isStunned = false;
     }
+
     private void OnEnable()
     {
         moveAction.action.Enable();
-        pickUpAction
-.action.Enable();
     }
 
     private void OnDisable()
     {
         moveAction.action.Disable();
-        pickUpAction
-.action.Disable();
     }
 
     void Update()

@@ -7,15 +7,10 @@ public class DeliverySpot : MonoBehaviour, IInteractable
     public bool occupado = false;
     public bool isBlocked = false;
     public static System.Collections.Generic.List<DeliverySpot> allSpots = new();
-
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         allSpots.Add(this);
     }
-
-    // Update is called once per frame
     void Update()
     {
         transform.Find("spawnee").transform.Rotate(0f, 1f, 0f, Space.World);
@@ -33,46 +28,36 @@ public class DeliverySpot : MonoBehaviour, IInteractable
             player.transform.Find("hold1").GetComponent<MeshRenderer>().enabled = false;
             gameObject.transform.Find("spawnee").GetComponent<MeshRenderer>().enabled = true;
             player.GetComponent<InteractionController>().holding = false;
-            print("player delivered: spawnee");
         }
         else if (player.transform.Find("hold2").GetComponent<MeshRenderer>().enabled == true)
         {
             player.transform.Find("hold2").GetComponent<MeshRenderer>().enabled = false;
             gameObject.transform.Find("spawnee2").GetComponent<MeshRenderer>().enabled = true;
             player.GetComponent<InteractionController>().holding = false;
-            print("player delivered: spawnee2");
         }
         else if (player.transform.Find("hold3").GetComponent<MeshRenderer>().enabled == true)
         {
             player.transform.Find("hold3").GetComponent<MeshRenderer>().enabled = false;
             gameObject.transform.Find("spawnee3").GetComponent<MeshRenderer>().enabled = true;
             player.GetComponent<InteractionController>().holding = false;
-            print("player delivered: spawnee3");
         }
         else if (player.transform.Find("hold4").GetComponent<MeshRenderer>().enabled == true)
         {
             player.transform.Find("hold4").GetComponent<MeshRenderer>().enabled = false;
             gameObject.transform.Find("spawnee4").GetComponent<MeshRenderer>().enabled = true;
             player.GetComponent<InteractionController>().holding = false;
-            print("player delivered: spawnee4");
         }
         else if (player.transform.Find("hold5").GetComponent<MeshRenderer>().enabled == true)
         {
             player.transform.Find("hold5").GetComponent<MeshRenderer>().enabled = false;
             gameObject.transform.Find("spawnee5").GetComponent<MeshRenderer>().enabled = true;
             player.GetComponent<InteractionController>().holding = false;
-            print("player delivered: spawnee5");
         }
         else if (player.transform.Find("hold6").GetComponent<MeshRenderer>().enabled == true)
         {
             player.transform.Find("hold6").GetComponent<MeshRenderer>().enabled = false;
             gameObject.transform.Find("spawnee6").GetComponent<MeshRenderer>().enabled = true;
             player.GetComponent<InteractionController>().holding = false;
-            print("player delivered: spawnee6");
-        }
-        else
-        {
-            print("nothing to deliver/pickup");
         }
         player.transform.Find("robot_arms_full").gameObject.transform.Rotate(0f, 0f, 90f);
         player.transform.Find("robot_arms_full").gameObject.transform.Translate(1f, -1f, 0f);
@@ -85,46 +70,36 @@ public class DeliverySpot : MonoBehaviour, IInteractable
             transform.Find("spawnee").GetComponent<MeshRenderer>().enabled = false;
             player.transform.Find("hold1").GetComponent<MeshRenderer>().enabled = true;
             player.GetComponent<InteractionController>().holding = true;
-            print("player picked up: spawnee");
         }
         else if (transform.Find("spawnee2").GetComponent<MeshRenderer>().enabled == true)
         {
             transform.Find("spawnee2").GetComponent<MeshRenderer>().enabled = false;
             player.transform.Find("hold2").GetComponent<MeshRenderer>().enabled = true;
             player.GetComponent<InteractionController>().holding = true;
-            print("player picked up: spawnee2");
         }
         else if (transform.Find("spawnee3").GetComponent<MeshRenderer>().enabled == true)
         {
             transform.Find("spawnee3").GetComponent<MeshRenderer>().enabled = false;
             player.transform.Find("hold3").GetComponent<MeshRenderer>().enabled = true;
             player.GetComponent<InteractionController>().holding = true;
-            print("player picked up: spawnee3");
         }
         else if (transform.Find("spawnee4").GetComponent<MeshRenderer>().enabled == true)
         {
             transform.Find("spawnee4").GetComponent<MeshRenderer>().enabled = false;
             player.transform.Find("hold4").GetComponent<MeshRenderer>().enabled = true;
             player.GetComponent<InteractionController>().holding = true;
-            print("player picked up: spawnee4");
         }
         else if (transform.Find("spawnee5").GetComponent<MeshRenderer>().enabled == true)
         {
             transform.Find("spawnee5").GetComponent<MeshRenderer>().enabled = false;
             player.transform.Find("hold5").GetComponent<MeshRenderer>().enabled = true;
             player.GetComponent<InteractionController>().holding = true;
-            print("player picked up: spawnee5");
         }
         else if (transform.Find("spawnee6").GetComponent<MeshRenderer>().enabled == true)
         {
             transform.Find("spawnee6").GetComponent<MeshRenderer>().enabled = false;
             player.transform.Find("hold6").GetComponent<MeshRenderer>().enabled = true;
             player.GetComponent<InteractionController>().holding = true;
-            print("player picked up: spawnee6");
-        }
-        else
-        {
-            print("nothing to pick up...");
         }
         player.transform.Find("robot_arms_full").gameObject.transform.Translate(-1f, 1f, 0f);
         player.transform.Find("robot_arms_full").gameObject.transform.Rotate(0f, 0f, -90f);
@@ -134,8 +109,6 @@ public class DeliverySpot : MonoBehaviour, IInteractable
     {
         if (isBlocked)
         {
-            Debug.Log("DeliverySpot ist blockiert");
-            Debug.Log(gameObject.name + " blocked: " + isBlocked);
             AudioManager.Instance.Play(AudioManager.SoundType.Fail);
             return;
         }

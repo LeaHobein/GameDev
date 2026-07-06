@@ -28,7 +28,6 @@ public class Spawner : MonoBehaviour, IInteractable
         }
         player.transform.Find("robot_arms_full").gameObject.transform.Translate(-1f,1f,0f);
         player.transform.Find("robot_arms_full").gameObject.transform.Rotate(0f,0f,-90f);
-        print("player is holding object");
     }
 
     public void Interact(GameObject player)

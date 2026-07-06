@@ -2,20 +2,14 @@ using UnityEngine;
 
 public class OnF : MonoBehaviour
 {
-    [SerializeField]
-    Material m_base;
+    public Material m_base;
 
-    [SerializeField]
-    Material m_alarm;
+    public Material m_alarm;
 
     void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("Enemy"))
         {
-            print("F durchdrungen");
-            print(GameObject.Find("door_right").GetComponent<Animator>().GetBool("forky_entering"));
-            print(GameObject.Find("door_right").GetComponent<Animator>().GetBool("forky_entering"));
-
             //checke door_right
             if(GameObject.Find("door_right").GetComponent<Animator>().GetBool("forky_entering") == false)
             {

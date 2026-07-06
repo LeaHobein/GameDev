@@ -54,9 +54,6 @@ public class MenuManager : MonoBehaviour
         AudioManager.Instance.Play(AudioManager.SoundType.ButtonClick);
         StartCoroutine(LoadLevel(2));
     }
-
-   
-
     IEnumerator LoadLevel(int scene)
     {
 

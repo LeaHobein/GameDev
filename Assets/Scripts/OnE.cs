@@ -2,19 +2,14 @@ using UnityEngine;
 
 public class OnE : MonoBehaviour
 {
-    [SerializeField]
-    Material m_base;
+    public Material m_base;
 
-    [SerializeField]
-    Material m_alarm;
+    public Material m_alarm;
 
     void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("Enemy"))
         {
-            print(GameObject.Find("door_right").GetComponent<Animator>().GetBool("forky_entering"));
-            print(GameObject.Find("door_right").GetComponent<Animator>().GetBool("forky_entering"));
-
             //checke door_right
             if(GameObject.Find("door_right").GetComponent<Animator>().GetBool("forky_entering") == false)
             {
@@ -28,7 +23,6 @@ public class OnE : MonoBehaviour
             {
                 GameObject.Find("door_right").GetComponent<Animator>().SetBool("forky_entering", false);
             }
-
             //checke door_left
             if(GameObject.Find("door_left").GetComponent<Animator>().GetBool("forky_entering") == false)
             {

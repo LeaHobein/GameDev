@@ -6,7 +6,6 @@ public class Collision : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
-            print("Enter");
 
             other.GetComponent<Animator>().SetTrigger("collide");
 
@@ -22,7 +21,6 @@ public class Collision : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
-            print("Exit");
             other.GetComponent<MeshRenderer>().material.color = new Color(1f, 1f, 1f);
         }
     }

@@ -13,18 +13,10 @@ public class PowerUpSpawner : MonoBehaviour
     public Material m_powerDownOrb;
     public Material m_powerUpOutline;
     public Material m_powerDownOutline;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         InvokeRepeating(nameof(SpawnPowerUp), 10f, spawnInterval);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
 
     [System.Serializable]
     public class PowerUpEntry
@@ -34,17 +26,11 @@ public class PowerUpSpawner : MonoBehaviour
     }
 
     public PowerUpEntry[] powerUps;
-
     public Transform[] spawnPoints;
-
     public float spawnInterval = 10f;
-
     private GameObject currentPowerUp;
-
     public TimeManager timeManager;
-
     public bool PowerUpOnField = false;
-
     private void SpawnPowerUp()
     {
         if (PowerUpOnField || timeManager.gamePlaying == false)
@@ -77,7 +63,7 @@ public class PowerUpSpawner : MonoBehaviour
                 obj.GetComponent<MeshRenderer>().sharedMaterial = m_powerDownOutline; 
             break;
         }
-        switch (powerUpIndex)
+        switch (powerUpIndex) //Orbsymbol je nach Power-Up bzw Power-Down
         {
             case 0:
                 GameObject.Find("powerUpSymbol").GetComponent<MeshRenderer>().sharedMaterial = m_addTimeSymbol;
@@ -118,9 +104,9 @@ public class PowerUpSpawner : MonoBehaviour
     }
 
     public void ClearCurrentPowerUp()
-{
-    PowerUpOnField = false;
-    currentPowerUp = null;
-}
+    {
+        PowerUpOnField = false;
+        currentPowerUp = null;
+    }
 
 }

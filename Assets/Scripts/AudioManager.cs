@@ -28,7 +28,6 @@ public class AudioManager : MonoBehaviour
         deliveryStation
     }
 
-    [System.Serializable]
     public class Sound
     {
         public SoundType Type;
@@ -44,8 +43,6 @@ public class AudioManager : MonoBehaviour
     public static AudioManager Instance;
 
     public Sound[] AllSounds;
-
-    //Runtime collections
     private Dictionary<SoundType, Sound> _soundDictionary = new Dictionary<SoundType, Sound>();
     private AudioSource _musicSource;
 
@@ -64,7 +61,6 @@ public class AudioManager : MonoBehaviour
     {
         if (!_soundDictionary.TryGetValue(type, out Sound s))
         {
-            Debug.LogWarning($"Sound type {type} not found!");
             return;
         }
 
@@ -83,7 +79,6 @@ public class AudioManager : MonoBehaviour
     {
         if (!_soundDictionary.TryGetValue(type, out Sound track))
         {
-            Debug.LogWarning($"Music track {type} not found!");
             return;
         }
 
