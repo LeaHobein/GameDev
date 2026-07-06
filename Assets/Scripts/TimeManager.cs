@@ -2,6 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using UnityEngine.UI;
 
 public class TimeManager : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class TimeManager : MonoBehaviour
     public TMP_Text skipText;
     public TMP_Text tutorial;
     public TMP_Text AddDecreaseTimeText;
+    public RawImage X_icon2;
     private Coroutine timeTextCoroutine;
 
     public Animator transition;
@@ -34,6 +36,7 @@ public class TimeManager : MonoBehaviour
         //blende alle Tutorial Texte aus
         skipText.gameObject.SetActive(false);
         tutorial.gameObject.SetActive(false);
+        X_icon2.gameObject.SetActive(false);
 
     }
 

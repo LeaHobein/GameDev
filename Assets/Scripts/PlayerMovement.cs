@@ -50,10 +50,7 @@ public class PlayerMovement : MonoBehaviour
     {
         playerMovement = mov.ReadValue<Vector3>();
     }
-    public void OnPickUp(InputAction.CallbackContext pickup)
-    {
-        Debug.Log("Picked Up");
-    }
+ 
     public void Stun(float duration)
     {
         AudioManager.Instance.Play(AudioManager.SoundType.Punch);
@@ -66,19 +63,6 @@ public class PlayerMovement : MonoBehaviour
         isStunned = true;
         yield return new WaitForSeconds(duration);
         isStunned = false;
-    }
-    private void OnEnable()
-    {
-        moveAction.action.Enable();
-        pickUpAction
-.action.Enable();
-    }
-
-    private void OnDisable()
-    {
-        moveAction.action.Disable();
-        pickUpAction
-.action.Disable();
     }
 
     void Update()

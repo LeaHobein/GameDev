@@ -24,13 +24,13 @@ public class MenuManager : MonoBehaviour
     }
     public void Update()
     {
-            if (!inCreditScene() && videoManager.videoPlaying == false)
+            if (!inCreditScene() && !inScoreScene() && videoManager.videoPlaying == false)
             {
                 if (startGame.WasPerformedThisFrame()) SpielStarten();
                 if (endGame.WasPerformedThisFrame()) Beenden();
                 if (!inScoreScene() && credits.WasPerformedThisFrame()) Credits();
             }
-            if (toMainMenu.WasPerformedThisFrame()) ZumMenue();
+            if (toMainMenu.WasPerformedThisFrame() && videoManager.videoPlaying == false) ZumMenue();
     }
     bool inCreditScene()
     {
