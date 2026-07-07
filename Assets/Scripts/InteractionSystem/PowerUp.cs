@@ -79,9 +79,9 @@ public class PowerUp : MonoBehaviour
             case PowerUpType.DisableDeliverySpot:
                 foreach (var spot in DeliverySpot.allSpots)
                 {
-                    spot.BlockForSeconds(duration);
-                    AudioManager.Instance.Play(AudioManager.SoundType.NegPowerUp);
+                    spot.BlockForSeconds(duration); 
                 }
+                AudioManager.Instance.Play(AudioManager.SoundType.NegPowerUp);
                 break;
         }
         Destroy(gameObject);
