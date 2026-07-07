@@ -715,7 +715,7 @@ MonoBehaviour:
     Source: {fileID: 0}
   - Type: 9
     Clip: {fileID: 8300000, guid: d5f4faf95de905d4ab4995eb5924f210, type: 3}
-    Volume: 1
+    Volume: 0.5
     Source: {fileID: 0}
 --- !u!4 &699661849
 Transform:

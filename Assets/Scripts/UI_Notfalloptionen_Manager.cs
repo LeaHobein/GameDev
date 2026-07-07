@@ -16,7 +16,7 @@ public class UI_Notfalloptionen_Manager : MonoBehaviour
     public Button MenueButton;
     public Button resetButton;
     public RawImage pause_background;
-    public RawImage X_icon;
+    public RawImage B_icon;
     public RawImage Y_icon;
     public RawImage settings_icon;
 
@@ -34,7 +34,7 @@ public class UI_Notfalloptionen_Manager : MonoBehaviour
         MenueButton.gameObject.SetActive(false);
         resetButton.gameObject.SetActive(false);
         pause_background.gameObject.SetActive(false);
-        X_icon.gameObject.SetActive(false);
+        B_icon.gameObject.SetActive(false);
         Y_icon.gameObject.SetActive(false);
         settings_icon.gameObject.SetActive(false);
     }
@@ -69,7 +69,7 @@ public class UI_Notfalloptionen_Manager : MonoBehaviour
             MenueButton.gameObject.SetActive(true);
             resetButton.gameObject.SetActive(true);
             pause_background.gameObject.SetActive(true);
-            X_icon.gameObject.SetActive(true);
+            B_icon.gameObject.SetActive(true);
             Y_icon.gameObject.SetActive(true);
             settings_icon.gameObject.SetActive(true);
             GameObject.Find("Forklift").GetComponent<AtoB>().speed = 0f;
@@ -86,7 +86,7 @@ public class UI_Notfalloptionen_Manager : MonoBehaviour
             MenueButton.gameObject.SetActive(false);
             resetButton.gameObject.SetActive(false);
             pause_background.gameObject.SetActive(false);
-            X_icon.gameObject.SetActive(false);
+            B_icon.gameObject.SetActive(false);
             Y_icon.gameObject.SetActive(false);
             settings_icon.gameObject.SetActive(false);
             powerUpSpawner.ResumeSpawner();

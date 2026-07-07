@@ -11,13 +11,18 @@ public class TimeManager : MonoBehaviour
     public float transitionTime = 1f;
     public bool done = false;
     public bool gamePlaying = false;
+    bool onController = !ControllerManager.playersOnKeyboard;
 
     public TMP_Text timerText;
     public TMP_Text countdownText;
     public TMP_Text skipText;
     public TMP_Text tutorial;
     public TMP_Text AddDecreaseTimeText;
+    public TMP_Text BewegenGuide;
+    public TMP_Text InteragierenGuide;
     public RawImage X_icon2;
+    public RawImage joystick_icon;
+    public RawImage A_icon;
     private Coroutine timeTextCoroutine;
 
     public Animator transition;
@@ -26,6 +31,24 @@ public class TimeManager : MonoBehaviour
     {
         countdownText.gameObject.SetActive(false);
         AddDecreaseTimeText.text = "";
+
+        if (onController)
+        {
+            BewegenGuide.text = "              Bewegen";
+            InteragierenGuide.text = "              Interagieren";
+            skipText.text = "ÜBUNGSMODUS\n           zum Überspringen";  
+            joystick_icon.gameObject.SetActive(true);
+            A_icon.gameObject.SetActive(true);
+        }
+        else
+        {
+            BewegenGuide.text = "WASD / IJKL - Bewegen";
+            InteragierenGuide.text = "E / U - Interagieren";
+            skipText.text = "ÜBUNGSMODUS\nEnter zum Überspringen";
+            X_icon2.gameObject.SetActive(false);
+            joystick_icon.gameObject.SetActive(false);
+            A_icon.gameObject.SetActive(false);
+        }
     }
 
     public void StartRound()
@@ -36,6 +59,10 @@ public class TimeManager : MonoBehaviour
         skipText.gameObject.SetActive(false);
         tutorial.gameObject.SetActive(false);
         X_icon2.gameObject.SetActive(false);
+        BewegenGuide.gameObject.SetActive(false);
+        InteragierenGuide.gameObject.SetActive(false);
+        A_icon.gameObject .SetActive(false);
+        joystick_icon .gameObject.SetActive(false);
 
     }
 
@@ -67,8 +94,8 @@ public class TimeManager : MonoBehaviour
 
         gamePlaying = true; //startet die Runde
 
-        GameObject.Find("Player1").GetComponent<PlayerMovement>().speed = 5.0f;
-        GameObject.Find("Player2").GetComponent<PlayerMovement>().speed = 5.0f;
+        GameObject.Find("Player1").GetComponent<PlayerMovement>().speed = GameObject.Find("Player1").GetComponent<PlayerMovement>().normalSpeed;
+        GameObject.Find("Player2").GetComponent<PlayerMovement>().speed = GameObject.Find("Player2").GetComponent<PlayerMovement>().normalSpeed;
     }
 
     void Update()

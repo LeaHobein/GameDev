@@ -5,8 +5,8 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(CharacterController))]
 public class PlayerMovement : MonoBehaviour
 {
-    public float speed = 5.0f;
-    private float normalSpeed;
+    public float speed = 6.0f;
+    public float normalSpeed;
     public float gravity = -9.81f;
     public CharacterController controller;
     private Vector3 playerVelocity;

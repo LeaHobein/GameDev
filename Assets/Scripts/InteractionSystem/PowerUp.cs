@@ -22,7 +22,7 @@ public class PowerUp : MonoBehaviour
     public PowerUpType type;
     public float amount = 10f;
     public float duration = 10f;
-    public float speed = 5.0f;
+    public float speed = 6.0f;
 
     public PowerUpSpawner powerUpSpawner;
     public TimeManager timeManager;
