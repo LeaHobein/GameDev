@@ -4309,6 +4309,7 @@ MonoBehaviour:
   Glasleiste: {fileID: 2800000, guid: 275850c08c2a34d469492cd0ca11f8ea, type: 3}
   Isolierglas: {fileID: 2800000, guid: 16d80a454acb6ba498d04ed13e30a8e5, type: 3}
   Fluegel: {fileID: 2800000, guid: d791b8111213efd4fa2d033a4a8139c9, type: 3}
+  Empty: {fileID: 2800000, guid: dc3bb515cd8504e4d91b898e1e35aac9, type: 3}
   numberOfMaterials: 0
   newRecipe: []
   deliveryButton: {fileID: 766875939}

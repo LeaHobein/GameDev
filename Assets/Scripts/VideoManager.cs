@@ -7,9 +7,11 @@ using UnityEngine.UI;
 public class VideoManager : MonoBehaviour
 {
     public Animator transition;
-    public float transitionTime = 1f;
 
+    public float transitionTime = 1f;
+    public float idleTimer = 120f;
     private float inputTimer;
+
     public TMP_Text title_2;
     public Button skipVideoButton;
     public RawImage demo_video;
@@ -41,7 +43,7 @@ public class VideoManager : MonoBehaviour
             skipVideo();
         }
         
-        if (inputTimer >= 5f && !videoPlaying)
+        if (inputTimer >= idleTimer && !videoPlaying)
         {
             if (!coroutineDone2)
             {

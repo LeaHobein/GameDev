@@ -17,6 +17,7 @@ public class RecipeGen : MonoBehaviour
     public Texture Glasleiste;
     public Texture Isolierglas;
     public Texture Fluegel;
+    public Texture Empty;
 
     public int numberOfMaterials = 1;
     public string[] newRecipe = new string[1];
@@ -54,29 +55,36 @@ public class RecipeGen : MonoBehaviour
 
     void UpdateIcons(string[] newRecipe)
     {
-        switch (newRecipe[0])
+        if (newRecipe.Length >= 1)
         {
-            case "Profil":
-                Material1.texture = Profil;
-                break;
-            case "Dichtung":
-                Material1.texture = Dichtung;
-                break;
-            case "Beschlag":
-                Material1.texture = Beschlag;
-                break;
-            case "Glasleiste":
-                Material1.texture = Glasleiste;
-                break;
-            case "Isolierglas":
-                Material1.texture = Isolierglas;
-                break;
-            case "Fluegel":
-                Material1.texture = Fluegel;
-                break;
-            default:
-                break;
+            switch (newRecipe[0])
+            {
+                case "Profil":
+                    Material1.texture = Profil;
+                    break;
+                case "Dichtung":
+                    Material1.texture = Dichtung;
+                    break;
+                case "Beschlag":
+                    Material1.texture = Beschlag;
+                    break;
+                case "Glasleiste":
+                    Material1.texture = Glasleiste;
+                    break;
+                case "Isolierglas":
+                    Material1.texture = Isolierglas;
+                    break;
+                case "Fluegel":
+                    Material1.texture = Fluegel;
+                    break;
+                default:
+                    Material1.texture = Empty;
+                    break;
+            }
+            Material2.texture = Empty;
+            Material3.texture = Empty;
         }
+
         if (newRecipe.Length >= 2)
         {
             switch (newRecipe[1])
@@ -100,9 +108,12 @@ public class RecipeGen : MonoBehaviour
                     Material2.texture = Fluegel;
                     break;
                 default:
+                    Material2.texture = Empty;
                     break;
             }
+            Material3.texture = Empty;
         }
+
         if (newRecipe.Length == 3)
         {
             switch (newRecipe[2])
@@ -126,6 +137,7 @@ public class RecipeGen : MonoBehaviour
                     Material3.texture = Fluegel;
                     break;
                 default:
+                    Material3.texture = Empty;
                     break;
 
             }

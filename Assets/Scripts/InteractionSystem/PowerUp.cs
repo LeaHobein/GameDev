@@ -80,6 +80,7 @@ public class PowerUp : MonoBehaviour
                 foreach (var spot in DeliverySpot.allSpots)
                 {
                     spot.BlockForSeconds(duration);
+                    AudioManager.Instance.Play(AudioManager.SoundType.NegPowerUp);
                 }
                 break;
         }
