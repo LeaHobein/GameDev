@@ -2093,7 +2093,7 @@ PrefabInstance:
     - target: {fileID: 5467050059509195402, guid: 78faa0ac587474040ba2776535db810c, type: 3}
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
-      objectReference: {fileID: 2100000, guid: 92f845725428c954b878da352f657fe5, type: 2}
+      objectReference: {fileID: 2100000, guid: 44c1ce1426f84d941a3525057f6e88cf, type: 2}
     - target: {fileID: 5840862782697589072, guid: 78faa0ac587474040ba2776535db810c, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -10755,7 +10755,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Colorchange
   objectus: {fileID: 1575259215}
-  m_default: {fileID: 2100000, guid: c2e40fa84d53ccd428f640eac126b1fb, type: 2}
+  m_default: {fileID: 2100000, guid: 44c1ce1426f84d941a3525057f6e88cf, type: 2}
   m_outline: {fileID: 2100000, guid: 21d9362ec8daa704cbac8ce4f5be9bee, type: 2}
 --- !u!95 &766875941
 Animator:
@@ -20906,7 +20906,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 21d9362ec8daa704cbac8ce4f5be9bee, type: 2}
-  - {fileID: 2100000, guid: c2e40fa84d53ccd428f640eac126b1fb, type: 2}
+  - {fileID: 2100000, guid: 44c1ce1426f84d941a3525057f6e88cf, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
