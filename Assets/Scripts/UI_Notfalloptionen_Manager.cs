@@ -75,7 +75,6 @@ public class UI_Notfalloptionen_Manager : MonoBehaviour
             settings_icon.gameObject.SetActive(true);
             GameObject.Find("Forklift").GetComponent<AtoB>().speed = 0f;
             powerUpSpawner.PauseSpawner();
-            Debug.Log("ja moin");
             GameObject.Find("Player1").GetComponent<UI_Notfalloptionen_Manager>().NotfallOptionenActive = true;
             GameObject.Find("Player2").GetComponent<UI_Notfalloptionen_Manager>().NotfallOptionenActive = true;
 
@@ -92,7 +91,6 @@ public class UI_Notfalloptionen_Manager : MonoBehaviour
             Y_icon.gameObject.SetActive(false);
             settings_icon.gameObject.SetActive(false);
             powerUpSpawner.ResumeSpawner();
-            Debug.Log("brother ew");
             if (GameObject.Find("Forklift").GetComponent<AtoB>().isOnAB)
             {
                 GameObject.Find("Forklift").GetComponent<AtoB>().speed = 0f;
