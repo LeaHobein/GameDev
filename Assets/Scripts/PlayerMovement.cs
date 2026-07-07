@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
     public InputActionReference moveAction;
     public InputActionReference pickUpAction;
     bool onController = !ControllerManager.playersOnKeyboard;
+
     private void Start()
     {
         timeManager = GameObject.Find("timerText").GetComponent<TimeManager>();
@@ -36,7 +37,6 @@ public class PlayerMovement : MonoBehaviour
         }
         normalSpeed = speed;
     }
-
     public void OnMove(InputAction.CallbackContext mov)
     {
         playerMovement = mov.ReadValue<Vector3>();

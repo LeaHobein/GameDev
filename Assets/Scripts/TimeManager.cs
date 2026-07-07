@@ -22,7 +22,6 @@ public class TimeManager : MonoBehaviour
 
     public Animator transition;
     public ScoreManager scoreManager;
-
     private void Start()
     {
         countdownText.gameObject.SetActive(false);
@@ -32,7 +31,7 @@ public class TimeManager : MonoBehaviour
     public void StartRound()
     {
         StartCoroutine(CountdownToStart());
-
+        resetPlayers();
         //blende alle Tutorial Texte aus
         skipText.gameObject.SetActive(false);
         tutorial.gameObject.SetActive(false);
@@ -134,7 +133,17 @@ public class TimeManager : MonoBehaviour
         SceneManager.LoadScene(3);
 
     }
-
+    public void resetPlayers()
+    {
+        GameObject.Find("Player1").GetComponent<CharacterController>().enabled = false;
+        GameObject.Find("Player2").GetComponent<CharacterController>().enabled = false;
+        GameObject.Find("Player1").transform.position = GameObject.Find("spawnPoint_1").transform.position;
+        GameObject.Find("Player1").transform.forward = Vector3.forward*-1f;
+        GameObject.Find("Player2").transform.position = GameObject.Find("spawnPoint_2").transform.position;
+        GameObject.Find("Player2").transform.forward = Vector3.forward*-1f;
+        GameObject.Find("Player1").GetComponent<CharacterController>().enabled = true;
+        GameObject.Find("Player2").GetComponent<CharacterController>().enabled = true;
+    }
     public void AddTime(float seconds)
     {
         time += seconds;
