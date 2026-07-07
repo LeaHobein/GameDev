@@ -102,9 +102,10 @@ public class TimeManager : MonoBehaviour
     {
         //Debug.Log("TIME UPDATE: " + time + " | ID: " + GetInstanceID());
         
-        if (GameObject.Find("Player1").GetComponent<UI_Notfalloptionen_Manager>().NotfallOptionenActive) return;
-        if (GameObject.Find("Player2").GetComponent<UI_Notfalloptionen_Manager>().NotfallOptionenActive) return;
-        
+        if (GameObject.Find("Player1").GetComponent<UI_Notfalloptionen_Manager>().NotfallOptionenActive 
+            && GameObject.Find("Player2").GetComponent<UI_Notfalloptionen_Manager>().NotfallOptionenActive) 
+            return;
+
         if (gamePlaying == true)
         {
             time -= Time.deltaTime;

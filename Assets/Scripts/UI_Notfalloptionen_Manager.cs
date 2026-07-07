@@ -27,7 +27,8 @@ public class UI_Notfalloptionen_Manager : MonoBehaviour
 
     void Start()
     {
-        NotfallOptionenActive = false;
+        GameObject.Find("Player1").GetComponent<UI_Notfalloptionen_Manager>().NotfallOptionenActive = false;
+        GameObject.Find("Player2").GetComponent<UI_Notfalloptionen_Manager>().NotfallOptionenActive = false;
 
         esc_schliessen_text.gameObject.SetActive(false);
         notfall_title_text.gameObject.SetActive(false);
@@ -74,8 +75,9 @@ public class UI_Notfalloptionen_Manager : MonoBehaviour
             settings_icon.gameObject.SetActive(true);
             GameObject.Find("Forklift").GetComponent<AtoB>().speed = 0f;
             powerUpSpawner.PauseSpawner();
-
-            NotfallOptionenActive = true;
+            Debug.Log("ja moin");
+            GameObject.Find("Player1").GetComponent<UI_Notfalloptionen_Manager>().NotfallOptionenActive = true;
+            GameObject.Find("Player2").GetComponent<UI_Notfalloptionen_Manager>().NotfallOptionenActive = true;
 
         }
         else if (escapeAction.WasPerformedThisFrame() && NotfallOptionenActive)
@@ -90,7 +92,7 @@ public class UI_Notfalloptionen_Manager : MonoBehaviour
             Y_icon.gameObject.SetActive(false);
             settings_icon.gameObject.SetActive(false);
             powerUpSpawner.ResumeSpawner();
-
+            Debug.Log("brother ew");
             if (GameObject.Find("Forklift").GetComponent<AtoB>().isOnAB)
             {
                 GameObject.Find("Forklift").GetComponent<AtoB>().speed = 0f;
@@ -99,7 +101,8 @@ public class UI_Notfalloptionen_Manager : MonoBehaviour
             {
                 GameObject.Find("Forklift").GetComponent<AtoB>().speed = GameObject.Find("Forklift").GetComponent<AtoB>().defaultSpeed;
             }
-            NotfallOptionenActive = false;
+            GameObject.Find("Player1").GetComponent<UI_Notfalloptionen_Manager>().NotfallOptionenActive = false;
+            GameObject.Find("Player2").GetComponent<UI_Notfalloptionen_Manager>().NotfallOptionenActive = false;
         }
     }
     public void ZumMenue()
