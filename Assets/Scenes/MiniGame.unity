@@ -1788,7 +1788,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8637812028581883746, guid: 30cda35a3202ac547859a8457a56c733, type: 3}
       propertyPath: boxHalfWidth.z
-      value: 1.2
+      value: 0.84
       objectReference: {fileID: 0}
     - target: {fileID: 8637812028581883746, guid: 30cda35a3202ac547859a8457a56c733, type: 3}
       propertyPath: interactionDistance
@@ -10764,7 +10764,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Colorchange
   objectus: {fileID: 1575259215}
-  m_default: {fileID: 2100000, guid: 44c1ce1426f84d941a3525057f6e88cf, type: 2}
+  m_default: {fileID: 2100000, guid: 66ba2a4827c2ea647b9ce1fd6d0e55df, type: 2}
   m_outline: {fileID: 2100000, guid: 21d9362ec8daa704cbac8ce4f5be9bee, type: 2}
 --- !u!95 &766875941
 Animator:
@@ -17485,7 +17485,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8637812028581883746, guid: 30cda35a3202ac547859a8457a56c733, type: 3}
       propertyPath: boxHalfWidth.z
-      value: 1.2
+      value: 0.84
       objectReference: {fileID: 0}
     - target: {fileID: 8637812028581883746, guid: 30cda35a3202ac547859a8457a56c733, type: 3}
       propertyPath: deliveryButton
@@ -21192,7 +21192,7 @@ Transform:
   m_GameObject: {fileID: 1575259215}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalPosition: {x: 0, y: 0.545, z: 0}
   m_LocalScale: {x: 0.58752, y: 0.5039279, z: 0.58752}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -21245,7 +21245,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 21d9362ec8daa704cbac8ce4f5be9bee, type: 2}
-  - {fileID: 2100000, guid: 44c1ce1426f84d941a3525057f6e88cf, type: 2}
+  - {fileID: 2100000, guid: 66ba2a4827c2ea647b9ce1fd6d0e55df, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

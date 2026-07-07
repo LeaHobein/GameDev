@@ -162,6 +162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   speed: 5
+  normalSpeed: 0
   gravity: -9.81
   controller: {fileID: 8801002804435719787}
   timeManager: {fileID: 0}
@@ -261,7 +262,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2b378d0abe31fe4db966bd1c7c41851, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InteractionController
-  boxHalfWidth: {x: 1.5, y: 1, z: 0.5}
+  boxHalfWidth: {x: 1.5, y: 1, z: 0.84}
   interactionDistance: 0.5
   holding: 0
   looking: 0
@@ -314,9 +315,13 @@ MonoBehaviour:
   MenueButton: {fileID: 0}
   resetButton: {fileID: 0}
   pause_background: {fileID: 0}
+  B_icon: {fileID: 0}
+  Y_icon: {fileID: 0}
+  settings_icon: {fileID: 0}
   player1: {fileID: 0}
   player2: {fileID: 0}
   spawnPoints: []
+  powerUpSpawner: {fileID: 0}
 --- !u!95 &8036998005750369691
 Animator:
   serializedVersion: 7

@@ -1516,6 +1516,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::VideoManager
   transition: {fileID: 1456051218}
   transitionTime: 1
+  idleTimer: 120
   title_2: {fileID: 1774715014}
   skipVideoButton: {fileID: 506541982}
   demo_video: {fileID: 1351804597}
@@ -3203,7 +3204,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1950602363}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: a828f1df862c0874cb745c7cd174f9f0, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: fca3a5afc953dca4787d44ee983373ee, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
