@@ -30,7 +30,11 @@ public class MenuManager : MonoBehaviour
                 if (endGame.WasPerformedThisFrame()) Beenden();
                 if (!inScoreScene() && credits.WasPerformedThisFrame()) Credits();
             }
-            if (toMainMenu.WasPerformedThisFrame() && videoManager.videoPlaying == false) ZumMenue();
+            if (toMainMenu.WasPerformedThisFrame() && !inMenuScene()) ZumMenue();
+    }
+    bool inMenuScene()
+    {
+        return SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(0);
     }
     bool inCreditScene()
     {

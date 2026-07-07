@@ -6,19 +6,25 @@ using UnityEngine.UI;
 
 public class VideoManager : MonoBehaviour
 {
+    public Animator transition;
+    public float transitionTime = 1f;
+
     private float inputTimer;
-    public TMP_Text videoTest;
+    public TMP_Text title_2;
     public Button skipVideoButton;
+    public RawImage demo_video;
     private InputAction startGame;
 
     public bool videoPlaying = false;
     public bool coroutineDone = false;
+    public bool coroutineDone2 = false;
 
     void Start()
     {
         inputTimer = 0;
-        videoTest.gameObject.SetActive(false);
         skipVideoButton.gameObject.SetActive(false);
+        demo_video.gameObject.SetActive(false);
+        title_2.gameObject.SetActive(false);
     }
 
     public void Awake()
@@ -35,24 +41,18 @@ public class VideoManager : MonoBehaviour
             skipVideo();
         }
         
-        if (inputTimer >= 5f)
+        if (inputTimer >= 5f && !videoPlaying)
         {
-            Debug.Log("sehr professionell");
-
-            inputTimer = 0;
-            videoTest.gameObject.SetActive(true);
-            skipVideoButton.gameObject.SetActive(true);
-            videoPlaying = true;
+            if (!coroutineDone2)
+            {
+                StartCoroutine(playVideo());
+            }
         }
     }
 
     public void skipVideo()
     {
-        Debug.Log("boah hallo");
-        //Reset the timer
         inputTimer = 0;
-        videoTest.gameObject.SetActive(false);
-        skipVideoButton.gameObject.SetActive(false);
 
         if (!coroutineDone)
         {
@@ -62,9 +62,36 @@ public class VideoManager : MonoBehaviour
 
     IEnumerator ButtonCooldown()
     {
-        yield return new WaitForSeconds(1f);
-        Debug.Log("Krokette");
+        transition.SetTrigger("Start");
+
+        yield return new WaitForSeconds(transitionTime);
+
+        transition.SetTrigger("Fade");
+
+        skipVideoButton.gameObject.SetActive(false);
+        demo_video.gameObject.SetActive(false);
+        title_2.gameObject.SetActive(false);
+
         videoPlaying = false;
         coroutineDone = true;
+    }
+
+    IEnumerator playVideo()
+    {
+        coroutineDone2 = true;
+
+        transition.SetTrigger("Start");
+
+        yield return new WaitForSeconds(transitionTime);
+
+        transition.SetTrigger("Fade");
+
+        inputTimer = 0;
+
+        skipVideoButton.gameObject.SetActive(true);
+        demo_video.gameObject.SetActive(true);
+        title_2.gameObject.SetActive(true);
+
+        videoPlaying = true;
     }
 }
