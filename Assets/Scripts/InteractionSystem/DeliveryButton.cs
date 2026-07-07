@@ -180,11 +180,12 @@ public class DeliveryButton : MonoBehaviour, IInteractable
             }
         }
 
-        if (GameObject.Find("RecipeGen").GetComponent<RecipeGen>().numberOfMaterials == 1) //checke für 1 Abgabe
+        //checke für 1 Abgabe
+        if (GameObject.Find("RecipeGen").GetComponent<RecipeGen>().numberOfMaterials == 1)
         {
             string[] recipe = { "Dichtung" };
 
-            if (deliveryorder[0] == recipe[0])
+            if (deliveryorder[0] == recipe[0] && spotTwo.GetComponent<DeliverySpot>().occupado == false && spotThree.GetComponent<DeliverySpot>().occupado == false)
             {
                 GameObject.Find("checklight1").GetComponent<Light>().color = Color.green;
                 GameObject.Find("checklight2").GetComponent<Light>().color = Color.green;
@@ -211,7 +212,7 @@ public class DeliveryButton : MonoBehaviour, IInteractable
         }
         else if (GameObject.Find("RecipeGen").GetComponent<RecipeGen>().numberOfMaterials == 2)   //checke für 2 Abgaben
         {
-            if (deliveryorder[0] == recipe[0] && deliveryorder[1] == recipe[1])
+            if (deliveryorder[0] == recipe[0] && deliveryorder[1] == recipe[1] && spotThree.GetComponent<DeliverySpot>().occupado == false)
             {
                 GameObject.Find("checklight1").GetComponent<Light>().color = Color.green;
                 GameObject.Find("checklight2").GetComponent<Light>().color = Color.green;
